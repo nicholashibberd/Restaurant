@@ -1,0 +1,24 @@
+<h1>New offer</h1>
+
+<% form_for(@offer) do |f| %>
+  <div class="field">
+    <%= f.label :Title %><br />
+    <%= f.text_field :title %><br />  
+  </div>
+  <div class="field">
+    <%= f.label :Description %><br />
+    <%= f.text_field :description %><br />  
+  </div>
+    <div class="field">
+    <%= f.label :Start_Date %><br />
+    <%= f.text_field :start_date %><br />  
+  </div>
+  <div class="field">
+    <%= f.label :End_Date %><br />
+    <%= f.text_field :end_date %><br />  
+  </div>
+  <br />
+  <div class="actions">
+  <%= f.submit "Create" %>
+</div>
+<% end %>

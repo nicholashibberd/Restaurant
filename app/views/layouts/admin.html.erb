@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Admin system</title>
+    <%= stylesheet_link_tag 'admin', :media => 'screen' %>
+	<%= javascript_include_tag :defaults, 'jquery', 'jquery-ui' %>
+  </head>
+  <body>
+  <h1><%= link_to "Admin System", admin_path %></h1>
+  <%= render 'layouts/adminheader' %>
+  <div id="wrapper">
+    <%= yield %>
+  </div>
+  </body>
+</html>

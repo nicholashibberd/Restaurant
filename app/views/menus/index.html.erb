@@ -1,0 +1,14 @@
+<h1>Menu</h1>
+<% for menu in @menus %>
+  <h2><%= menu.name %></h2>
+	<table>
+     <% for dish in menu.dishes %>
+      <tr> 
+		<td><%= dish.name %></td>
+		<td><%= dish.description %></td>
+		<td><%= dish.price %></td>
+	  </tr>
+     <% end %>
+	  
+    </table>
+<% end %>

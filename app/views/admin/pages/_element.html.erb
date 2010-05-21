@@ -1,0 +1,9 @@
+<div class="element">
+<% pf.fields_for :elements, element do |f| %>
+  <p>
+    <%= f.label :text, "Element:" %>
+    <%= f.text_field :text %>
+    <%= link_to_function "remove", "$(this).up('.element').remove()" %>
+  </p>
+<% end %>
+</div>

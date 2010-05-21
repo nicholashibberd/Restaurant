@@ -1,0 +1,14 @@
+<h1>Pages</h1>
+
+<table>
+  <% for page in @pages %>
+    <tr>
+      <td><%=h page.name %></td>
+      <td><%= link_to "Edit", :controller => "admin/pages", :id => page, :action => "edit" %></td>
+      <td><%= link_to "Delete", page, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "View on site", page %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Page", :controller => "admin/pages", :action => "new" %></p>

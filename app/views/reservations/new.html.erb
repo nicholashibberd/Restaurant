@@ -1,0 +1,37 @@
+<script type="text/javascript">$(function() {
+			$("#datepicker").datepicker({dateFormat: 'DD d MM yy', firstDay: 1});
+		});
+		</script>
+
+<h1>Leave a Reservation</h1>
+<p>Please leave your details below and we will be in contact as soon as possible</p>
+<% form_for(@reservation) do |f| %>
+  <div class="field">
+    <%= f.label :Name %><br />
+    <%= f.text_field :name %><br />  
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %><br />  
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %><br />  
+  </div>
+  <div class="field" >
+    <%= f.label :input_date %><br />
+    <%= f.text_field :input_date, :id => 'datepicker'%><br />  
+  </div>
+  <div class="field">
+    <%= f.label :time %><br />
+    <%= f.text_field :time %><br />  
+  </div>
+  <div class="field">
+    <%= f.label :number_of_people %><br />
+    <%= f.text_field :number_of_people %><br />  
+  </div><br />
+
+  <div class="actions">
+  <%= f.submit "Submit reservation" %>
+</div>
+<% end %>

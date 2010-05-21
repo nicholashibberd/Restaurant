@@ -1,0 +1,19 @@
+<h1>Menu</h1>
+<% for menu in @menus %>
+  <div id="menu_header">
+	<div id="menu_title">
+	<%= link_to menu.name, :controller => 'admin/menus', :id => menu, :action => 'edit' %>
+	</div>
+  </div>
+
+	<table>
+     <% for dish in menu.dishes %>
+      <tr> 
+		<td><%= dish.name %></td>
+		<td><%= dish.description %></td>
+		<td><%= dish.price %></td>
+	  </tr>
+     <% end %>
+	  
+    </table>
+<% end %>

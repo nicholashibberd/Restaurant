@@ -1,0 +1,12 @@
+<h1>Pages</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for page in @pages %>
+    <tr>
+      <td><%= link_to page.name, page %></td>
+    </tr>
+  <% end %>
+</table>

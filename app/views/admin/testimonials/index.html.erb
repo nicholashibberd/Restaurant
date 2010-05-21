@@ -1,0 +1,12 @@
+<h2>All Testimonials</h2>
+<ul>
+<% @testimonials.each do |testimonial| %>
+  <h3><%= testimonial.name %></h3>
+  <%= testimonial.testimonial %><br />
+  <%= link_to "edit", :controller => 'testimonials', :id => testimonial, :action => 'edit' %>
+  | <%= link_to "delete", testimonial, :method => :delete, :confirm => "You sure?" %>
+  <br />
+<% end %>
+</ul>
+<%= link_to "Add new testimonial", :controller => 'testimonials', :action => 'new' %>
+

@@ -1,0 +1,12 @@
+<h2>All Offers</h2>
+<ul>
+<% @offers.each do |offer| %>
+  <h3><%= link_to h(offer.title), offer %></h3>
+  <%= offer.description %><br />
+  <%= link_to "edit", :controller => 'offers', :id => offer, :action => 'edit' %>
+  | <%= link_to "delete", offer, :method => :delete, :confirm => "You sure?" %>
+  <br />
+<% end %>
+</ul>
+<%= link_to "Add new offer", :controller => 'offers', :action => 'new' %>
+

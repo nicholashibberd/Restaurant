@@ -1,0 +1,11 @@
+<h1>This is the menu new file</h1>
+
+<% form_for(@menu) do |f| %>
+  <div class="field">
+    <%= f.label :Name %><br />
+    <%= f.text_field :name %><br />  
+  </div>
+  <div class="actions">
+  <%= f.submit "Create new menu" %>
+</div>
+<% end %>

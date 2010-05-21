@@ -1,0 +1,16 @@
+<h1>New offer</h1>
+
+<% form_for(@testimonial) do |f| %>
+   <div class="field">
+    <%= f.label :Testimonial %><br />
+    <%= f.text_field :testimonial %><br />  
+  </div>
+  <div class="field">
+    <%= f.label :Name %><br />
+    <%= f.text_field :name %><br />  
+  </div>
+  <br />
+  <div class="actions">
+  <%= f.submit "Create Testimonial" %>
+</div>
+<% end %>
