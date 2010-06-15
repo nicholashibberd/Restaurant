@@ -1,0 +1,59 @@
+<h1><%= @gallery.name %></h1>
+
+		<ul id="gallery" class="move">
+		<% @gallery.photos.each do |photo| %> 
+		<li id="photo_<%= photo.id %>">
+		<%= image_tag photo.photo.url(:thumb) %>
+		<%= photo.name %>
+		<%= link_to "delete", photo, :method => :delete, :confirm => "You sure?" %>
+		</li>
+		<% end %> </ul>
+		
+
+		<%= sortable_element 'gallery', :url => { :action => "sort", :id => @gallery }, :complete => visual_effect(:highlight, 'gallery')
+		%>
+		
+		<h1>New Photo</h1>
+		<% form_for(@photo, :html => { :multipart => true }) do |f| %>
+		  <%= f.error_messages %>
+		 <div class="hidden_field"§>
+		    <%= f.hidden_field :gallery_id, :value => params[:id] %><br />  
+		  </div>
+		  <div class="field">
+		    <%= f.label :name %><br />
+		    <%= f.text_field :name %><br /><br />
+		  </div>
+			<div class="photo"> 
+			<%= f.file_field :photo%>
+			</div>
+		  <div class="actions">
+		    <%= f.submit "Add new photo" %>
+		  </div>
+		<% end %>
+
+		<% content_for :jqueryui do %>
+		<% javascript_tag do %>
+		     $('#gallery').sortable(
+			    {
+		          axis: 'y', 
+				   dropOnEmpty:false, 
+			       cursor: 'crosshair',
+			       items: 'li',
+			       opacity: 0.4,
+			       scroll: true,
+		          update: function(){
+		            $.ajax({
+		                type: 'post', 
+		                data: $('#gallery').sortable('serialize') + '&id=<%= @gallery.id-%>', 
+		                dataType: 'script', 
+		                complete: function(request){
+		                    $('#gallery').effect('highlight');
+		                  },
+		                url: '/admin/galleries/order_photos'})
+		            }	
+
+			})
+			
+		<% end %>
+
+		<% end %>

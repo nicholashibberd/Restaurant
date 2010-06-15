@@ -14,16 +14,10 @@
 
 <ul id="menu" class="move">
 <% @menu.dishes.each do |dish| %> 
-<li id="item_<%= dish.id %>">
+<li id="dish_<%= dish.id %>">
 <%= dish.name %> - <%= dish.description %> - <%= dish.price %> - <%= link_to "edit", :controller => 'admin/dishes', :id => dish, :action => 'edit' %> - <%= link_to "delete", dish, :method => :delete, :confirm => "You sure?" %>
 </li>
 <% end %> </ul>
-
-
-
-<%= sortable_element 'menu', :url => { :action => "sort", :id => @menu }, :complete => visual_effect(:highlight, 'menu')
-%>
-
 
 <h3>Add a dish</h3>
 <% form_for(@dish) do |f| %>
@@ -48,3 +42,29 @@
 <% end %>
 
 <%= link_to "delete menu", @menu, :method => :delete, :confirm => "You sure?" %>
+
+<% content_for :jqueryui do %>
+<% javascript_tag do %>
+     $('#menu').sortable(
+	    {
+          axis: 'y', 
+		   dropOnEmpty:false, 
+	       cursor: 'crosshair',
+	       items: 'li',
+	       opacity: 0.4,
+	       scroll: true,
+          update: function(){
+            $.ajax({
+                type: 'post', 
+                data: $('#menu').sortable('serialize') + '&id=<%= @menu.id-%>', 
+                dataType: 'script', 
+                complete: function(request){
+                    $('#menu').effect('highlight');
+                  },
+                url: '/admin/menus/order_dishes'})
+            }	
+	
+	})
+<% end %>
+
+<% end %>

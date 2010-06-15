@@ -1,6 +1,11 @@
-<h1>Nick's restaurant</h1>
+<h1>Restaurant</h1>
 <%= link_to "Home", root_path %>
 <%= link_to "Menus", :controller => 'menus', :action => 'index' %>
+<%= link_to "Location", :controller => 'location', :action => 'index' %>
+<%= link_to "Galleries", :controller => 'galleries', :action => 'index' %>
 <%= link_to "Offers", :controller => 'offers', :action => 'index' %>
 <%= link_to "Testimonials", :controller => 'testimonials', :action => 'index' %>
 <%= link_to "Reservations", :controller => 'reservations', :action => 'new' %>
+<% if signed_in? %>
+<%= link_to "Admin", admin_path %>
+<% end %>

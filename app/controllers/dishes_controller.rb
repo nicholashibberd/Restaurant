@@ -19,8 +19,9 @@ class DishesController < ApplicationController
   end
   
   def destroy
+    @dishid = Dish.find(params[:id]).menu_id
     dish = Dish.find(params[:id]).destroy
-      redirect_to :controller => 'admin/menus', :action => 'edit', :id => @dish.menu_id
+      redirect_to :controller => 'admin/menus', :action => 'edit', :id => @dishid
   end
   
 

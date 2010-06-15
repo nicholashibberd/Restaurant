@@ -21,5 +21,16 @@ class Admin::MenusController < AdminController
      end
      render :nothing => true 
    end
+   
+   def order_dishes
+     menu = Menu.find(params[:id])
+     dishes = menu.dishes
+     dishes.each do |dish|
+       dish.position = params['dish'].index(dish.id.to_s) + 1
+       dish.save
+     end
+     render :nothing => true
+   end
+   
   
 end

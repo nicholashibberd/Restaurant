@@ -1,0 +1,70 @@
+<h1><%= @gallery.name %></h1>
+
+
+
+	<a class="previous" href="#">Previous</a> : 
+	<a class="next" href="#">Next</a><br />
+
+	<%= image_tag @first_photo.photo.url, :class => 'test', :height => '200px'%><br />
+
+		<% for photo in @gallery.photos %>
+	<%= image_tag photo.photo.url(:thumb), :class => 'thumb', :full_url => photo.photo.url %>
+		<% end %>
+	
+
+<script>
+
+$('img.thumb:eq(0)').addClass('selected');
+
+$("img.thumb").click(function () {
+	var imgsrc = ($(this).attr("full_url"));
+	$("img.test").attr("src", imgsrc);
+	$("img.selected").removeClass("selected");
+	$(this).addClass("selected");
+	
+});
+
+$("a.next").click(function () {
+	var imgselected = $('img.selected');
+	var selectedindex = $('img').index(imgselected);
+
+	var n = $("img.thumb").length;
+	 	if (n == selectedindex) {
+				var next = 1;
+			}
+		else {
+			var next = selectedindex + 1;
+		 }
+
+	var nextimage = $('img:eq('+next+')').attr("full_url");
+	$("img.test").attr("src", nextimage);
+	$("img.selected").removeClass("selected");
+	$("img:eq(" +next+ ")").addClass("selected");	
+ 	$("span").text('Index: ' + nextimage);
+
+
+});
+
+$("a.previous").click(function () {
+	var imgselected = $('img.selected');
+	var selectedindex = $('img').index(imgselected);
+
+	var p = $("img.thumb").length;
+	 	if (selectedindex == 1) {
+				var previous = p;
+			}
+		else {
+			var previous = selectedindex - 1;
+		 }
+
+	var previmage = $('img:eq('+previous+')').attr("full_url");
+	$("img.test").attr("src", previmage);
+	$("img.selected").removeClass("selected");
+	$("img:eq(" +previous+ ")").addClass("selected");	
+ 	$("span").text('Index: ' + previmage);
+
+
+});
+
+
+</script>

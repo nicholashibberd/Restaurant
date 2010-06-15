@@ -6,8 +6,19 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :testimonials
   map.resources :offers
   map.resources :images  
+  map.resources :upload
   map.resources :reservations
+  map.resources :photos
+  map.resources :galleries
+  map.resources :location
+  map.resources :info
+  map.resources :users  
+  map.resources :sessions, :only => [:new, :create, :destroy]
+  map.signin '/signin', :controller => 'sessions', :action => 'new'  
+  map.signout '/signout', :controller => 'sessions', :action => 'destroy'    
+  
   map.root :controller => 'pages', :action => 'show', :id => 1  
+  map.signup '/signup', :controller => 'admin/users', :action => 'new'
 
   map.admin '/admin', :controller => 'admin', :action => 'index'    
   map.namespace :admin do |admin|
@@ -16,7 +27,11 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :menus
     admin.resources :images
     admin.resources :pages
+    admin.resources :galleries
+    admin.resources :photos        
     admin.resources :reservations
+    admin.resources :location
+    admin.resources :users    
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

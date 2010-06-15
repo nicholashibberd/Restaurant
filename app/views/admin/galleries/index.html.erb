@@ -1,0 +1,14 @@
+<h1>Galleries</h1>
+<p>Below are all the galleries. Click to edit</p>
+
+<% for gallery in @galleries %>
+
+	<h1><%= link_to gallery.name, :controller => 'admin/galleries', :id => gallery, :action => 'edit' %></h1>
+		
+	<table>
+		<% for photo in gallery.photos %>
+		<%= image_tag photo.photo.url(:thumb) %>
+		
+		<% end %>
+	</table>
+<% end %>

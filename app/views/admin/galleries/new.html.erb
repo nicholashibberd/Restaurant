@@ -1,0 +1,11 @@
+<h1>Add new gallery</h1>
+
+<% form_for(@gallery) do |f| %>
+  <div class="field">
+    <%= f.label :Name %><br />
+    <%= f.text_field :name %><br />  
+  </div>
+  <div class="actions">
+  <%= f.submit "Create new gallery" %>
+</div>
+<% end %>

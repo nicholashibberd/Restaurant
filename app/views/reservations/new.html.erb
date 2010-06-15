@@ -19,12 +19,12 @@
     <%= f.text_field :phone %><br />  
   </div>
   <div class="field" >
-    <%= f.label :input_date %><br />
+    <%= f.label :date %><br />
     <%= f.text_field :input_date, :id => 'datepicker'%><br />  
   </div>
   <div class="field">
     <%= f.label :time %><br />
-    <%= f.text_field :time %><br />  
+	<%= f.select :time, options_for_select([ "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00" ], "20:00") %><br />  
   </div>
   <div class="field">
     <%= f.label :number_of_people %><br />

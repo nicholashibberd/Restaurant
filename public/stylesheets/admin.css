@@ -40,3 +40,28 @@ ul#top_nav li{
 .hidden_field {
 	display:none;
 }
+
+/* 
+************************************************************
+Flash message
+************************************************************
+*/
+
+.flash {
+	padding: 10px;
+	background-color:red;
+
+}
+
+/* 
+************************************************************
+Autocomplete
+************************************************************
+*/
+
+
+.ui-autocomplete {
+	background-color: red;
+	border: 1px solid;
+	width: 200px;
+}

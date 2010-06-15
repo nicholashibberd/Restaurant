@@ -1,0 +1,13 @@
+<h1>Galleries</h1>
+<p>Click a gallery to view a slideshow of our photos</p>
+<% for gallery in @galleries %>
+
+	<h1><%= link_to gallery.name, :controller => 'galleries', :id => gallery, :action => 'show' %></h1>
+		
+	<table>
+		<% for photo in gallery.photos %>
+		<%= image_tag photo.photo.url(:thumb) %>
+		
+		<% end %>
+	</table>
+<% end %>

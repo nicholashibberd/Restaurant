@@ -1,0 +1,13 @@
+<h1>All Users</h1>
+<% for user in @users %>
+	<li><%= user.name %> : 
+		<%= user.email %> : 
+		<%= user.status %> : 
+		<% if current_user.is_administrator? %>
+		<%= link_to "edit", :controller => 'admin/users', :id => user.id, :action => 'edit' %> | 
+		<% else %>
+		<% end %>
+
+		<%= link_to "delete", user, :method => :delete, :confirm => "You sure?" %></li>
+<% end %>
+<%= link_to "Add new user", signup_path %>

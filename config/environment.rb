@@ -36,9 +36,12 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
   
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
+  config.gem "geokit"
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 
 end
+
+ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS[:default]='%A %d %B %Y'

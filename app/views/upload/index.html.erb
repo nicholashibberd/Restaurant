@@ -1,0 +1,8 @@
+<h1>File Upload</h1>
+Here is the image that I have uploaded
+<%= image_tag 'railscopy.png' %>
+<% form_tag (:action => 'uploadfile', :multipart => true ) do -%>
+<p><label for="upload_file">Select File</label> : 
+<%= file_field 'upload', 'datafile' %></p>
+<%= submit_tag "Upload" %>
+  <% end -%>

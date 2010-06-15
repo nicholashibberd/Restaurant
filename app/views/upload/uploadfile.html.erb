@@ -1,0 +1,8 @@
+<h1>File Upload</h1>
+Is this going to appear anywhere?
+<%= form_tag ({:action => 'uploadfile'}, 
+                        :multipart => true) %>
+<p><label for="upload_file">Select File</label> : 
+<%= file_field 'upload', 'datafile' %></p>
+<%= submit_tag "Upload" %>
+<% end %>

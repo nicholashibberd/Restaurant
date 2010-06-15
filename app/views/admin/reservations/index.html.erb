@@ -1,5 +1,20 @@
+<% content_for :head do %>
+<% javascript_tag do %>
+ $(document).ready(function() {
+    $("input#autocomplete").autocomplete({
+    source: [<% for reservation in @reservations %>
+	 		"<%= reservation.name %>", 
+		<% end %>]
+});
+  });
+<% end %>
+
+<% end %>
+
+
 <h1>Admin::Reservations#index</h1>
-<%= select_tag_for_filter("reservations", @filters, params) %>
+<input id="autocomplete" />
+ <%= select_tag_for_filter("reservations", @filters, params) %>
 	<table>
 	<% for reservation in @reservations %>
       <tr> 
