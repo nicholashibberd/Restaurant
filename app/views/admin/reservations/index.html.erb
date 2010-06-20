@@ -2,8 +2,8 @@
 <% javascript_tag do %>
  $(document).ready(function() {
     $("input#autocomplete").autocomplete({
-    source: [<% for reservation in @reservations %>
-	 		"<%= reservation.name %>", 
+    source: [<% for unique_names in @unique_names %>
+	 		"<%= unique_names.name %>", 
 		<% end %>]
 });
   });
@@ -11,11 +11,45 @@
 
 <% end %>
 
+<script type="text/javascript">$(function() {
+			$("#datepicker").datepicker({dateFormat: 'yy-mm-dd', firstDay: 1});
+		});
+		</script>
+
 
 <h1>Admin::Reservations#index</h1>
-<input id="autocomplete" />
- <%= select_tag_for_filter("reservations", @filters, params) %>
+<% current_page = request.request_uri %>
+
+<%= link_to 'Show all', :controller => 'admin/reservations' %>
+<br /><br />
+
+<form name="input" action="<%= current_page %>" method="get">
+Customer: <input id="autocomplete" type="text" name="customer" value="<%= params[:customer] %>"/>
+<% if params[:date] %>
+<input type="hidden" name="date" value="<%= params[:date] %>"/>
+<% end %>
+<input type="submit" value="Search" />
+</form><br />
+
+
+<form name="input" action="<%= current_page %>" method="get">
+Date of Visit: <input type="text" name="date" id="datepicker" value="<%= params[:date] %>"/>
+<% if params[:customer] %>
+<input type="hidden" name="customer" value="<%= params[:customer] %>"/>
+<% end %>
+
+<input type="submit" value="Search" />
+</form><br />
+
+
 	<table>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>Date of Reservation</th>
+		<th>Time of Reservation</th>
+		<th>Number of Guests</th>
+		<th>Date of Booking</th>
 	<% for reservation in @reservations %>
       <tr> 
 		<td><%= reservation.name %></td>
@@ -27,3 +61,6 @@
 	  </tr>
 	<% end %>
     </table>
+
+	<%= select_tag_for_filter("reservations", @filters, params) %>
+	<%= link_for_filter("reservations", @filters, params) %>

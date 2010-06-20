@@ -1,28 +1,37 @@
 class Admin::ReservationsController < AdminController
   
   def index
-    conditions = {}
-    conditions[:phone] => params[:phone] if params[:phone] 
-    @reservations = Reservation.find(:all, :conditions => conditions)
-    
-
-
-
-
-
-
-
-
-
-
-     # @filters = Reservation::FILTERS
-     #  if params[:show] && @filters.collect{|f| f[:scope]}.include?(params[:show])
-     #    @reservations = Reservation.send(params[:show]) 
-     #  else
-     #    @reservations = Reservation.all(:order => 'name ASC')
-     #  end
+      @filters = Reservation::FILTERS       
+                  
+        @reservations = Reservation
+          
+        if params[:december] 
+           @reservations = @reservations.december
+        end
+        
+        if params[:nick_hibberd]
+          @reservations = @reservations.nick_hibberd
+        end
+        
+        if params[:customer]
+           @reservations = @reservations.customer(params[:customer])
+        end
+        
+        if params[:phone]
+             @reservations = @reservations.phone(params[:phone])
+        end
+        
+        if params[:date]
+             @reservations = @reservations.date(params[:date])
+        end
+                
+        if @reservations == Reservation
+          @reservations = Reservation.all
+        end
+        
+        @unique_names = Reservation.all(:group => 'name')
+        
   end
-  
 end
 
       # This is to extract the param from the url
