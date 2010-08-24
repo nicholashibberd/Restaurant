@@ -1,0 +1,27 @@
+<h1>Our staff</h1>
+<div id="people_menu">
+	<ul>
+		<li class="selected">All</li>
+		<% @people.each do |person| %>
+		<li><%= link_to person.name, :controller => 'people', :action => 'show', :id => person.id %></li>
+		<% end %>
+	</ul>
+
+</div>
+
+<div id="people_content">
+
+<% @people.each do |person| %>
+<div class="people_index_item">
+	<div class="people_image_index">
+		<%= image_tag person.photo.url(:thumb) %>
+	</div>
+	<div class="people_name_index">
+		<%= person.name %>
+	</div>
+	<div class="people_role_index">
+		<%= person.role %>
+	</div>
+</div>
+<% end %>
+</div>

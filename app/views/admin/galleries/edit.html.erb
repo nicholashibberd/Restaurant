@@ -1,36 +1,71 @@
-<h1><%= @gallery.name %></h1>
+<% content_for :header_tag do %>
+<h1>Edit Gallery</h1>
+<% end %>
 
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Gallery Name</h3>
+		<p class="help_text">This is the name of the gallery as it will appear on the site</p>
+	</div>	
+	<div class="user_input">
+		<% form_for(@gallery) do |f| %>
+		<div class="update_gallery">
+			<%= f.label :Name %><br />
+			<%= f.text_field :name %>
+			<div class="actions update">
+			<%= f.submit "Update" %>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>
+
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Edit <%= @gallery.name %> Photos</h3>
+		<p class="help_text">Click and drag the gallery items to reorder. Their positions will be saved automatically</p>
+	</div>	
+
+<div class="user_input">
+	<div id="photos">
 		<ul id="gallery" class="move">
 		<% @gallery.photos.each do |photo| %> 
 		<li id="photo_<%= photo.id %>">
-		<%= image_tag photo.photo.url(:thumb) %>
-		<%= photo.name %>
-		<%= link_to "delete", photo, :method => :delete, :confirm => "You sure?" %>
+			<div class="controls">
+				<div class="controls_item" id="controls_edit">
+				<%= link_to "edit", :controller => 'admin/photos', :id => photo, :action => 'edit' %>
+				</div>
+				<div class="controls_item" id="controls_delete">
+				<%= link_to "delete", photo, :method => :delete, :confirm => "You sure?" %>
+				</div>
+
+			</div>
+		<div class="photo_details">
+			<div class="move_icon"></div>
+			<div id="photo_wrapper">
+			<div id="photo">
+				<%= image_tag photo.photo.url(:thumb)%>
+			</div>
+			<div id="photo_text">
+				<div id="photo_name">
+				<%= photo.caption %>
+				</div>
+			</div>
+			</div>
+		</div>
 		</li>
 		<% end %> </ul>
-		
+	</div>
+</div>	
+
+<div class="add_new add_new_photo">
+<%= link_to "Add new photo", :controller => 'admin/photos', :action => 'new', :gallery_id => @gallery.id %>
+</div>	
 
 		<%= sortable_element 'gallery', :url => { :action => "sort", :id => @gallery }, :complete => visual_effect(:highlight, 'gallery')
 		%>
 		
-		<h1>New Photo</h1>
-		<% form_for(@photo, :html => { :multipart => true }) do |f| %>
-		  <%= f.error_messages %>
-		 <div class="hidden_field"§>
-		    <%= f.hidden_field :gallery_id, :value => params[:id] %><br />  
-		  </div>
-		  <div class="field">
-		    <%= f.label :name %><br />
-		    <%= f.text_field :name %><br /><br />
-		  </div>
-			<div class="photo"> 
-			<%= f.file_field :photo%>
-			</div>
-		  <div class="actions">
-		    <%= f.submit "Add new photo" %>
-		  </div>
-		<% end %>
-
 		<% content_for :jqueryui do %>
 		<% javascript_tag do %>
 		     $('#gallery').sortable(

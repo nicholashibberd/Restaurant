@@ -1,0 +1,80 @@
+<%= include_yui_editor_if_used %>
+<head>
+ <%= GMap.header %>
+<title>Our location</title>
+</head>
+
+
+<% content_for :header_tag do %>
+<h1>Restaurant Details</h1>
+<% end %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Restaurant Name</h3>
+		<p class="help_text">This is the name that will appear next to the logo of the site, and whenever the name of the restaurant is mentioned</p>
+	</div>
+	<div class="user_input">
+		<% form_for(@info) do |f| %>
+		<div class="field">
+			<%= f.text_field :name %><br />  
+		</div>
+		<div class="actions update">
+			<%= f.submit "Update" %>
+		</div>
+		<% end %>
+	</div>
+</div>
+
+<div class="content_unit">	
+	<div class="heading">
+		<h3>Phone Number</h3>
+		<p class="help_text">This number will appear at the top of all pages on the site, and also in the footer</p>
+	</div>
+	<div class="user_input">
+		<% form_for(@info) do |f| %>
+		<div class="field">
+			<%= f.text_field :phone %><br />  
+		</div>
+		<div class="actions update">
+			<%= f.submit "Update" %>
+		</div>
+		<% end %>
+	</div>
+</div>
+
+<div class="content_unit">	
+	<div class="heading">
+		<h3>Address</h3>
+		<p class="help_text">This address will appear at the top of all pages on the site, and also controls the map that is shown on the location page. Drag the map controls below to reposition the map if necessary</p>
+	</div>
+	<div class="user_input">
+		<% form_for(@info) do |f| %>
+		<div class="field">
+			<%= f.text_field :address %><br />  
+		</div>
+		<div class="actions update">
+			<%= f.submit "Update" %>
+		</div>
+		<% end %>
+		<%= @map.to_html %>
+		<%= @map.div(:width => 600, :height => 400) %>
+	</div>
+</div>
+
+<div class="content_unit">	
+	<div class="heading">
+		<h3>Homepage Intro</h3>
+		<p class="help_text">This text will appear on the homepage</p>
+	</div>
+	<div class="user_input">
+		<% form_for(@info) do |f| %>
+		<div class="field">
+			<%= f.text_area :content, :class => 'rich_text_editor', :style => 'width: 700px' %><br />  
+		</div>
+		<div class="actions update">
+			<%= f.submit "Update" %>
+		</div>
+		<% end %>
+	</div>
+</div>

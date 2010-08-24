@@ -1,19 +1,32 @@
-<h1>Menu</h1>
-<% for menu in @menus %>
-  <div id="menu_header">
-	<div id="menu_title">
-	<%= link_to menu.name, :controller => 'admin/menus', :id => menu, :action => 'edit' %>
-	</div>
-  </div>
-
-	<table>
-     <% for dish in menu.dishes %>
-      <tr> 
-		<td><%= dish.name %></td>
-		<td><%= dish.description %></td>
-		<td><%= dish.price %></td>
-	  </tr>
-     <% end %>
-	  
-    </table>
+<% content_for :header_tag do %>
+<h1>Menus</h1>
 <% end %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Current Menus</h3>
+		<p class="help_text">Here are all the menus live on the site at the moment. Click to edit, view or delete</p>
+	</div>	
+	<div class="user_input index_items">
+		<% for menu in @menus %>
+		<div class="index_item">
+			<div class="index_item_heading">
+				<%= link_to menu.name, :controller => 'admin/menus', :id => menu, :action => 'edit' %>
+			</div>
+			<div class="controls">
+				<div class="controls_item" id="controls_edit">
+					<%= link_to "edit", :controller => 'admin/menus', :id => menu, :action => 'edit' %>
+				</div>
+				<div class="controls_item" id="controls_delete">
+					<%= link_to "delete", menu, :method => :delete, :confirm => "You sure?" %>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>
+
+
+<div class="add_new">
+<%= link_to "Add new menu", :controller => 'admin/menus', :action => 'new' %>
+</div>

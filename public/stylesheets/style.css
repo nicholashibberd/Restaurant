@@ -1,11 +1,95 @@
-body {
-  background-color: #f7fbfb;
+* {
+	margin: 0px;
+	padding: 0px;
 }
 
-h1 {
-  color:green;
-  font-size:24px;
+a {
+	text-decoration: none;
 }
+
+body {
+	color: #666;
+	font-family: Arial;
+	font-size: 13px;
+	background-color: #eee;
+}
+
+#wrapper {
+	background: url(/images/plane_food/backgrounds/wrapper.png) no-repeat;	
+	padding: 30px;
+	margin: auto;
+	width: 930px;
+	margin-top: 20px;
+	margin-bottom: 20px;	
+	-webkit-box-shadow: 0px 0px 5px #666;
+}
+
+#header {
+
+}
+
+#header_top {
+	background: url(/images/plane_food/backgrounds/header_top.png) #35343c;	
+	height: 38px;
+	padding: 60px 10px 10px 10px ;
+	color: white;
+}
+
+#header h1 {
+  color:white;
+  font-size:34px;
+  font-weight: normal;
+}
+
+
+#restaurant_name {
+	float: left;
+}
+
+#address_phone {
+	text-align: right;
+}
+
+#phone_number {
+	font-size: 24px;
+}
+
+#top_nav {
+	background-color: #474751;
+	border-top: 1px solid #9c99ae;
+	padding: 10px;
+}
+
+#top_nav a, #top_nav a:visited {
+	color: #ccffff;
+	font-size: 16px;
+}
+
+#top_nav li {
+	display: block;
+	float: left;
+	margin-right: 30px;
+}
+
+#content {
+	margin-top: 30px;
+	background-color: #efefe5;
+	padding: 20px;
+	border: 1px solid #fff;
+}
+
+#content h1 {
+	font-size: 32px;
+	font-weight: normal;
+	border-bottom: 1px dotted #ccc;
+	margin-bottom: 10px;
+}
+
+#content h2 {
+	font-weight: normal;
+}
+
+
 
 .fieldWithErrors {
   padding: 2px;
@@ -43,15 +127,6 @@ h1 {
   list-style: square;
 }
 
-/*
-**********************************************************
-Gallery
-**********************************************************
-*/
-
-img.selected {
-	border: 1px solid;
-}
 
 /* 
 ************************************************************
@@ -67,7 +142,374 @@ Flash message
 
 
 
+/*
+**********************************************************
+Menu
+**********************************************************
+*/
+
+#menu_menu, #gallery_menu, #people_menu {
+	float:left;
+	width: 100px;
+	font-size: 16px;
+	margin-top:20px;
+}
+
+#menu_menu li, #gallery_menu li, #people_menu li {
+	margin-bottom: 5px;
+	list-style-type: none;
+}
+
+#menu_menu li.selected, #gallery_menu li.selected, #people_menu li.selected {
+	text-decoration: underline;
+}
+
+#menu_content, #gallery_content, #people_content {
+	margin-left: 120px;
+	margin-top:25px;	
+	min-height: 200px;
+}
+
+.menu_section {
+	margin-bottom: 30px;
+}
+
+.menu_name {
+	margin-bottom: 10px;
+}
+
+.dish_right {
+	float: right;
+	width: 100px;
+	margin-right: 100px;
+}
+
+.dish {
+	margin-bottom: 10px;
+}
+
+.dish_name {
+	font-size: 14px;
+}
+
+.dish_description {
+	font-style: italic;
+}
 
 
 
+/*
+**********************************************************
+Gallery
+**********************************************************
+*/
 
+
+#thumbnails {
+	position: relative;
+	width:505px;
+	overflow: hidden;
+	height: 130px;
+}
+
+.block { 
+	position:absolute; 
+	left:0px;
+	height: 130px;
+	width: 1000%;
+	overflow: hidden;
+}
+
+.block img:hover {
+	cursor: pointer;
+}
+
+#gallery_main_image {
+	position: relative;
+	width:500px;
+	height: 333px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+#previous_main {
+	position: absolute;
+	top: 135px;
+	cursor: pointer;
+}
+
+#next_main {
+	position: absolute;
+	top: 135px;
+	right: 0px;
+	cursor: pointer;
+}
+
+.block li {
+	float:left;
+	width: 113px;
+	height: 113px;
+	margin-right: 4px;
+	padding: 5px;
+	list-style-type: none;
+}
+
+.block li.selected {
+	border: 5px solid #333;
+	padding: 0px;
+	margin-right: 3px;
+}
+
+.block li img {
+	padding: 1px;
+}
+
+.block li.selected img {
+	padding: 0px;
+}
+
+
+.block li img:hover {
+	border: 1px solid black;
+	padding: 0px;
+}
+
+.block li.selected img:hover {
+	border: none;
+}
+
+#gallery_menu li.selected {
+	text-decoration: underline;
+}
+
+#gallery_caption {
+	float: right;
+	width: 250px;
+}
+
+
+/*
+**********************************************************
+Reservations
+**********************************************************
+*/
+
+#reservations_content {
+	padding: 10px 20px;
+}
+
+#reservations_text {
+	float:right;
+	width: 300px;
+	margin-right: 100px;
+	margin-top:22px;
+}
+
+#reservations_text p{
+	margin-bottom: 10px;
+}
+
+#reservation_form input {
+	border: 1px solid #999;
+	background: url(/images/admin/input_background.png);
+	padding: 8px;
+	width: 380px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	font-family: Arial;
+}
+
+#reservation_form select {
+	width: 200px;
+	margin-bottom: 10px;
+}
+
+#reservation_form input[type=submit] {
+	background: url(/images/plane_food/backgrounds/submit_button.png);
+	width:160px;
+	padding: 10px;
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+	color: white;
+	border: 1px solid #157F9F;
+	cursor: pointer;
+}
+
+.reservation_label {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+/*
+**********************************************************
+Testimonials
+**********************************************************
+*/
+
+#testimonial_content {
+	padding: 20px;
+}
+
+.testimonial_text {
+	font-size: 16px;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.testimonial_wrapper {
+	border-bottom: 1px solid #ccc;
+	width: 600px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.quote_left {
+	height:10px;
+	width:13px;
+	background: url(/images/plane_food/quote.png) no-repeat;
+	position: absolute;
+	top: 0px;
+	left: -20px;
+}
+
+.quote_right {
+	height:10px;
+	width:13px;
+	background: url(/images/plane_food/quote.png) no-repeat;
+	position: absolute;
+	bottom: -10px;
+	right: -20px;
+}
+
+/*
+**********************************************************
+Homepage
+**********************************************************
+*/
+
+#homepage_title {
+	margin-top: 20px;
+}
+
+#homepage_title h1{
+	border: none;
+}
+
+#homepage_text {
+	width: 550px;
+	font-size: 14px;
+}
+
+
+.homepage_slider_left {
+	float: left;
+	width: 260px;
+	height: 260px;
+	background-color: #FBFAE8;
+	padding: 20px;
+	position: relative	
+}
+
+.homepage_slider_left_top {
+	font-size: 40px;
+	height: 130px;
+}
+
+.homepage_slider_left_bottom {
+	font-size: 18px;
+}
+
+.homepage_slider_submit {
+	background: url(/images/plane_food/backgrounds/submit_button.png);
+	width:105px;
+	padding: 10px;
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+	color: white;
+	border: 1px solid #157F9F;
+	cursor: pointer;	
+	position: absolute;
+	bottom: 20px;
+	left: 80px;
+}
+
+.homepage_slider_right {
+	background-color: red;
+	width:585px;
+	margin-left: 300px;
+	height:300px;
+	margin-right: 10px;
+}
+
+.homepage_content_bottom {
+	width: 500px;
+}
+
+
+#slideshow {
+  position:relative;	
+  padding: 10px;
+  background-color: white;
+	-webkit-box-shadow: 0px 0px 5px #666;
+
+}
+
+#slideshow #slidesContainer {
+  margin:0 auto;
+  width:865px;
+  height:300px;
+  overflow:auto; /* allow scrollbar */
+}
+
+#slideshow #slidesContainer .slide {
+  margin:0 auto;
+  width:865px; /* reduce by 20 pixels to avoid horizontal scroll */
+  height:300px;
+}
+
+.control {
+  display:block;
+  width:39px;
+  height:263px;
+  position:absolute;
+  cursor: pointer;
+	z-index: 1;
+}
+#leftControl {
+  top:120px;
+  left:0px;
+  background:transparent url(img/control_left.jpg) no-repeat 0 0;
+}
+#rightControl {
+  top:120px;
+  right:0px;
+  background:transparent url(img/control_right.jpg) no-repeat 0 0;
+}
+
+/*
+**********************************************************
+People
+**********************************************************
+*/
+
+#people_image {
+	float:left;
+	margin-right: 10px;
+}
+
+#people_content {
+	min-height: 400px;
+}
+
+.people_index_item {
+	height: 140px;
+}
+
+.people_image_index {
+	float:left;
+	margin-right: 10px;
+}
+
+.people_name_index {
+	font-size: 20px;
+}

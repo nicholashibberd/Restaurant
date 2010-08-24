@@ -1,0 +1,34 @@
+<h1><%= @menu.name %></h1>
+<div id="menu_menu">
+		<ul>
+			<li><%= link_to 'All', :controller => 'menus', :action => 'index' %></li>
+			<% @menus.each do |menu| %>
+				<%= menu_item(menu) %>
+			<% end %>
+		</ul>
+		
+		
+	
+		
+	
+</div>
+<div id="menu_content">
+
+     <% for dish in @menu.dishes %>
+		<div class="dish">
+			<div class="dish_right">
+				<div class="dish_price">
+					<%= dish.price %>
+				</div>
+			</div>
+			<div class="dish_name">
+				<%= dish.name %>
+			</div>
+			<div class="dish_description">
+				<%= dish.description %>
+			</div>
+
+		</div>
+     <% end %>
+
+</div>

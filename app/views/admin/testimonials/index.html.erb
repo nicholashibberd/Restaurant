@@ -1,12 +1,38 @@
-<h2>All Testimonials</h2>
-<ul>
-<% @testimonials.each do |testimonial| %>
-  <h3><%= testimonial.name %></h3>
-  <%= testimonial.testimonial %><br />
-  <%= link_to "edit", :controller => 'testimonials', :id => testimonial, :action => 'edit' %>
-  | <%= link_to "delete", testimonial, :method => :delete, :confirm => "You sure?" %>
-  <br />
+<% content_for :header_tag do %>
+<h1>Testimonials</h1>
 <% end %>
-</ul>
-<%= link_to "Add new testimonial", :controller => 'testimonials', :action => 'new' %>
 
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Current testimonials</h3>
+		<p class="help_text">These are all the testimonials on the site at the moment</p>
+	</div>	
+	<div class="user_input">
+		<ul>
+			<% @testimonials.each do |testimonial| %>
+			<div class="index_item_testimonials">
+				<div class="controls_right">
+					<div class="controls_item" id="controls_edit">
+						<%= link_to "edit", :controller => 'testimonials', :id => testimonial, :action => 'edit' %>
+					</div>
+					<div class="controls_item" id="controls_delete">
+						<%= link_to "delete", testimonial, :method => :delete, :confirm => "You sure?" %>
+					</div>
+				</div>
+				<div class="index_item_heading_testimonials">
+					<%= testimonial.name %>
+					<div class="index_testimonial">
+						<%= testimonial.testimonial %>
+					</div>
+				</div>
+			</div>
+
+			<br />
+			<% end %>
+		</ul>
+	</div>
+</div>
+
+<div class="add_new">
+<%= link_to "Add new testimonial", :controller => 'admin/testimonials', :action => 'new' %>
+</div>

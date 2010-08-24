@@ -9,14 +9,26 @@
 	 <%= yield :head %>
   </head>
   <body>
-  <h1><%= link_to "Admin System", admin_path %></h1>
-  <%= render 'layouts/adminheader' %>
-  <div id="wrapper">
-	<% flash.each do |key, value| %> 
-	<div class="flash <%= key %>"><%= value %></div>
-	<% end %>
-    <%= yield %>
-  </div>
+	<div id="envelope">
+		<div id="header">
+			<div id="user_status">
+				<%= render 'layouts/user_status' %>
+			</div>
+			<h1><%= link_to "Admin System", admin_path %></h1>
+			<%= render 'layouts/adminheader' %>
+		</div>
+		<div id="wrapper">
+			<div id="page_title">
+				<%= yield :header_tag %>
+			</div>
+			<div id="content">
+				<% flash.each do |key, value| %> 
+				<div class="flash <%= key %>"><%= value %></div>
+				<% end %>
+				<%= yield %>
+			</div>
+		</div>
+	</div>
     <%= yield :jqueryui %>
   </body>
 </html>

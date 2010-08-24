@@ -9,8 +9,6 @@ class Photo < ActiveRecord::Base
        :thumb => "100x100#",
        :small  => "150x150>" }
 
-    attr_accessible :name, :photo, :gallery_id
-    
-    
+    attr_accessible :name, :photo, :gallery_id, :caption    
 
 end

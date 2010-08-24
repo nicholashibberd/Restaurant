@@ -1,14 +1,30 @@
+<% content_for :header_tag do %>
 <h1>Pages</h1>
+<% end %>
 
-<table>
-  <% for page in @pages %>
-    <tr>
-      <td><%=h page.name %></td>
-      <td><%= link_to "Edit", :controller => "admin/pages", :id => page, :action => "edit" %></td>
-      <td><%= link_to "Delete", page, :confirm => 'Are you sure?', :method => :delete %></td>
-      <td><%= link_to "View on site", page %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Current pages</h3>
+		<p class="help_text">These are all the pages on the site at the moment. Click to edit</p>
+	</div>	
+	<div class="user_input index_items">
+		<% for page in @pages %>
+			<div class="index_item">
+				<div class="index_item_heading">
+			<%= link_to page.name, :controller => 'admin/pages', :id => page, :action => 'edit' %>
+				</div>
+				<div class="controls">
+					<div class="controls_item" id="controls_edit">
+					<%= link_to "edit", :controller => 'admin/pages', :id => page, :action => 'edit' %>
+					</div>
+					<div class="controls_item" id="controls_delete">
+						<%= link_to "delete", page, :method => :delete, :confirm => "You sure?" %>
+					</div>
+				</div>
+			</div>
+		<% end %>
 
-<p><%= link_to "New Page", :controller => "admin/pages", :action => "new" %></p>
+	</div>
+</div>
+
+

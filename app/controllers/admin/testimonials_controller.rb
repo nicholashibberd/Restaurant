@@ -2,6 +2,7 @@ class Admin::TestimonialsController < AdminController
 
   def index
     @testimonials = Testimonial.all
+    @testimonial = Testimonial.new
   end
 
   def new

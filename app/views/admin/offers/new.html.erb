@@ -1,24 +1,38 @@
-<h1>New offer</h1>
-
-<% form_for(@offer) do |f| %>
-  <div class="field">
-    <%= f.label :Title %><br />
-    <%= f.text_field :title %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :Description %><br />
-    <%= f.text_field :description %><br />  
-  </div>
-    <div class="field">
-    <%= f.label :Start_Date %><br />
-    <%= f.text_field :start_date %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :End_Date %><br />
-    <%= f.text_field :end_date %><br />  
-  </div>
-  <br />
-  <div class="actions">
-  <%= f.submit "Create" %>
-</div>
+<% content_for :header_tag do %>
+<h1>Add new offer</h1>
 <% end %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Add new offer</h3>
+		<p class="help_text">Please enter the offer details below and click save to save</p>
+	</div>	
+
+	<div class="user_input index_items">
+		<% form_for(@offer, :html => { :multipart => true }) do |f| %>
+		<div class="field">
+			<%= f.label :Title %><br />
+			<%= f.text_field :title %><br />  
+		</div>
+		<div class="field">
+			<%= f.label :Description %><br />
+			<%= f.text_field :description %><br />  
+		</div>
+		<div class="field">
+			<%= f.label :Start_date %><br />
+			<%= f.text_field :start_date, :class => 'datepicker' %><br />  
+		</div>
+		<div class="field">
+			<%= f.label :End_date %><br />
+			<%= f.text_field :end_date, :class => 'datepicker' %><br />  
+		</div>
+		<div class="photo"> 
+	    <%= f.label :File %><br />
+		<%= f.file_field :photo %>
+		</div>
+		<div class="actions save">
+			<%= f.submit "Save" %>
+		</div>
+		<% end %>
+	</div>
+</div>

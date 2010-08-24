@@ -1,24 +1,43 @@
-<h1>Edit Offers</h1>
+<script type="text/javascript">$(function() {
+			$(".datepicker").datepicker({dateFormat: 'DD d MM yy', firstDay: 1});
+		});
+		</script>
 
-<% form_for(@offer) do |f| %>
-   <div class="field">
-    <%= f.label :Title %><br />
-    <%= f.text_field :title %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :Description %><br />
-    <%= f.text_field :description %><br />  
-  </div>
-    <div class="field">
-    <%= f.label :Start_Date %><br />
-    <%= f.text_field :start_date %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :End_Date %><br />
-    <%= f.text_field :end_date %><br />  
-  </div>
-  <br />
-  <div class="actions">
-  <%= f.submit "Update" %>
-</div>
+<% content_for :header_tag do %>
+<h1>Edit Offer</h1>
 <% end %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Edit <%= @offer.title %></h3>
+		<p class="help_text">Enter the new offer details below and click update to save</p>
+	</div>	
+
+<div class="user_input">
+	<% form_for(@offer) do |f| %>
+	<div class="field">
+		<%= f.label :Title %><br />
+		<%= f.text_field :title %><br />  
+	</div>
+	<div class="field">
+		<%= f.label :Description %><br />
+		<%= f.text_field :description %><br />  
+	</div>
+	<div class="field">
+		<%= f.label :Start_date %><br />
+		<%= f.text_field :start_date, :class => 'datepicker' %><br />  
+	</div>
+	<div class="field">
+		<%= f.label :End_date %><br />
+		<%= f.text_field :end_date, :class => 'datepicker' %><br />  
+	</div>
+	<div class="photo"> 
+    <%= f.label :File %><br />
+	<%= f.file_field :photo %>
+	</div>
+	<br />
+	<div class="actions update">
+		<%= f.submit "Update" %>
+	</div>
+	<% end %>
+</div>

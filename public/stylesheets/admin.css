@@ -1,23 +1,118 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+ul, ol{
+	padding: 0px;
+	margin: 0px;
+} 
+
+p {
+	margin:0px 0px 10px 0px;	
+}
+
+a {
+	text-decoration:none;	
+	color: black;
+}
+
+a img {
+	border:none;	
+}
+
 body {
-  background-color: #ccc;
+  font-family: Arial;
+  font-size: 12px;
+	font-weight: normal;
+}
+
+#envelope {
+	width:960px;
+	margin: 0px auto 0px auto;
 }
 
 #wrapper {
-  background-color: #fff;
-  border: 1px solid #000;
-  padding: 10px;
+  background-color: #d8d8d8;
+  padding: 15px 30px;
 }
 
+#content {
+	background: url(/images/admin/content_background.png) repeat-x #FFF;
+	border: 1px solid #aaa;
+	padding: 20px;
+}
+
+#header {
+	background: url(/images/admin/header_background.jpg);
+	padding: 10px;
+	height: 70px;
+}
+
+#header #user_status {
+	float:right;
+	color: white;
+}
+
+#header a, #header a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+#header h1 {
+	margin-bottom: 20px;
+}
+
+
 h1, h2, h3 {
-  color: blue;
+  color: #3d5f88;
+	font-weight: normal;
 }
 
 h1 {
-  margin: 5px;
+	font-size: 1.5em;
 }
 
-ul#top_nav li{
-	display: inline;
+.heading h3 {
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+
+#page_title {
+	margin-bottom:10px;
+}
+
+ul#top_nav li {
+	display:inline;
+}
+
+ul#top_nav li a{
+	float: left;
+	padding: 10px 20px;
+	margin-right: 10px;
+	background: url(/images/admin/menu_item_background.png);
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;	
+	border: 1px solid #121e32;
+}
+
+ul#top_nav li.selected a{
+	background: #d8d8d8;
+	padding-bottom: 18px;
+	border: none;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+}
+
+ul#top_nav li a:hover{
+	background: #d8d8d8;
+	color: black;
+}
+
+ul#top_nav li.selected a {
+	color: black;
 }
 
 #menu_header {
@@ -39,6 +134,77 @@ ul#top_nav li{
 
 .hidden_field {
 	display:none;
+}
+
+.content_unit {
+	background: url(/images/admin/content_unit_background.png) repeat-x;	
+	margin-bottom: 10px;
+	padding:15px;
+}
+
+.help_text {
+	color: #bdbdbd;
+}
+
+.user_input {
+	padding: 10px 0px 0px 30px;
+}
+
+.index_item, .index_item_testimonials {
+	border-bottom: 1px dotted #ddd;
+	padding-top: 10px ;
+}
+
+.index_item {
+	height: 30px;
+}
+
+.index_item_testimonials {
+	padding-bottom: 10px;
+}
+
+.index_item_heading {
+	float: left;	
+}
+
+.index_item_heading, .index_item_heading_testimonials {
+	font-size:18px;
+}
+
+.index_item .controls {
+	margin-left: 400px;
+}
+
+.controls_right {
+	margin-right: 200px;
+}
+
+.controls_item {
+	float: left;
+	margin-left: 10px;
+}
+
+.controls_item a {
+	padding: 5px;
+	background-color: red;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+}
+
+#controls_edit a {
+	background: url(/images/admin/submit_buttons/edit.png);	
+	padding: 5px 10px 5px 25px;
+}
+
+#controls_delete a {
+	background: url(/images/admin/submit_buttons/delete.png);	
+	padding: 5px 10px 5px 30px;
+}
+
+
+.controls_right {
+	float:right;
 }
 
 /* 
@@ -64,4 +230,236 @@ Autocomplete
 	background-color: red;
 	border: 1px solid;
 	width: 200px;
+	cursor: pointer;
+}
+
+/* 
+************************************************************
+Forms
+************************************************************
+*/
+
+input {
+	border: 1px solid #999;
+	background: url(/images/admin/input_background.png);
+	padding: 8px;
+	width: 500px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	font-family: Arial;
+
+}
+
+input[type=submit] {
+	border: none;
+	cursor: pointer;
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;	
+	font-size:12px;
+	margin-left: 419px;
+	padding: 4px;
+}
+
+input[type=submit]:hover {
+	color: #3d5f88;
+	border: 1px solid #3d5f88;
+}
+
+.update input[type=submit] {
+	background: url(/images/admin/submit_buttons/tick.png) #E3E3E3;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+	width: 100px;
+	padding-left: 20px;
+	
+}
+
+.save input[type=submit] {
+	background: url(/images/admin/submit_buttons/tick.png) no-repeat #E3E3E3;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+	width: 80px;
+	padding-left: 20px;
+	
+}
+
+
+/* 
+************************************************************
+Menus
+************************************************************
+*/
+
+#dishes {
+	margin-bottom: 20px;
+}
+
+.move_icon {
+	position: absolute;
+	left: -35px;
+	top: 22px;
+	background: url(/images/admin/move_icon.png);
+	height: 14px;
+	width: 14px;
+}
+
+.dish_name {
+	float: left;	
+	width:450px;	
+}
+
+.dish_details {
+	font-size:16px;
+	background: url(/images/admin/move_background.png) bottom right;
+	width:550px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 8px; 
+	-webkit-border-radius: 8px;	
+	padding: 10px;
+	position: relative;	
+}
+
+.photo_details {
+	font-size:16px;
+	background: url(/images/admin/move_background.png) bottom right;
+	width:550px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 8px; 
+	-webkit-border-radius: 8px;	
+	padding: 10px;
+	position: relative;	
+	height: 100px;
+}
+
+
+.dish_price {
+	text-align: right;
+	margin-right: 10px;
+}
+
+.dish_description {
+	margin-bottom: 10px;
+	font-size:12px;	
+}
+
+.update_menu {
+	margin-bottom: 20px;
+}
+
+#dishes .controls, #photos .controls {
+	float: right;
+	margin-top: 25px;
+	
+}
+
+ul#menu li, ul#gallery li {
+	list-style-type: none;
+	padding: 5px;
+	margin-bottom: 5px;
+	width: 725px;
+}
+
+.add_new a{
+	background: url(/images/admin/submit_buttons/add.png);	
+	padding: 5px 10px 5px 29px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+}
+
+#photo {
+	float:left;
+	margin-right: 10px;
+}
+
+.add_new_photo {
+	margin-top: 20px;
+}
+
+.index_testimonial {
+	font-size: 14px;
+}
+
+select#user_status {
+	padding: 3px;
+	font-size: 22px;
+	margin-bottom: 10px;
+	width: 200px;
+}
+
+
+
+
+/* 
+************************************************************
+Reservations
+************************************************************
+*/
+
+.form_hidden {
+	display: none;
+}
+
+.reservations_form {
+	position: relative;
+	float: left;
+	margin-right: 10px;
+}
+
+.form_wrapper {
+	height: 50px;
+}
+
+.remove_button {
+	padding: 10px 0px 0px 0px;
+}
+
+.remove_button a{
+	background: url(/images/admin/submit_buttons/delete.png);	
+	padding: 5px 10px 5px 29px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+}
+
+
+.field_name_select {
+	width: 120px;
+	float: left;
+	padding: 10px 10px 0px 0px;
+	text-align: right;
+}
+
+
+
+
+
+
+/* 
+************************************************************
+Hacks
+************************************************************
+*/
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
 }

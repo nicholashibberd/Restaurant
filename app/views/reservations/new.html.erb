@@ -1,37 +1,56 @@
 <script type="text/javascript">$(function() {
-			$("#datepicker").datepicker({dateFormat: 'DD d MM yy', firstDay: 1});
-		});
-		</script>
+	$("#datepicker").datepicker({dateFormat: 'DD d MM yy', firstDay: 1});
+});
+</script>
 
-<h1>Leave a Reservation</h1>
-<p>Please leave your details below and we will be in contact as soon as possible</p>
-<% form_for(@reservation) do |f| %>
-  <div class="field">
-    <%= f.label :Name %><br />
-    <%= f.text_field :name %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %><br />  
-  </div>
-  <div class="field" >
-    <%= f.label :date %><br />
-    <%= f.text_field :input_date, :id => 'datepicker'%><br />  
-  </div>
-  <div class="field">
-    <%= f.label :time %><br />
-	<%= f.select :time, options_for_select([ "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00" ], "20:00") %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :number_of_people %><br />
-    <%= f.text_field :number_of_people %><br />  
-  </div><br />
+<h1>Reservations</h1>
+<div id="reservations_content">
+	<div id="reservations_text">
+		<p>Please leave your details below and we will be in contact as soon as possible</p>
+		<p>You will receive an email with details of your reservatons and a phone call from a member of our staff.</p>
+	</div>
+	<div id="reservation_form">
+	<% form_for(@reservation) do |f| %>
+	<div class="field">
+		<div class="reservation_label">
+			<%= f.label :Your_name %>
+		</div>
+		<%= f.text_field :name %><br />  
+	</div>
+	<div class="field">
+		<div class="reservation_label">
+			<%= f.label :Email_address %>
+		</div>
+		<%= f.text_field :email %><br />  
+	</div>
+	<div class="field">
+		<div class="reservation_label">
+			<%= f.label :Phone_number %>
+		</div>
+		<%= f.text_field :phone %><br />  
+	</div>
+	<div class="field">
+		<div class="reservation_label">
+			<%= f.label :Date_you_would_like_to_visit %>
+		</div>
+		<%= f.text_field :input_date, :id => 'datepicker'%><br />  
+	</div>
+	<div class="field">
+		<div class="reservation_label">
+			<%= f.label :Sitting_time %>
+		</div>
+		<%= f.select :time, options_for_select([ "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00" ], "20:00") %><br />  
+	</div>
+	<div class="field">
+		<div class="reservation_label">
+			<%= f.label :Number_of_people %><br />
+		</div>
+		<%= f.text_field :number_of_people %><br />  
+	</div><br />
 
-  <div class="actions">
-  <%= f.submit "Submit reservation" %>
+	<div class="actions">
+		<%= f.submit "Submit reservation" %>
+	</div>
+	<% end %>
 </div>
-<% end %>
+</div>

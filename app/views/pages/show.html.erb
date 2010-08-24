@@ -1,11 +1,2 @@
 <h1><%=h @page.name %></h1>
-
-<ul>
-  <% @page.elements.each do |element| %>
-    <li><%=h element.text %></li>
-  <% end %>
-</ul>
-
-<p>
-  <%= link_to "View All Pages", pages_path %>
-</p>
+<%= @page.content %>

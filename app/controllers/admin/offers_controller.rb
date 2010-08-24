@@ -2,6 +2,7 @@ class Admin::OffersController < AdminController
 
   def index
     @offers = Offer.all
+    @offer = Offer.new    
   end
 
   def new

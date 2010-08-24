@@ -1,66 +1,217 @@
 <% content_for :head do %>
 <% javascript_tag do %>
- $(document).ready(function() {
-    $("input#autocomplete").autocomplete({
-    source: [<% for unique_names in @unique_names %>
-	 		"<%= unique_names.name %>", 
+$(document).ready(function() {
+	$("input.autocomplete").autocomplete({
+		source: [<% for unique_names in @unique_names %>
+		"<%= unique_names.name %>", 
 		<% end %>]
+	});
 });
-  });
 <% end %>
 
 <% end %>
 
 <script type="text/javascript">$(function() {
-			$("#datepicker").datepicker({dateFormat: 'yy-mm-dd', firstDay: 1});
-		});
-		</script>
+	$(".datepicker").datepicker({dateFormat: 'yy-mm-dd', firstDay: 1});
+});
 
+</script>
 
-<h1>Admin::Reservations#index</h1>
+<% content_for :header_tag do %>
+<h1>Reservations</h1>
+<% end %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Reservations</h3>
+		<p class="help_text">Click the filters below to find your reservation</p>
+	</div>	
+
 <% current_page = request.request_uri %>
-
-<%= link_to 'Show all', :controller => 'admin/reservations' %>
-<br /><br />
-
 <form name="input" action="<%= current_page %>" method="get">
-Customer: <input id="autocomplete" type="text" name="customer" value="<%= params[:customer] %>"/>
-<% if params[:date] %>
-<input type="hidden" name="date" value="<%= params[:date] %>"/>
-<% end %>
-<input type="submit" value="Search" />
-</form><br />
+	
+	<!-- Customer field  -->
+		<% if params[:customer] %>
+		<div class="form_wrapper">
+		<div id="customer_form" class="reservations_form">
+		<div class="field_name_select">
+		<label for="customer_form">Customer</label><br />
+		</div>
+		<input class="autocomplete" type="text" name="customer" value="<%= params[:customer] %>"/>
+		</div>
+		<div class="remove_button">
+		<% c = params.dup %>
+		<% c.delete 'customer' %>
+		<%= link_to "Remove", url_for(c) %>
+		</div>
+		</div>
+		<% end %>
+
+		<% if params[:date] %>
+		<div class="form_wrapper">
+		<div id="date_form" class="reservations_form">
+		<div class="field_name_select">
+		<label for="date_form">Date</label><br />
+		</div>
+		<input type="text" class="date_form" name="date" value="<%= params[:date] %>"/>
+		</div>
+		<div class="remove_button">
+		<% d = params.dup %>
+		<% d.delete 'date' %>
+		<%= link_to "Remove", url_for(d) %>
+		</div>
+		</div>
+		<% end %>
+
+		<% if params[:phone] %>
+		<div class="form_wrapper">
+		<div id="phone_form" class="reservations_form">
+		<div class="field_name_select">			
+		<label for="phone_form">Phone</label><br />
+		</div>
+		<input type="text" name="phone" value="<%= params[:phone] %>"/>
+		</div>
+		<div class="remove_button">
+		<% p = params.dup %>
+		<% p.delete 'phone' %>
+		<%= link_to "Remove", url_for(p) %>
+		</div>
+		</div>
+		<% end %>
+		
+
+		<% if params[:email] %>		
+		<div class="form_wrapper">
+		<div id="email_form" class="reservations_form">
+		<div class="field_name_select">			
+		<label for="email_form">Email</label><br />
+		</div>
+		<input type="text" name="email" value="<%= params[:email] %>"/>
+		</div>
+		<div class="remove_button">
+		<% e = params.dup %>
+		<% e.delete 'email' %>
+		<%= link_to "Remove", url_for(e) %>
+		</div>
+		</div>
+		<% end %>
+				
+		<% if params[:date_of_booking] %>		
+		<div class="form_wrapper">
+		<div id="date_of_booking_form" class="reservations_form">
+		<div class="field_name_select">			
+		<label for="date_of_booking_form">Date of Booking</label>
+		</div>
+		<input type="text" name="date_of_booking" class="datepicker" value="<%= params[:date_of_booking] %>"/><br />
+		</div>
+		<div class="remove_button">
+		<% db = params.dup %>
+		<% db.delete 'date_of_booking' %>
+		<%= link_to "Remove", url_for(db) %>
+		</div>
+		</div>
+		<% end %>		
+
+	
+	
+	
+		<!-- the select -->
+		<div class="field_name_select">
+		<select id="select_simple">
+			<option value="0">Add new filter</option>
+			<option value="customer">Customer</option>
+			<option value="date">Date</option>
+			<option value="phone">Phone</option>	
+			<option value="email">Email</option>
+			<option value="date_of_booking">Date of Booking</option>
+		</select>
+		</div>
+
+	
+	<input id="test" type="text" name="whatever" /><br />
+	<div class="actions update">
+	<input type="submit" value="Search" />
+	</div>
+</form>
 
 
-<form name="input" action="<%= current_page %>" method="get">
-Date of Visit: <input type="text" name="date" id="datepicker" value="<%= params[:date] %>"/>
-<% if params[:customer] %>
-<input type="hidden" name="customer" value="<%= params[:customer] %>"/>
-<% end %>
+<script>
 
-<input type="submit" value="Search" />
-</form><br />
+$("#select_simple").change(function(){
 
+	switch(this.value) {
+		case "phone" : 	
+		case "email" :	$('input#test').removeClass('autocomplete');
+						$('input#test').removeClass('datepicker');
+						$('input#test').datepicker('destroy');
+						$('input#test').attr("name", this.value );
+		break;
 
-	<table>
-		<th>Name</th>
-		<th>Email</th>
-		<th>Phone</th>
-		<th>Date of Reservation</th>
-		<th>Time of Reservation</th>
-		<th>Number of Guests</th>
-		<th>Date of Booking</th>
+		case "date" : 	
+		case "date_of_booking" : $('input#test').removeClass('autocomplete');
+								 $('input#test').attr("name", this.value ).addClass('datepicker');
+								 $(".datepicker").datepicker({dateFormat: 'yy-mm-dd', firstDay: 1});								
+		break;
+
+		case "customer" : 	$('input#test').removeClass('datepicker');
+							$('input#test').datepicker('destroy');
+							$('input#test').attr("name", this.value ).addClass('autocomplete');
+							$("input.autocomplete").autocomplete({
+								source: [<% for unique_names in @unique_names %>
+								"<%= unique_names.name %>", 
+								<% end %>]
+							});
+		break;
+
+/*
+		case "email" : 	$('input#test').removeClass('autocomplete');
+						$('input#test').removeClass('datepicker');
+						$('input#test').datepicker('destroy');
+						$('input#test').attr("name", this.value );
+		break;
+*/
+	} 
+
+	
+		$("#select").val('0');
+});
+
+</script>
+
+<table>
+	<th>Name</th>
+	<th>Email</th>
+	<th>Phone</th>
+	<th>Date of Reservation</th>
+	<th>Time of Reservation</th>
+	<th>Number of Guests</th>
+	<th>Date of Booking</th>
 	<% for reservation in @reservations %>
-      <tr> 
+	<tr> 
 		<td><%= reservation.name %></td>
 		<td><%= reservation.email %></td>
 		<td><%= reservation.phone %></td>
 		<td><%= reservation.date %></td>
 		<td><%= reservation.time %></td>
 		<td><%= reservation.number_of_people %></td>
-	  </tr>
+		<td><%= reservation.created_at %></td>		
+	</tr>
 	<% end %>
-    </table>
+</table>
 
-	<%= select_tag_for_filter("reservations", @filters, params) %>
-	<%= link_for_filter("reservations", @filters, params) %>
+</div>
+
+<!-- the jQuery -->
+	<script type="text/javascript" src="path/to/jquery.js"></script>
+	<script type="text/javascript">
+
+	$("#select").change(function(){
+		$("#" + this.value).hide();
+		$("#select").val('0');
+		
+	});
+
+
+
+	</script>
+

@@ -1,12 +1,38 @@
-<h2>All Offers</h2>
-<ul>
-<% @offers.each do |offer| %>
-  <h3><%= link_to h(offer.title), offer %></h3>
-  <%= offer.description %><br />
-  <%= link_to "edit", :controller => 'offers', :id => offer, :action => 'edit' %>
-  | <%= link_to "delete", offer, :method => :delete, :confirm => "You sure?" %>
-  <br />
-<% end %>
-</ul>
-<%= link_to "Add new offer", :controller => 'offers', :action => 'new' %>
+<script type="text/javascript">$(function() {
+			$(".datepicker").datepicker({dateFormat: 'DD d MM yy', firstDay: 1});
+		});
+		</script>
 
+<% content_for :header_tag do %>
+<h1>Offers</h1>
+<% end %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">All Offers</h3>
+		<p class="help_text">Here are all the offers live on the site at the moment. Click to edit, view or delete</p>
+	</div>	
+
+
+	<div class="user_input index_items">
+		<% @offers.each do |offer| %>
+			<div class="index_item">
+				<div class="index_item_heading">
+			<%= link_to h(offer.title), offer %>
+				</div>
+				<div class="controls">
+					<div class="controls_item" id="controls_edit">
+					<%= link_to "edit", :controller => 'offers', :id => offer, :action => 'edit' %>
+					</div>
+					<div class="controls_item" id="controls_delete">
+						<%= link_to "delete", offer, :method => :delete, :confirm => "You sure?" %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+<div class="add_new">
+<%= link_to "Add new offer", :controller => 'admin/offers', :action => 'new' %>
+</div>

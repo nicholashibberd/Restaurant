@@ -1,20 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>This page is <%= @title %></title>
-    <%= render 'layouts/stylesheets' %>
+<head>
+	<title>This page is <%= @title %></title>
+	<%= render 'layouts/stylesheets' %>
 	<%= javascript_include_tag 'jquery', 'jquery-ui' %>
-	 <%= stylesheet_link_tag 'cupertino/jquery-ui.css' %>
-  </head>
-  <body>
-    <%= render 'layouts/header' %>
-	<% flash.each do |key, value| %> 
-	<div class="flash <%= key %>"><%= value %></div>
-	<% end %>
-    <%= yield %>
-	<%= debug(params) if Rails.env.development? %>
-
+	<%= stylesheet_link_tag 'cupertino/jquery-ui.css' %>
+</head>
+<body>
+	<div id="wrapper">
+		<%= render 'layouts/header' %>
+		<% flash.each do |key, value| %> 
+		<div class="flash <%= key %>"><%= value %></div>
+		<% end %>
+		<div id="content">
+		<%= yield %>
+		</div>
+	</div>
 </body>
 </html>
 

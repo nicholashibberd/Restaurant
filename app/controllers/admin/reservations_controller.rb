@@ -1,18 +1,9 @@
 class Admin::ReservationsController < AdminController
   
   def index
-      @filters = Reservation::FILTERS       
-                  
+                
         @reservations = Reservation
-          
-        if params[:december] 
-           @reservations = @reservations.december
-        end
-        
-        if params[:nick_hibberd]
-          @reservations = @reservations.nick_hibberd
-        end
-        
+                  
         if params[:customer]
            @reservations = @reservations.customer(params[:customer])
         end
@@ -23,6 +14,14 @@ class Admin::ReservationsController < AdminController
         
         if params[:date]
              @reservations = @reservations.date(params[:date])
+        end
+
+        if params[:email]
+             @reservations = @reservations.email(params[:email])
+        end
+
+        if params[:date_of_booking]
+             @reservations = @reservations.date_of_booking(params[:date_of_booking])
         end
                 
         if @reservations == Reservation

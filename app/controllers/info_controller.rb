@@ -24,7 +24,7 @@ class InfoController < ApplicationController
   def update
     @info = Info.find(1)
     if @info.update_attributes(params[:info])
-      redirect_to :controller => 'admin/location', :action => 'index'
+      redirect_to :controller => 'admin/info', :action => 'edit', :id => 1
     else
       render 'admin/galleres/new'
     end

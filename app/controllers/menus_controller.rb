@@ -3,6 +3,11 @@ class MenusController < ApplicationController
   def index
     @menus = Menu.all
   end
+  
+  def show
+    @menus = Menu.all
+    @menu = Menu.find(params[:id])
+  end
     
   def create
      @menu = Menu.new(params[:menu])

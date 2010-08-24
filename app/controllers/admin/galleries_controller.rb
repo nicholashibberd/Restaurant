@@ -1,6 +1,7 @@
 class Admin::GalleriesController < AdminController
   def index
     @galleries = Gallery.all
+    @gallery = Gallery.new    
   end
 
   def edit

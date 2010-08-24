@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.contact '/contact', :controller => 'pages', :action => 'show', :id => 3
   map.resources :pages
   map.resources :elements
   map.resources :menus
@@ -8,8 +9,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :images  
   map.resources :upload
   map.resources :reservations
-  map.resources :photos
-  map.resources :galleries
+  map.resources :galleries, :has_many => :photos
+  map.resources :people 
+  map.resources :photos  
   map.resources :location
   map.resources :info
   map.resources :users  
@@ -17,21 +19,61 @@ ActionController::Routing::Routes.draw do |map|
   map.signin '/signin', :controller => 'sessions', :action => 'new'  
   map.signout '/signout', :controller => 'sessions', :action => 'destroy'    
   
-  map.root :controller => 'pages', :action => 'show', :id => 1  
+  map.root :controller => 'homepage', :action => 'index'
   map.signup '/signup', :controller => 'admin/users', :action => 'new'
 
   map.admin '/admin', :controller => 'admin', :action => 'index'    
   map.namespace :admin do |admin|
-    admin.resources :dishes
     admin.resources :pages
-    admin.resources :menus
+    admin.resources :menus, :has_many => :dishes
+    admin.resources :dishes
+    admin.resources :galleries, :has_many => :photos
+    admin.resources :photos    
+    admin.resources :people   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     admin.resources :images
     admin.resources :pages
     admin.resources :galleries
     admin.resources :photos        
     admin.resources :reservations
     admin.resources :location
-    admin.resources :users    
+    admin.resources :users   
+    admin.resources :info     
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

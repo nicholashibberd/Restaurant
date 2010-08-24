@@ -1,11 +1,22 @@
-<h1>This is the menu new file</h1>
-
-<% form_for(@menu) do |f| %>
-  <div class="field">
-    <%= f.label :Name %><br />
-    <%= f.text_field :name %><br />  
-  </div>
-  <div class="actions">
-  <%= f.submit "Create new menu" %>
-</div>
+<% content_for :header_tag do %>
+<h1>Add new menu</h1>
 <% end %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Add new menu</h3>
+		<p class="help_text">Choose a name for your menu and click save to start adding dishes</p>
+	</div>	
+
+	<div class="user_input">
+		<% form_for(@menu) do |f| %>
+		<div class="field">
+			<%= f.label :Name %><br />
+			<%= f.text_field :name %><br />  
+		</div>
+		<div class="actions save">
+			<%= f.submit "Save" %>
+		</div>
+		<% end %>
+	</div>
+</div>

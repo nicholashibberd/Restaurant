@@ -1,9 +1,8 @@
 class Reservation < ActiveRecord::Base
   
-  named_scope :nick_birthday,  :conditions =>  {:date => "2010-12-07" }
-  named_scope :first_half,   :conditions =>  ["date >= ? and date <= ?", '2010-01-01', '2010-07-30']
-  named_scope :december,   :conditions => ["STRFTIME('%m', date) = ?", Date.new(2010, 12, 1).strftime('%m')]
-  named_scope :nick_hibberd, :conditions => {:name => "Nick Hibberd"}
+  start_date = "2010-05-13"
+  end_date = "2010-05-14"
+  
   named_scope :customer, lambda { |customer|
     {:conditions => {:name => customer}}
   }
@@ -13,16 +12,14 @@ class Reservation < ActiveRecord::Base
   named_scope :date, lambda { |date|
     {:conditions => {:date => date}}
   }
+  named_scope :email, lambda { |email|
+    {:conditions => {:email => email}}
+  }
+  named_scope :date_of_booking, lambda { |date_of_booking|
+    {:conditions => ["created_at between ? and ?", date_of_booking.to_time, date_of_booking.to_time + 1.day]}
+  }
 
-  
-  FILTERS = [
-    {:scope => "all",         :label => "All"},
-    {:scope => "first_half",      :label => "First half of the year"},
-    {:scope => "nick_birthday",    :label => "Nick's birthday"},
-    {:scope => "december",    :label => "december"},
-    {:scope => "nick_hibberd",    :label => "nick_hibberd"},
-  ]
-    
+      
   def input_date=(user_date)
     self.date = Date.parse(user_date)
   end

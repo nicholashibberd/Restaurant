@@ -1,0 +1,31 @@
+<% content_for :header_tag do %>
+<h1>People</h1>
+<% end %>
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Our staff</h3>
+		<p class="help_text">These are all the people with profiles on the site at the moment. Click to edit</p>
+	</div>	
+	<div class="user_input index_items">
+		<% @people.each do |person| %>
+		<div class="index_item">
+			<div class="index_item_heading">
+				<%= link_to person.name, :controller => 'admin/people', :id => person, :action => 'edit' %>
+			</div>
+			<div class="controls">
+				<div class="controls_item" id="controls_edit">
+					<%= link_to "edit", :controller => 'admin/people', :id => person, :action => 'edit' %>
+				</div>
+				<div class="controls_item" id="controls_delete">
+					<%= link_to "delete", person, :method => :delete, :confirm => "You sure?" %>
+				</div>
+			</div>
+		</div>
+		<% end %>
+
+	</div>
+</div>
+
+<div class="add_new">
+<%= link_to "Add new person", :controller => 'admin/people', :action => 'new' %>
+</div>

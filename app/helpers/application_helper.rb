@@ -28,5 +28,19 @@ module ApplicationHelper
     _html << %{}
 
    end  
-
+   
+   def menu_item(menu_item)
+     if params[:id] == menu_item.id.to_s
+       options = {'class' => 'selected'}
+     else
+       options = {}
+     end
+     
+     content_tag(
+      'li',
+      link_to_unless_current(menu_item.name, :id => menu_item.id),
+      options
+    )
+   end
+   
 end

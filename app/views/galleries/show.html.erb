@@ -1,70 +1,133 @@
 <h1><%= @gallery.name %></h1>
-
-
-
-	<a class="previous" href="#">Previous</a> : 
-	<a class="next" href="#">Next</a><br />
-
-	<%= image_tag @first_photo.photo.url, :class => 'test', :height => '200px'%><br />
-
-		<% for photo in @gallery.photos %>
-	<%= image_tag photo.photo.url(:thumb), :class => 'thumb', :full_url => photo.photo.url %>
-		<% end %>
+<div id="gallery_menu">
+		<ul>
+			<li><%= link_to 'All', :controller => 'galleries', :action => 'index' %></li>
+			<% @galleries.each do |gallery| %>
+				<%= menu_item(gallery) %>
+			<% end %>
+		</ul>
+</div>
+<div id="gallery_content">
+	<div id="gallery_caption">
+		<%= @first_photo.caption %><br />
+	</div>
+	<div id="gallery_main_image">
+		<%= image_tag @first_photo.photo.url, :class => 'test', :width => '500px'%><br />
+		<a class="previous" id="previous_main"><%= image_tag 'plane_food/arrow_left.png' %></a>
+		<a class="next" id="next_main"><%= image_tag 'plane_food/arrow_right.png' %></a><br />
+	</div>
 	
+	<div id="thumbnails">
+		<div class="block">
+			<ul>
+				<% @gallery.photos.each do |photo| %>
+				<li class="thumb">
+					<%= image_tag photo.photo.url(:thumb), :class => 'thumb', :width => '113px', :full_url => photo.photo.url, :caption => photo.caption %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+	
+	
+</div>
 
 <script>
 
-$('img.thumb:eq(0)').addClass('selected');
+$('li.thumb:eq(0)').addClass('selected');
 
-$("img.thumb").click(function () {
-	var imgsrc = ($(this).attr("full_url"));
+$("li.thumb").click(function () {
+
+	var imgsrc = ($("img", this).attr("full_url"));
+	var imgcaption = ($("img", this).attr("caption"));	
 	$("img.test").attr("src", imgsrc);
-	$("img.selected").removeClass("selected");
-	$(this).addClass("selected");
+	$("#gallery_caption").text("");	
+	$("#gallery_caption").text(imgcaption);
+
+	var thisimage = $(this);
+	var thisindex = $('li.thumb').index(thisimage);
+	var imgselected = $('.block li.selected');
+	var selectedindex = $('li.thumb').index(imgselected);
+	var last_image = $("li.thumb").length;
 	
+
+	if ( thisindex == selectedindex + 1 && thisindex > 1 && thisindex < last_image - 2){
+		$(".block").animate({"left": "-=127px"}, "slow");
+	}
+
+
+	else if ( (thisindex == selectedindex + 2 || thisindex == selectedindex + 3) && thisindex !== 2 && thisindex < last_image - 2){
+		$(".block").animate({"left": "-=254px"}, "slow");
+	}
+
+	
+	else if ( thisindex == selectedindex + 2  && thisindex == last_image - 2 && last_image > 4){
+		$(".block").animate({"left": "-=127px"}, "slow");
+	}
+	
+	else if ( thisindex == selectedindex + 2 && thisindex == 2 && last_image > 4 ){
+		$(".block").animate({"left": "-=127px"}, "slow");
+	}
+
+	else if ( thisindex < selectedindex && thisindex > 0 && thisindex < last_image - 3 ){
+		$(".block").animate({"left": "+=127px"}, "slow");
+	}
+	
+	$("li.selected").removeClass("selected");
+	$(this).addClass("selected");	
+
 });
 
 $("a.next").click(function () {
-	var imgselected = $('img.selected');
-	var selectedindex = $('img').index(imgselected);
+	var imgselected = $('.block li.selected');
+	var selectedindex = $('li.thumb').index(imgselected);
+	var last_image = $("li.thumb").length;
+	var next = selectedindex + 1;
+	var nextimage = $('li.thumb:eq('+next+') img').attr("full_url");
+	var nextcaption = $('li.thumb:eq('+next+') img').attr("caption");
 
-	var n = $("img.thumb").length;
-	 	if (n == selectedindex) {
-				var next = 1;
-			}
-		else {
-			var next = selectedindex + 1;
-		 }
+	if (selectedindex < last_image - 1) {
+						
+		$("img.test").attr("src", nextimage);
+		$("#gallery_caption").text("");
+		$("#gallery_caption").text(nextcaption);	
+		$(".block li.selected").removeClass("selected");
+		$("li.thumb:eq(" +next+ ")").addClass("selected");	
+	}	
 
-	var nextimage = $('img:eq('+next+')').attr("full_url");
-	$("img.test").attr("src", nextimage);
-	$("img.selected").removeClass("selected");
-	$("img:eq(" +next+ ")").addClass("selected");	
- 	$("span").text('Index: ' + nextimage);
+		
+		if ( selectedindex > 0 && selectedindex < last_image - 3 ) {
+			$(".block").animate({"left": "-=127px"}, "slow");
+		}
+
 
 
 });
 
 $("a.previous").click(function () {
-	var imgselected = $('img.selected');
-	var selectedindex = $('img').index(imgselected);
+	var imgselected = $('.block li.selected');
+	var selectedindex = $('li.thumb').index(imgselected);
+	var number_of_images = $("li.thumb").length;
+	var last_image = $("li.thumb").length;	
+	var previous = selectedindex - 1;
+	var previous_image = $('li.thumb:eq('+previous+') img').attr("full_url");
+	var previous_caption = $('li.thumb:eq('+previous+') img').attr("caption");	
 
-	var p = $("img.thumb").length;
-	 	if (selectedindex == 1) {
-				var previous = p;
-			}
-		else {
-			var previous = selectedindex - 1;
-		 }
+	if (selectedindex > 0) {
+		$("img.test").attr("src", previous_image);
+		$("#gallery_caption").text("");
+		$("#gallery_caption").text(previous_caption);	
+		$(".block li.selected").removeClass("selected");
+		$("li.thumb:eq(" +previous+ ")").addClass("selected");	
+	}	
 
-	var previmage = $('img:eq('+previous+')').attr("full_url");
-	$("img.test").attr("src", previmage);
-	$("img.selected").removeClass("selected");
-	$("img:eq(" +previous+ ")").addClass("selected");	
- 	$("span").text('Index: ' + previmage);
+		
+		if ( selectedindex > 1 && selectedindex < last_image - 2) {
+			$(".block").animate({"left": "+=127px"}, "slow");
+		}
+
 
 
 });
-
 
 </script>

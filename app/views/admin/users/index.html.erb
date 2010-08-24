@@ -1,13 +1,44 @@
-<h1>All Users</h1>
-<% for user in @users %>
-	<li><%= user.name %> : 
-		<%= user.email %> : 
-		<%= user.status %> : 
-		<% if current_user.is_administrator? %>
-		<%= link_to "edit", :controller => 'admin/users', :id => user.id, :action => 'edit' %> | 
-		<% else %>
-		<% end %>
-
-		<%= link_to "delete", user, :method => :delete, :confirm => "You sure?" %></li>
+<% content_for :header_tag do %>
+<h1>Users</h1>
 <% end %>
-<%= link_to "Add new user", signup_path %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Current Users</h3>
+		<p class="help_text">Here are all the active users at the moment. Click to edit or delete</p>
+	</div>	
+	<div class="user_input index_items">
+		<ul>
+			<% @users.each do |user| %>
+			<div class="index_item_testimonials">
+				<div class="controls_right">
+					<div class="controls_item" id="controls_edit">
+						<% if current_user.is_administrator? %>
+						<%= link_to "edit", :controller => 'users', :id => user, :action => 'edit' %>
+						<% end %>
+					</div>
+					<div class="controls_item" id="controls_delete">
+						<% if current_user.is_administrator? %>
+						<%= link_to "delete", user, :method => :delete, :confirm => "You sure?" %>
+						<% end %>
+					</div>
+				</div>
+				<div class="index_item_heading_testimonials">
+					<%= user.name %>
+					<div class="index_testimonial">
+						<%= user.status %>
+					</div>
+				</div>
+			</div>
+
+			<br />
+			<% end %>
+		</ul>
+	</div>
+
+</div>
+
+
+<div class="add_new">
+<%= link_to "Add new user", :controller => 'admin/users', :action => 'new' %>
+</div>

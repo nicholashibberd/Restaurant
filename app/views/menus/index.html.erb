@@ -1,14 +1,37 @@
 <h1>Menu</h1>
+<div id="menu_menu">
+		<ul>
+			<li class="selected">All</li>
+			<% @menus.each do |menu| %>
+			<li><%= link_to menu.name, :controller => 'menus', :action => 'show', :id => menu.id %></li>
+			<% end %>
+		</ul>
+	
+</div>
+
+<div id="menu_content">
+	
 <% for menu in @menus %>
-  <h2><%= menu.name %></h2>
-	<table>
+  <div class="menu_section">
+  <h2 class="menu_name"><%= menu.name %></h2>
      <% for dish in menu.dishes %>
-      <tr> 
-		<td><%= dish.name %></td>
-		<td><%= dish.description %></td>
-		<td><%= dish.price %></td>
-	  </tr>
+		<div class="dish">
+			<div class="dish_right">
+				<div class="dish_price">
+					<%= dish.price %>
+				</div>
+			</div>
+			<div class="dish_name">
+				<%= dish.name %>
+			</div>
+			<div class="dish_description">
+				<%= dish.description %>
+			</div>
+
+		</div>
      <% end %>
 	  
-    </table>
+  </div>
 <% end %>
+</div>
+

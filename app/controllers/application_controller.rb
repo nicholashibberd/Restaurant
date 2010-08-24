@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  before_filter :info_details  
   
   helper :all # include all helpers, all the time
   include SessionsHelper
@@ -27,5 +28,16 @@ class ApplicationController < ActionController::Base
         redirect_to signin_path
         return false
   end
+  
+  def info_details
+    @info = Info.find(1)
+  end
+  
+  def current_page?
+    if params[:id].to_i == menu.id
+      return true
+    end
+  end
+  
   
 end

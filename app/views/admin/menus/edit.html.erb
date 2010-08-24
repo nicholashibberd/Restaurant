@@ -1,47 +1,63 @@
-<h1><%= @menu.name %></h1>
-
-<% form_for(@menu) do |f| %>
-  <div class="field">
-    <%= f.label :Name %><br />
-    <%= f.text_field :name %><br />  
-  </div>
-  <div class="actions">
-  <%= f.submit "Update menu name" %>
-  </div>
+<% content_for :header_tag do %>
+<h1>Edit menu</h1>
 <% end %>
 
-<h3><%= @menu.name %> Dishes</h3>
 
-<ul id="menu" class="move">
-<% @menu.dishes.each do |dish| %> 
-<li id="dish_<%= dish.id %>">
-<%= dish.name %> - <%= dish.description %> - <%= dish.price %> - <%= link_to "edit", :controller => 'admin/dishes', :id => dish, :action => 'edit' %> - <%= link_to "delete", dish, :method => :delete, :confirm => "You sure?" %>
-</li>
-<% end %> </ul>
-
-<h3>Add a dish</h3>
-<% form_for(@dish) do |f| %>
-  <div class="hidden_field"§>
-    <%= f.hidden_field :menu_id, :value => params[:id] %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %><br />  
-  </div><br />
-  <div class="actions">
-  <%= f.submit "Add new dish" %>
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Menu Name</h3>
+		<p class="help_text">This is the name of the menu as it will appear on the site</p>
+	</div>	
+	<div class="user_input">
+		<% form_for(@menu) do |f| %>
+		<div class="update_menu">
+			<%= f.label :Name %><br />
+			<%= f.text_field :name %>
+			<div class="actions update">
+			<%= f.submit "Update" %>
+			</div>
+		</div>
+	</div>
+	<% end %>
 </div>
-<% end %>
 
-<%= link_to "delete menu", @menu, :method => :delete, :confirm => "You sure?" %>
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Dishes</h3>
+		<p class="help_text">Click and drag the menu items to reorder. Their positions will be saved automatically</p>
+	</div>	
+
+	<div class="user_input">
+		<div id="dishes">
+			<ul id="menu" class="move">
+				<% @menu.dishes.each do |dish| %> 
+				<li id="dish_<%= dish.id %>">
+					<div class="controls">
+						<div class="controls_item" id="controls_edit">
+						<%= link_to "edit", :controller => 'admin/dishes', :id => dish, :action => 'edit' %>
+						</div>
+						<div class="controls_item" id="controls_delete">
+						<%= link_to "delete", dish, :method => :delete, :confirm => "You sure?" %>
+						</div>
+
+					</div>
+					
+					<div class="dish_details">
+						<div class="move_icon"></div>
+						<div class="dish_name"><%= dish.name %></div>
+						<div class="dish_price"><%= dish.price %></div>
+						<div class="dish_description"><%= dish.description %></div>
+					</div>
+
+				</li>
+				<% end %> </ul>
+		</div>
+	</div>
+</div>
+
+<div class="add_new">
+<%= link_to "Add new dish", :controller => 'admin/dishes', :action => 'new', :menu_id => params[:id] %>
+</div>
 
 <% content_for :jqueryui do %>
 <% javascript_tag do %>

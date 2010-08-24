@@ -1,4 +1,6 @@
 class Admin::PagesController < AdminController
+  uses_yui_editor
+  
   def index
     @pages = Page.find(:all)
   end

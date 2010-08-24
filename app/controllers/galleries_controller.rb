@@ -3,11 +3,13 @@ class GalleriesController < ApplicationController
   def show
     @gallery = Gallery.find(params[:id])
     @first_photo = @gallery.photos.first
-    
+    @galleries = Gallery.all
   end
   
   def index
     @galleries = Gallery.all
+    @photos = Gallery.all.collect{|g| g.photos}.flatten
+    @first_photo = @photos.first
   end
      
    def create

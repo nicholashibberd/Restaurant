@@ -1,16 +1,27 @@
-<h1>Edit Testimonials</h1>
-
-<% form_for(@testimonial) do |f| %>
-   <div class="field">
-    <%= f.label :Testimonial %><br />
-    <%= f.text_field :testimonial %><br />  
-  </div>
-  <div class="field">
-    <%= f.label :Name %><br />
-    <%= f.text_field :name %><br />  
-  </div>
-  <br />
-  <div class="actions">
-  <%= f.submit "Update" %>
-</div>
+<% content_for :header_tag do %>
+<h1>Edit Testimonial</h1>
 <% end %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Edit <%= @testimonial.name %>'s Testimonial'</h3>
+		<p class="help_text">Edit the testimonial below and click update to save</p>
+	</div>	
+	<div class="user_input">
+
+		<% form_for(@testimonial) do |f| %>
+		<div class="field">
+			<%= f.label :Testimonial %><br />
+			<%= f.text_field :testimonial %><br />  
+		</div>
+		<div class="field">
+			<%= f.label :Name %><br />
+			<%= f.text_field :name %><br />  
+		</div>
+		<br />
+		<div class="actions update">
+			<%= f.submit "Update" %>
+		</div>
+		<% end %>
+	</div>
+</div>

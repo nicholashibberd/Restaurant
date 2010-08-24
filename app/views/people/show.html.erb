@@ -1,0 +1,19 @@
+<h1><%= @person.name %> - <%= @person.role %></h1>
+<div id="people_menu">
+		<ul>
+			<%= link_to "All", :controller => 'people', :action => 'index' %>
+			<% @people.each do |person| %>
+				<%= menu_item(person) %>
+			<% end %>
+		</ul>
+	
+</div>
+
+<div id="people_content">
+	<div id="people_image">
+	<%= image_tag @person.photo.url(:profile) %>
+	</div>
+	<div id="people_profile">
+	<%= @person.profile %>
+	</div>
+</div>

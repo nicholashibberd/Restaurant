@@ -3,7 +3,7 @@
   <%= f.error_messages %>
   <div class="field">
     <%= f.label :gallery_id %><br />
-    <%= f.text_field :gallery_id %><br /><br />
+    <%= f.text_field :gallery_id, :value => params[:gallery_id] %><br /><br />
   </div>
   <div class="field">
     <%= f.label :name %><br />

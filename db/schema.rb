@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100608132454) do
+ActiveRecord::Schema.define(:version => 20100822215843) do
 
   create_table "datafiles", :force => true do |t|
     t.datetime "created_at"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20100608132454) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "content"
   end
 
   create_table "menus", :force => true do |t|
@@ -60,10 +61,27 @@ ActiveRecord::Schema.define(:version => 20100608132454) do
     t.string   "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "pages", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "content"
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.string   "role"
+    t.string   "profile"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20100608132454) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "caption"
   end
 
   create_table "reservations", :force => true do |t|

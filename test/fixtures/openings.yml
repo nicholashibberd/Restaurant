@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  monday: 2010-08-24 08:35:42
+  tuesday: 2010-08-24 08:35:42
+  wednesday: 2010-08-24 08:35:42
+  thursday: 2010-08-24 08:35:42
+  friday: 2010-08-24 08:35:42
+  saturday: 2010-08-24 08:35:42
+  sunday: 2010-08-24 08:35:42
+
+two:
+  monday: 2010-08-24 08:35:42
+  tuesday: 2010-08-24 08:35:42
+  wednesday: 2010-08-24 08:35:42
+  thursday: 2010-08-24 08:35:42
+  friday: 2010-08-24 08:35:42
+  saturday: 2010-08-24 08:35:42
+  sunday: 2010-08-24 08:35:42
