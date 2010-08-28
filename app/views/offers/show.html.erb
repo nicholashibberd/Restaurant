@@ -1,3 +1,15 @@
-<h1><%= @offer.title %></h1>
-<p><%= @offer.description %></p>
-<p><%= image_tag @offer.photo.url(:home) %></p>
+<div id="offer_wrapper">
+	<div class="offer_left">
+		<div class="offer_left_top">
+			<%= @offer.title %>
+		</div>
+		<div class="offer_left_bottom">
+			<%= @offer.description %>
+		</div>
+	</div>
+	<div class="offer_right">
+		<%= image_tag @offer.photo.url(:home) %>
+	</div>
+</div>
+<h2 id="offer_t_and_c">Terms and Conditions</h2>
+<p><%= @offer.conditions %></p>

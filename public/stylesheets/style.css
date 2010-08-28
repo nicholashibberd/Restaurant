@@ -89,7 +89,16 @@ body {
 	font-weight: normal;
 }
 
+#footer {
+	margin: auto;
+	width: 930px;
+	text-align: center;
+	margin-bottom: 20px;
+}
 
+#footer a, #footer a:visited {
+	color: #666;
+}
 
 .fieldWithErrors {
   padding: 2px;
@@ -168,6 +177,7 @@ Menu
 	margin-left: 120px;
 	margin-top:25px;	
 	min-height: 200px;
+	font-size:14px;
 }
 
 .menu_section {
@@ -189,11 +199,15 @@ Menu
 }
 
 .dish_name {
-	font-size: 14px;
+	font-size: 16px;
 }
 
 .dish_description {
 	font-style: italic;
+}
+
+.dish_price {
+	font-size: 16px;
 }
 
 
@@ -396,8 +410,33 @@ Homepage
 }
 
 #homepage_text {
-	width: 550px;
 	font-size: 14px;
+}
+
+#opening_times {
+	margin-left: 570px;
+	float:right;
+	width:260px;
+	margin-left: 40px;
+}
+
+#opening_times_header {
+	padding: 0px 0px 10px 50px;
+}
+
+.opening_time {
+	margin-bottom:5px;
+	font-size:16px;
+}
+
+.opening_time_day {
+	float:left;
+	width:100px;
+}
+
+.opening_time_open {
+	float:left;
+	width:70px;
 }
 
 
@@ -406,7 +445,7 @@ Homepage
 	width: 260px;
 	height: 260px;
 	background-color: #FBFAE8;
-	padding: 20px;
+	padding: 20px 10px 20px 30px;
 	position: relative	
 }
 
@@ -417,6 +456,7 @@ Homepage
 
 .homepage_slider_left_bottom {
 	font-size: 18px;
+	padding-top: 10px;
 }
 
 .homepage_slider_submit {
@@ -425,7 +465,6 @@ Homepage
 	padding: 10px;
 	-moz-border-radius: 6px; 
 	-webkit-border-radius: 6px;
-	color: white;
 	border: 1px solid #157F9F;
 	cursor: pointer;	
 	position: absolute;
@@ -433,9 +472,13 @@ Homepage
 	left: 80px;
 }
 
+.homepage_slider_submit a, .homepage_slider_submit a:visited {
+	color: white;
+}
+
 .homepage_slider_right {
-	background-color: red;
-	width:585px;
+	background-color: white;
+	width:565px;
 	margin-left: 300px;
 	height:300px;
 	margin-right: 10px;
@@ -444,6 +487,10 @@ Homepage
 .homepage_content_bottom {
 	width: 500px;
 }
+
+
+
+
 
 
 #slideshow {
@@ -482,7 +529,7 @@ Homepage
 }
 #rightControl {
   top:120px;
-  right:0px;
+  right:3px;
   background:transparent url(img/control_right.jpg) no-repeat 0 0;
 }
 
@@ -512,4 +559,56 @@ People
 
 .people_name_index {
 	font-size: 20px;
+}
+
+/*
+**********************************************************
+Offer
+**********************************************************
+*/
+
+#offer_wrapper {
+	padding: 10px;
+	background-color: white;
+	-webkit-box-shadow: 0px 0px 5px #666;	
+}
+
+.offer_left {
+	float: left;
+	width: 260px;
+	height: 260px;
+	background-color: #FBFAE8;
+	padding: 20px;
+	position: relative	
+}
+
+.offer_left_top {
+	font-size: 40px;
+	height: 130px;
+}
+
+.offer_left_bottom {
+	font-size: 18px;
+}
+
+.offer_right {
+	width:565px;
+	margin-left: 300px;
+	height:300px;
+	margin-right: 10px;
+}
+
+
+#offer_t_and_c {
+	margin: 20px 0px 10px 0px;
+}
+
+/*
+**********************************************************
+Location
+**********************************************************
+*/
+
+#location_address {
+	margin: 20px 0px 10px 0px;
 }

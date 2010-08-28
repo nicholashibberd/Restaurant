@@ -1,7 +1,7 @@
 <%= include_yui_editor_if_used %>
 <head>
- <%= GMap.header %>
-<title>Our location</title>
+	<%= GMap.header unless RAILS_ENV = "development" %>
+	<title>Our location</title>
 </head>
 
 
@@ -64,17 +64,72 @@
 
 <div class="content_unit">	
 	<div class="heading">
+		<h3>Directions</h3>
+		<p class="help_text">Enter directions to the restaurant here and this will appear on the map page</p>
+	</div>
+	<div class="user_input">
+		<% form_for(@info) do |f| %>
+		<div class="field">
+			<%= f.text_area :directions, :class => 'rich_text_editor', :style => 'width: 700px; height: 200px' %><br />  
+		</div>
+		<div class="actions update">
+			<%= f.submit "Update" %>
+		</div>
+		<% end %>
+	</div>
+</div>
+
+
+<div class="content_unit">	
+	<div class="heading">
 		<h3>Homepage Intro</h3>
 		<p class="help_text">This text will appear on the homepage</p>
 	</div>
 	<div class="user_input">
 		<% form_for(@info) do |f| %>
 		<div class="field">
-			<%= f.text_area :content, :class => 'rich_text_editor', :style => 'width: 700px' %><br />  
+			<%= f.text_area :content, :class => 'rich_text_editor', :style => 'width: 700px; height: 200px' %><br />  
 		</div>
 		<div class="actions update">
 			<%= f.submit "Update" %>
 		</div>
+		<% end %>
+	</div>
+</div>
+
+<div class="content_unit">	
+	<div class="heading">
+		<h3>Opening Times</h3>
+		<p class="help_text">Enter the opening times for your restaurant</p>
+	</div>
+	<div class="user_input">
+		<% form_for (@info) do |i| %>
+		<% @info.opening_times.each do |opening| %>
+
+		<% i.fields_for :opening_times, opening do |f| %>
+		<div class="opening_item">
+			<div class="opening_label">
+				<%= f.label opening.day %>
+			</div>
+			<div class="opening_open">
+				<div class="opening_sub_label">
+					Open
+				</div>
+				<%= f.text_field :input_open, :class => 'opening_input' %>
+			</div>
+			<div class="opening_close">
+				<div class="opening_sub_label">
+					Close
+				</div>
+				<%= f.text_field :input_close, :class => 'opening_input' %>
+			</div>
+		</div>
+		<% end %>
+		<% end %>
+		<div class="actions update">
+			<%= i.submit "Update" %>
+		</div>
+
 		<% end %>
 	</div>
 </div>

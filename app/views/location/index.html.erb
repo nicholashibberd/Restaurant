@@ -1,8 +1,11 @@
 <head>
- <%= GMap.header %>
-<title>Our location</title>
+	<%= GMap.header %>
+	<title>Our location</title>
 </head>
-<h1><%= @info.name %></h1>
-<h3><%= @info.address %></h3>
+<h1>Our location</h1>
 <%= @map.to_html %>
-<%= @map.div(:width => 600, :height => 400) %>
+<%= @map.div(:width => 880, :height => 300) %>
+<div id="location_address">
+	<h3><%= @info.address %></h3>
+</div>
+<p><%= @info.directions %></p>

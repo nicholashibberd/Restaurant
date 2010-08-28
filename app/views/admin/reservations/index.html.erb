@@ -186,7 +186,7 @@ $("#select_simple").change(function(){
 	<th>Time of Reservation</th>
 	<th>Number of Guests</th>
 	<th>Date of Booking</th>
-	<% for reservation in @reservations %>
+	<% @reservations.each do |reservation| %>
 	<tr> 
 		<td><%= reservation.name %></td>
 		<td><%= reservation.email %></td>

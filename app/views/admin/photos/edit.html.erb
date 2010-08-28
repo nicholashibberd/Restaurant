@@ -1,0 +1,32 @@
+<% content_for :header_tag do %>
+<h1>Edit photo</h1>
+<% end %>
+
+<div class="content_unit">
+			<div class="heading">
+				<h3 class="heading">Edit photo</h3>
+				<p class="help_text">Click browse to upload a photo on your hard drive and enter the photo details below</p>
+			</div>	
+
+	<div class="user_input">
+
+		<% form_for(@photo, :html => { :multipart => true }) do |f| %>
+		  <%= f.error_messages %>
+		 <div class="hidden_field"§>
+		    <%= f.hidden_field :gallery_id, :value => params[:gallery_id] %><br />  
+		  </div>
+		  <div class="field">
+		    <%= f.label :Photo_caption %><br />
+		    <%= f.text_field :caption %><br /><br />
+		  </div>
+			<div class="photo"> 
+		    <%= f.label :File %><br />
+			<%= f.file_field :photo%>
+			</div>
+		  <div class="actions save">
+		    <%= f.submit "Save" %>
+		  </div>
+		<% end %>
+
+	</div>
+</div>

@@ -7,13 +7,13 @@ class SessionsController < AdminController
   
   def create
     user = User.authenticate(params[:session][:email], params[:session][:password])
-    if user.nil? 
+    if user.nil?
       flash[:success] = "Your email/password combination is invalid"
       @title = "Sign in" 
     redirect_to signin_path
     else
       sign_in user
-      redirect_to :controller => 'admin/users', :action => 'show', :id => user.id
+      redirect_to admin_path
     end 
   end  
   

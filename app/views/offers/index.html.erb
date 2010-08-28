@@ -1,12 +1,10 @@
-<h2>All Offers</h2>
-<ul>
+<h1>All Offers</h1>
+
 <% @offers.each do |offer| %>
+<div>
+	<%= image_tag offer.photo.url(:index) %>
   <h3><%= link_to h(offer.title), offer %></h3>
   <%= offer.description %><br />
-  <%= link_to "edit", :controller => 'offers', :id => offer, :action => 'edit' %>
-  | <%= link_to "delete", offer, :method => :delete, :confirm => "You sure?" %>
-  <br />
+</div>
 <% end %>
-</ul>
-<%= link_to "Add new offer", :controller => 'offers', :action => 'new' %>
 

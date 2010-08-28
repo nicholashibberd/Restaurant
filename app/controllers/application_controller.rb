@@ -2,7 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  before_filter :info_details  
+  before_filter :info_details, :footer_links
   
   helper :all # include all helpers, all the time
   include SessionsHelper
@@ -31,6 +31,10 @@ class ApplicationController < ActionController::Base
   
   def info_details
     @info = Info.find(1)
+  end
+  
+  def footer_links
+    @pages = Page.all
   end
   
   def current_page?

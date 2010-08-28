@@ -9,7 +9,7 @@
 			<div class="homepage_slider_left_bottom">
 				<%= offer.description %>
 				<div class="homepage_slider_submit">
-					More details
+					<%= link_to 'More details', :controller => 'offers', :action => 'show', :id => offer.id %>
 				</div>
 			</div>
 		</div>
@@ -22,10 +22,29 @@
 </div>
 
 
-<div id="homepage_title">
-	<h1>Welcome to <%= @info.name %></h1>
-</div>
 <div id="homepage_content_bottom">
+	<div id="opening_times">
+		<div id="opening_times_header">
+			<h3>Opening Times</h3>
+		</div>
+		<% @info.opening_times.each do |opening| %>
+		<div class="opening_time">
+		<div class="opening_time_day">
+		<%= opening.day %>
+		</div>
+		<div class="opening_time_open">
+		<%= opening.open.to_s(:time_format) %>
+		</div>
+		<div class="opening_time_close">
+		<%= opening.close.to_s(:time_format) %>
+		</div>
+		</div>
+		<% end %>
+	</div>
+	<div id="homepage_title">
+		<h1>Welcome to <%= @info.name %></h1>
+	</div>
+
 	<div id="homepage_text">
 		<%= @info.content %>
 	</div>

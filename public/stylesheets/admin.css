@@ -59,6 +59,11 @@ body {
 	text-decoration: none;
 }
 
+span#sign_in_out_link a, span#sign_in_out_link a:visited {
+	text-decoration: underline;
+}
+
+
 #header h1 {
 	margin-bottom: 20px;
 }
@@ -384,7 +389,7 @@ ul#menu li, ul#gallery li {
 
 select#user_status {
 	padding: 3px;
-	font-size: 22px;
+	font-size: 14px;
 	margin-bottom: 10px;
 	width: 200px;
 }
@@ -432,10 +437,46 @@ Reservations
 	text-align: right;
 }
 
+/* 
+************************************************************
+Info
+************************************************************
+*/
 
 
+input.opening_input {
+	width:100px;
+}
 
+.opening_item {
+	height:50px;
+}
 
+.opening_label {
+	float: left;
+	height: 38px;
+	width: 150px;
+	padding-top: 12px;
+}
+
+.opening_open {
+	float:left;
+	width: 150px;
+
+	position: relative;
+}
+
+.opening_close {
+	width: 150px;
+	margin-left: 350px;
+	position: relative;
+}
+
+.opening_sub_label {
+	position: absolute;
+	top: 12px;
+	left: -35px;
+}
 
 /* 
 ************************************************************

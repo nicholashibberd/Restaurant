@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  day: MyString
+  open: 2010-08-24 14:03:23
+  close: 2010-08-24 14:03:23
+
+two:
+  day: MyString
+  open: 2010-08-24 14:03:23
+  close: 2010-08-24 14:03:23

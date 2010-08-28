@@ -1,5 +1,5 @@
 class Admin::OffersController < AdminController
-
+    uses_yui_editor
   def index
     @offers = Offer.all
     @offer = Offer.new    

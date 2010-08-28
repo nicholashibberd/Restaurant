@@ -1,2 +1,29 @@
-<h1><%= @user.name %></h1>
-<p><%= @user.email %></p>
+<% content_for :header_tag do %>
+<h1>Users</h1>
+<% end %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Your details</h3>
+		<p class="help_text">Click edit to change your details</p>
+	</div>
+	<div class="user_input">
+
+		<div class="index_item">
+			<div class="index_item_heading">
+				<%= link_to @user.name, :controller => 'admin/users', :id => @user.id, :action => 'edit' %><br />
+				<%= @user.email %>
+			</div>
+			<div class="controls">
+				<div class="controls_item" id="controls_edit">
+					<%= link_to "edit", :controller => 'admin/users', :id => @user.id, :action => 'edit' %>
+				</div>
+				<div class="controls_item" id="controls_delete">
+					<%= link_to "delete", @user, :method => :delete, :confirm => "You sure?" %>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
