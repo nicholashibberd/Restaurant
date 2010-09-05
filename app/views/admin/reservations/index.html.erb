@@ -194,7 +194,7 @@ $("#select_simple").change(function(){
 		<td><%= reservation.date %></td>
 		<td><%= reservation.time %></td>
 		<td><%= reservation.number_of_people %></td>
-		<td><%= reservation.created_at %></td>		
+		<td><%= reservation.created_at.to_s(:day_date_format) %></td>		
 	</tr>
 	<% end %>
 </table>

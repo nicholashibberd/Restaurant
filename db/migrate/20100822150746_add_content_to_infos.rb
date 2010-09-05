@@ -1,6 +1,6 @@
 class AddContentToInfos < ActiveRecord::Migration
   def self.up
-      add_column :infos, :content, :string
+      add_column :infos, :content, :text
   end
 
   def self.down

@@ -1,6 +1,6 @@
 class AddDirectionsToInfo < ActiveRecord::Migration
   def self.up
-    add_column :infos, :directions, :string
+    add_column :infos, :directions, :text
   end
 
   def self.down

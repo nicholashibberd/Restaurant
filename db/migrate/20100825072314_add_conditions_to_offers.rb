@@ -1,6 +1,6 @@
 class AddConditionsToOffers < ActiveRecord::Migration
   def self.up
-    add_column :offers, :conditions, :string
+    add_column :offers, :conditions, :text
   end
 
   def self.down

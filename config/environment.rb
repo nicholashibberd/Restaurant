@@ -35,6 +35,7 @@ Rails::Initializer.run do |config|
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'UTC'
   
+  config.gem 'paperclip'
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
   config.gem "geokit"
 
@@ -47,4 +48,7 @@ end
 ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS[:default]='%A %d %B %Y'
 ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
    :time_format => '%H:%M'
+)
+ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
+   :day_date_format => '%A %d %B %Y'
 )

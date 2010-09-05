@@ -2,7 +2,7 @@ class CreateOffers < ActiveRecord::Migration
   def self.up
     create_table :offers do |t|
       t.string :title
-      t.string :description
+      t.text :description
       t.string :start_date
       t.string :end_date
 
