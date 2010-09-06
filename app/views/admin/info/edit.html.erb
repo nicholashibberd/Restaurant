@@ -1,6 +1,6 @@
 <%= include_yui_editor_if_used %>
 <head>
-	<%= GMap.header unless RAILS_ENV = "development" %>
+	<%= GMap.header(:host => request.host) %>
 	<title>Our location</title>
 </head>
 
