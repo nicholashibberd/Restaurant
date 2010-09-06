@@ -28,7 +28,7 @@ class Admin::ReservationsController < AdminController
           @reservations = Reservation.all
         end
         
-        @unique_names = Reservation.all(:group => 'name')
+        @unique_names = Reservation.all(:select => "DISTINCT name")
         
   end
 end
