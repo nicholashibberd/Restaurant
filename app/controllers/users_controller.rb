@@ -3,9 +3,12 @@ class UsersController < AdminController
   def create
     @user = User.new(params[:user]) 
       if @user.save
-        flash[:success] = "Welcome to the Sample App!"
-        sign_in @user
-        redirect_to :controller => 'admin/users', :action => 'show', :id => @user.id
+        #flash[:success] = "Welcome to the Sample App!"
+        #sign_in @user
+        #redirect_to :controller => 'admin/users', :action => 'show', :id => @user.id
+        
+        UserMailer.welcome_email(@user).deliver
+        
       else
         render 'admin/users/new' 
       end
