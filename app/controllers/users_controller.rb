@@ -7,7 +7,7 @@ class UsersController < AdminController
         #sign_in @user
         #redirect_to :controller => 'admin/users', :action => 'show', :id => @user.id
         
-        UserMailer.welcome_email(@user).deliver
+        UserMailer.deliver_welcome_email(@user)
         
       else
         render 'admin/users/new' 
