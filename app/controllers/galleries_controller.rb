@@ -2,7 +2,8 @@ class GalleriesController < ApplicationController
 
   def show
     @gallery = Gallery.find(params[:id])
-    @first_photo = @gallery.photos.first
+    @photos = @gallery.photos
+    @first_photo = @photos.first
     @galleries = Gallery.all
   end
   

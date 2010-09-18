@@ -247,10 +247,16 @@ Gallery
 	margin-bottom: 10px;
 }
 
+#gallery_inner {
+	width:10000px;
+	position: relative;
+}
+
 #previous_main {
 	position: absolute;
 	top: 135px;
 	cursor: pointer;
+	z-index: 1;
 }
 
 #next_main {
@@ -258,6 +264,7 @@ Gallery
 	top: 135px;
 	right: 0px;
 	cursor: pointer;
+	z-index: 1;
 }
 
 .block li {
