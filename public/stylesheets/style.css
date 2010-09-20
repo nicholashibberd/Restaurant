@@ -82,7 +82,6 @@ body {
 #content h1 {
 	font-size: 32px;
 	font-weight: normal;
-	border-bottom: 1px dotted #ccc;
 	margin-bottom: 10px;
 }
 
@@ -160,24 +159,37 @@ Menu
 
 #menu_menu, #gallery_menu, #people_menu {
 	float:left;
-	width: 100px;
+	width: 140px;
 	font-size: 16px;
 	margin-top:20px;
+	height: 100%;
+	background-color: #F6F6F0;
+	padding: 20px 0 100px 10px;
+	margin: -20px;
 }
 
 #menu_menu li, #gallery_menu li, #people_menu li {
 	margin-bottom: 5px;
 	list-style-type: none;
+	padding: 5px 5px 5px 15px;
+
 }
 
 #menu_menu li.selected, #gallery_menu li.selected, #people_menu li.selected {
-	text-decoration: underline;
+	background-color: #EFEFE5;
+}
+
+#menu_menu a, #menu_menu a:visited {
+	color: #666;
+}
+
+#menu_menu li.selected, #menu_menu li.selected {
+	color: #000;
 }
 
 #menu_content, #gallery_content, #people_content {
-	margin-left: 120px;
-	margin-top:25px;	
-	min-height: 200px;
+	margin-left: 170px;
+	min-height: 300px;
 	font-size:14px;
 }
 
@@ -306,7 +318,7 @@ Gallery
 
 #gallery_caption {
 	float: right;
-	width: 250px;
+	width: 200px;
 }
 
 

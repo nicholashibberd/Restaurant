@@ -1,4 +1,3 @@
-<h1><%= @gallery.name %></h1>
 <div id="gallery_menu">
 		<ul>
 			<li><%= link_to 'All', :controller => 'galleries', :action => 'index' %></li>
@@ -8,12 +7,13 @@
 		</ul>
 </div>
 <div id="gallery_content">
+<h1><%= @gallery.name %></h1>
 	<div id="gallery_caption">
 		<%= @first_photo.caption %><br />
 	</div>
 	<div id="gallery_main_image">
 		<a class="previous" id="previous_main"><%= image_tag 'plane_food/arrow_left.png' %></a>
-		<a class="next" id="next_main"><%= image_tag 'plane_food/arrow_right.png' %></a><br />
+		<a class="next" id="next_main"><%= image_tag 'plane_food/arrow_right.png' %></a>
 		<div id="gallery_inner">
 			<% @photos.each do |photo| %>
 			<%= image_tag photo.photo.url, :class => 'main_image', :width => '500px', :height => '300px' %>
