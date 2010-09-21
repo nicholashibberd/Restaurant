@@ -9,6 +9,6 @@ test:
   secret_access_key: YL36C0n9FGKt0UNMjhzgnqsZChD6XcJl1qrQ+6V9
 
 production:
-  bucket: myrestaurant
+  bucket: myrestaurantone
   access_key_id: AKIAJKQRXAEKUFEMDN3Q
   secret_access_key: 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
