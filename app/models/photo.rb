@@ -5,6 +5,9 @@ class Photo < ActiveRecord::Base
   require 'paperclip'
 
     has_attached_file :photo,
+    :storage => :s3,
+    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+    :path => "/:style/:filename",
      :styles => {
        :thumb => "100x100#",
        :small  => "150x150>" }

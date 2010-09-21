@@ -77,6 +77,7 @@ body {
 	background-color: #efefe5;
 	padding: 20px;
 	border: 1px solid #fff;
+	text-shadow: 1px 1px #FFF;	
 }
 
 #content h1 {
@@ -460,21 +461,23 @@ Homepage
 }
 
 
-.homepage_slider_left {
+.homepage_slider_left, .offer_left {
 	float: left;
 	width: 260px;
 	height: 260px;
-	background-color: #FBFAE8;
+	background-color: #972D1F;
 	padding: 20px 10px 20px 30px;
-	position: relative	
+	position: relative;
+	color: #FFF;
+	text-shadow: none;
 }
 
-.homepage_slider_left_top {
-	font-size: 40px;
+.homepage_slider_left_top, .offer_left_top {
+	font-size: 30px;
 	height: 130px;
 }
 
-.homepage_slider_left_bottom {
+.homepage_slider_left_bottom, .offer_left_bottom {
 	font-size: 18px;
 	padding-top: 10px;
 }
@@ -496,7 +499,7 @@ Homepage
 	color: white;
 }
 
-.homepage_slider_right {
+.homepage_slider_right, .offer_right {
 	background-color: white;
 	width:565px;
 	margin-left: 300px;
@@ -591,31 +594,6 @@ Offer
 	padding: 10px;
 	background-color: white;
 	-webkit-box-shadow: 0px 0px 5px #666;	
-}
-
-.offer_left {
-	float: left;
-	width: 260px;
-	height: 260px;
-	background-color: #FBFAE8;
-	padding: 20px;
-	position: relative	
-}
-
-.offer_left_top {
-	font-size: 40px;
-	height: 130px;
-}
-
-.offer_left_bottom {
-	font-size: 18px;
-}
-
-.offer_right {
-	width:565px;
-	margin-left: 300px;
-	height:300px;
-	margin-right: 10px;
 }
 
 

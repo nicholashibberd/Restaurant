@@ -2,3 +2,4 @@ rails -v 2.3.5
 ryanb-acts-as-list --source http://gems.github.com
 geokit
 paperclip
+aws-s3

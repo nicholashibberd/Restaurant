@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100826133822) do
+ActiveRecord::Schema.define(:version => 20100920124924) do
 
   create_table "datafiles", :force => true do |t|
     t.datetime "created_at"
@@ -39,14 +39,15 @@ ActiveRecord::Schema.define(:version => 20100826133822) do
     t.datetime "updated_at"
   end
 
-  create_table "infos", :force => true do |t|
-    t.string   "name"
-    t.string   "phone"
-    t.string   "address"
+  create_table "infos", :id => false, :force => true do |t|
+    t.integer  "id"
+    t.string   "name",       :limit => nil
+    t.string   "phone",      :limit => nil
+    t.string   "address",    :limit => nil
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "content"
-    t.string   "directions"
+    t.text     "content"
+    t.text     "directions"
   end
 
   create_table "menus", :force => true do |t|
@@ -57,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20100826133822) do
 
   create_table "offers", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.string   "start_date"
     t.string   "end_date"
     t.datetime "created_at"
@@ -66,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20100826133822) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.string   "conditions"
+    t.text     "conditions"
   end
 
   create_table "opening_times", :force => true do |t|
@@ -82,13 +83,13 @@ ActiveRecord::Schema.define(:version => 20100826133822) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "content"
+    t.text     "content"
   end
 
   create_table "people", :force => true do |t|
     t.string   "name"
     t.string   "role"
-    t.string   "profile"
+    t.text     "profile"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -122,10 +123,11 @@ ActiveRecord::Schema.define(:version => 20100826133822) do
   end
 
   create_table "testimonials", :force => true do |t|
-    t.string   "testimonial"
+    t.text     "testimonial"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "users", :force => true do |t|

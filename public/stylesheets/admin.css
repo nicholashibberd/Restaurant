@@ -317,22 +317,22 @@ Menus
 
 .dish_details {
 	font-size:16px;
-	background: url(/images/admin/move_background.png) bottom right;
+	background: url(/images/admin/orderable_menu_background.png);
 	width:550px;
 	border: 1px solid #ccc;
-	-moz-border-radius: 8px; 
-	-webkit-border-radius: 8px;	
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;	
 	padding: 10px;
 	position: relative;	
 }
 
 .photo_details {
 	font-size:16px;
-	background: url(/images/admin/move_background.png) bottom right;
+	background: url(/images/admin/orderable_photo_background.png);
 	width:550px;
 	border: 1px solid #ccc;
-	-moz-border-radius: 8px; 
-	-webkit-border-radius: 8px;	
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;	
 	padding: 10px;
 	position: relative;	
 	height: 100px;

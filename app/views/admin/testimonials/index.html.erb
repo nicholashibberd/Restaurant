@@ -8,8 +8,9 @@
 		<p class="help_text">These are all the testimonials on the site at the moment</p>
 	</div>	
 	<div class="user_input">
-		<ul>
+		<ul id="testimonials" class="move">
 			<% @testimonials.each do |testimonial| %>
+<!--			<li id="testimonial_<#%= testimonial.id %>">-->
 			<div class="index_item_testimonials">
 				<div class="controls_right">
 					<div class="controls_item" id="controls_edit">
@@ -28,11 +29,40 @@
 			</div>
 
 			<br />
+<!--			</li>-->
 			<% end %>
-		</ul>
+		</ul>		
+		
 	</div>
 </div>
 
 <div class="add_new">
 <%= link_to "Add new testimonial", :controller => 'admin/testimonials', :action => 'new' %>
 </div>
+
+<!--
+<#% content_for :jqueryui do %>
+<#% javascript_tag do %>
+     $('#testimonials').sortable(
+	    {
+          axis: 'y', 
+		   dropOnEmpty:false, 
+	       cursor: 'crosshair',
+	       items: 'li',
+	       opacity: 0.4,
+	       scroll: true,
+          update: function(){
+            $.ajax({
+                type: 'post', 
+                data: $('#testimonials').sortable('serialize') + '&id=<#%= @testimonial.id-%>', 
+                dataType: 'script', 
+                complete: function(request){
+                    $('#testimonials').effect('highlight');
+                  },
+                url: '/admin/menus/order_testimonials'})
+            }	
+	
+	})
+<#% end %>
+
+<#% end %>-->

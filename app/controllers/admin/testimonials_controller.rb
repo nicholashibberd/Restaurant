@@ -11,6 +11,6 @@ class Admin::TestimonialsController < AdminController
   
   def edit
     @testimonial = Testimonial.find(params[:id])
-  end
+  end  
 
 end
