@@ -1,7 +1,8 @@
 class ReservationMailer < ActionMailer::Base
   
 
-  def confirmation
+  def confirmation(reservation)
+    @reservation = reservation
     subject    'Reservation Confirmation'
     recipients 'nicholashibberd@hotmail.com'
     from       'nicholashibberd@gmail.com'
