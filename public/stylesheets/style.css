@@ -158,7 +158,7 @@ Menu
 **********************************************************
 */
 
-#menu_menu, #gallery_menu, #people_menu {
+#menu_menu, #gallery_menu, #people_menu, #offers_menu {
 	float:left;
 	width: 140px;
 	font-size: 16px;
@@ -169,18 +169,22 @@ Menu
 	margin: -20px;
 }
 
-#menu_menu li, #gallery_menu li, #people_menu li {
+#offers_menu {
+	width: 200px;
+}
+
+#menu_menu li, #gallery_menu li, #people_menu li, #offers_menu li {
 	margin-bottom: 5px;
 	list-style-type: none;
 	padding: 5px 5px 5px 15px;
 
 }
 
-#menu_menu li.selected, #gallery_menu li.selected, #people_menu li.selected {
+#menu_menu li.selected, #gallery_menu li.selected, #people_menu li.selected, #offers_menu li.selected {
 	background-color: #EFEFE5;
 }
 
-#menu_menu a, #menu_menu a:visited {
+#menu_menu a, #menu_menu a:visited, #gallery_menu a, #gallery_menu a:visited, #people_menu a, #people_menu a:visited, #offers_menu a, #offers_menu a:visited {
 	color: #666;
 }
 
@@ -188,10 +192,14 @@ Menu
 	color: #000;
 }
 
-#menu_content, #gallery_content, #people_content {
+#menu_content, #gallery_content, #people_content, #offers_content {
 	margin-left: 170px;
-	min-height: 300px;
+	min-height: 400px;
 	font-size:14px;
+}
+
+#offers_content {
+	margin-left: 220px;
 }
 
 .menu_section {
@@ -600,6 +608,44 @@ Offer
 #offer_t_and_c {
 	margin: 20px 0px 10px 0px;
 }
+
+.offer_item {
+	height:150px;
+	position: relative;
+	width: 600px;
+}
+
+.offer_item_image {
+	float:left;
+	width: 240px;
+}
+
+.offer_submit {
+	background: url(/images/plane_food/backgrounds/submit_button.png);
+	width:85px;
+	padding: 10px;
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+	border: 1px solid #157F9F;
+	cursor: pointer;
+	position: absolute;
+	bottom: 40px;
+	right: 20px;
+}
+
+.offer_submit a, .offer_submit a:visited {
+	color: #fff;
+	text-shadow: none;
+}
+
+#offer_title {
+	
+}
+
+#offer_description {
+	margin-bottom: 20px;
+}
+
 
 /*
 **********************************************************

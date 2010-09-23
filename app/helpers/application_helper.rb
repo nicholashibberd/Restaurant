@@ -42,5 +42,20 @@ module ApplicationHelper
       options
     )
    end
+
+   def offer_item(offer_item)
+     if params[:id] == offer_item.id.to_s
+       options = {'class' => 'selected'}
+     else
+       options = {}
+     end
+     
+     content_tag(
+      'li',
+      link_to_unless_current(offer_item.title, :id => offer_item.id),
+      options
+    )
+   end
+
    
 end

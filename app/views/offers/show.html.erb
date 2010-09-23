@@ -1,15 +1,19 @@
-<div id="offer_wrapper">
-	<div class="offer_left">
-		<div class="offer_left_top">
-			<%= @offer.title %>
-		</div>
-		<div class="offer_left_bottom">
-			<%= @offer.description %>
-		</div>
-	</div>
-	<div class="offer_right">
-		<%= image_tag @offer.photo.url(:home) %>
-	</div>
+<div id="offers_menu">
+		<ul>
+			<li><%= link_to 'All offers', :controller => 'offers', :action => 'index' %></li>
+			<% @offers.each do |offer| %>
+				<%= offer_item(offer) %>
+			<% end %>
+		</ul>
 </div>
+<div id="offers_content">
+<div id="offer_title">
+	<h1><%= @offer.title %></h1>
+</div>
+<div id="offer_description">
+	<%= @offer.description %>
+</div>
+		<%= image_tag @offer.photo.url(:home) %>
 <h2 id="offer_t_and_c">Terms and Conditions</h2>
 <p><%= @offer.conditions %></p>
+</div>

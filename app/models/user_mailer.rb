@@ -6,5 +6,6 @@ class UserMailer < ActionMailer::Base
        subject    "This is the subject"
        body       :user => user
      end
+     
 end
 

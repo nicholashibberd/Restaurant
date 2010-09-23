@@ -5,13 +5,11 @@ class OffersController < ApplicationController
   
   def show
     @offer = Offer.find(params[:id])
+    @offers = Offer.all
   end
   
   def index
     @offers = Offer.all
-  end
-  
-  def admin
   end
   
   def edit

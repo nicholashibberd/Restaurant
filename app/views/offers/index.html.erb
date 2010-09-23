@@ -1,10 +1,28 @@
-<h1>All Offers</h1>
 
-<% @offers.each do |offer| %>
-<div>
-	<%= image_tag offer.photo.url(:index) %>
-  <h3><%= link_to h(offer.title), offer %></h3>
-  <%= offer.description %><br />
+<div id="offers_menu">
+	<ul>
+		<li class="selected">All offers</li>
+		<% @offers.each do |offer| %>
+		<li><%= link_to offer.title, :controller => 'offers', :action => 'show', :id => offer.id %></li>
+		<% end %>
+	</ul>
 </div>
-<% end %>
+<div id="offers_content">
+	<h1>All Offers</h1>
 
+	<% @offers.each do |offer| %>
+	<div class="offer_item">
+		<div class="offer_item_image">
+			<%= image_tag offer.photo.url(:index) %>
+		</div>
+		<div class="offer_item_details">
+			<h3><%= link_to h(offer.title), offer %></h3>
+			<%= offer.description %><br />
+			<div class="offer_submit">
+				<%= link_to 'More details', :controller => 'offers', :action => 'show', :id => offer.id %>
+			</div>
+		</div>
+	</div>
+	<% end %>
+
+</div>

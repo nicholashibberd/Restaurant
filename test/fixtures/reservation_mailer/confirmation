@@ -1,0 +1,3 @@
+ReservationMailer#confirmation
+
+Find me in app/views/reservation_mailer/confirmation.erb
