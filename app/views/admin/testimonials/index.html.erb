@@ -10,7 +10,7 @@
 	<div class="user_input">
 		<ul id="testimonials" class="move">
 			<% @testimonials.each do |testimonial| %>
-<!--			<li id="testimonial_<#%= testimonial.id %>">-->
+			<li id="testimonial_<%= testimonial.id %>">
 			<div class="index_item_testimonials">
 				<div class="controls_right">
 					<div class="controls_item" id="controls_edit">
@@ -29,7 +29,7 @@
 			</div>
 
 			<br />
-<!--			</li>-->
+			</li>
 			<% end %>
 		</ul>		
 		
@@ -40,9 +40,9 @@
 <%= link_to "Add new testimonial", :controller => 'admin/testimonials', :action => 'new' %>
 </div>
 
-<!--
-<#% content_for :jqueryui do %>
-<#% javascript_tag do %>
+
+<% content_for :jqueryui do %>
+<% javascript_tag do %>
      $('#testimonials').sortable(
 	    {
           axis: 'y', 
@@ -54,7 +54,7 @@
           update: function(){
             $.ajax({
                 type: 'post', 
-                data: $('#testimonials').sortable('serialize') + '&id=<#%= @testimonial.id-%>', 
+                data: $('#testimonials').sortable('serialize') + '&id=<%= @testimonial.id-%>', 
                 dataType: 'script', 
                 complete: function(request){
                     $('#testimonials').effect('highlight');
@@ -63,6 +63,6 @@
             }	
 	
 	})
-<#% end %>
+<% end %>
 
-<#% end %>-->
+<% end %>

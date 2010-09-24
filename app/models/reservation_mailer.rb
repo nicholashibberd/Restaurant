@@ -6,8 +6,7 @@ class ReservationMailer < ActionMailer::Base
     subject    'Reservation Confirmation'
     recipients reservation.email
     from       'nicholashibberd@gmail.com'
-    
-    body       :greeting => 'Hi, thanks for your reservation'
+    content_type  'text/html'
   end
 
 end
