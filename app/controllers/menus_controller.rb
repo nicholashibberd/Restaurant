@@ -2,6 +2,7 @@ class MenusController < ApplicationController
     
   def index
     @menus = Menu.all
+    @title = 'My Restaurant - Our Menu'
   end
   
   def show

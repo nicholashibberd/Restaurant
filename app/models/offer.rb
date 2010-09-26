@@ -1,4 +1,5 @@
 class Offer < ActiveRecord::Base
+  default_scope  :order => :position
   require 'paperclip'
 
     has_attached_file :photo,

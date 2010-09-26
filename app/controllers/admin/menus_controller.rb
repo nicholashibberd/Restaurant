@@ -8,12 +8,13 @@ class Admin::MenusController < AdminController
   def new
     @menu = Menu.new
   end
-  
+
   def edit
     @menu = Menu.find(params[:id])
     @dish = Dish.new
   end
   
+=begin - I don't think this is needed
   def sort 
      @menu = Menu.find(params[:id])
      @menu.dishes.each do |dish|
@@ -22,6 +23,7 @@ class Admin::MenusController < AdminController
      end
      render :nothing => true
    end
+=end
    
    def order_dishes
      menu = Menu.find(params[:id])

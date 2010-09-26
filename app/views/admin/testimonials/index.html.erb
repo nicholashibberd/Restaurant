@@ -11,8 +11,8 @@
 		<ul id="testimonials" class="move">
 			<% @testimonials.each do |testimonial| %>
 			<li id="testimonial_<%= testimonial.id %>">
-			<div class="index_item_testimonials">
-				<div class="controls_right">
+
+				<div class="controls">
 					<div class="controls_item" id="controls_edit">
 						<%= link_to "edit", :controller => 'testimonials', :id => testimonial, :action => 'edit' %>
 					</div>
@@ -20,7 +20,9 @@
 						<%= link_to "delete", testimonial, :method => :delete, :confirm => "You sure?" %>
 					</div>
 				</div>
-				<div class="index_item_heading_testimonials">
+			<div class="index_item_testimonials">
+				<div class="index_item_orderable">
+				<div class="move_icon"></div>
 					<%= testimonial.name %>
 					<div class="index_testimonial">
 						<%= testimonial.testimonial %>
@@ -54,12 +56,12 @@
           update: function(){
             $.ajax({
                 type: 'post', 
-                data: $('#testimonials').sortable('serialize') + '&id=<%= @testimonial.id-%>', 
+                data: $('#testimonials').sortable('serialize'),
                 dataType: 'script', 
                 complete: function(request){
                     $('#testimonials').effect('highlight');
                   },
-                url: '/admin/menus/order_testimonials'})
+                url: '/admin/testimonials/order_testimonials'})
             }	
 	
 	})

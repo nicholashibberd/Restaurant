@@ -11,6 +11,16 @@ class Admin::TestimonialsController < AdminController
   
   def edit
     @testimonial = Testimonial.find(params[:id])
-  end  
+  end
+  
+  def order_testimonials
+    testimonials = Testimonial.all
+    testimonials.each do |testimonial|
+      testimonial.position = params['testimonial'].index(testimonial.id.to_s) + 1
+      testimonial.save
+    end
+    render :nothing => true
+  end
+    
 
 end
