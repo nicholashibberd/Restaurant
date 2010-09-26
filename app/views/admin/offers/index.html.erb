@@ -1,7 +1,7 @@
 <script type="text/javascript">$(function() {
-			$(".datepicker").datepicker({dateFormat: 'DD d MM yy', firstDay: 1});
-		});
-		</script>
+	$(".datepicker").datepicker({dateFormat: 'DD d MM yy', firstDay: 1});
+});
+</script>
 
 <% content_for :header_tag do %>
 <h1>Offers</h1>
@@ -15,10 +15,10 @@
 
 
 	<div class="user_input index_items">
-		
-		
-		
-		
+
+
+
+
 		<ul id="offers" class="move">
 			<% @offers.each do |offer| %>
 			<li id="offer_<%= offer.id %>">
@@ -31,18 +31,18 @@
 						<%= link_to "delete", offer, :method => :delete, :confirm => "You sure?" %>
 					</div>
 				</div>
-			<div class="index_item_testimonials">
+
 				<div class="index_item_orderable">
-				<div class="move_icon"></div>
+					<div class="move_icon"></div>
 					<%= offer.title %>
 				</div>
-			</div>
 
-			<br />
+
+				<br />
 			</li>
 			<% end %>
 		</ul>		
-		
+
 	</div>
 </div>
 
@@ -51,27 +51,27 @@
 </div>
 
 <% content_for :jqueryui do %>
-<% javascript_tag do %>
-     $('#offers').sortable(
-	    {
-          axis: 'y', 
-		   dropOnEmpty:false, 
-	       cursor: 'crosshair',
-	       items: 'li',
-	       opacity: 0.4,
-	       scroll: true,
-          update: function(){
-            $.ajax({
-                type: 'post', 
-                data: $('#offers').sortable('serialize'),
-                dataType: 'script', 
-                complete: function(request){
-                    $('#offers').effect('highlight');
-                  },
-                url: '/admin/offers/order_offers'})
-            }	
-	
-	})
-<% end %>
+	<% javascript_tag do %>
+	$('#offers').sortable(
+	{
+		axis: 'y', 
+		dropOnEmpty:false, 
+		cursor: 'crosshair',
+		items: 'li',
+		opacity: 0.4,
+		scroll: true,
+		update: function(){
+			$.ajax({
+				type: 'post', 
+				data: $('#offers').sortable('serialize'),
+				dataType: 'script', 
+				complete: function(request){
+					$('#offers').effect('highlight');
+				},
+				url: '/admin/offers/order_offers'})
+			}	
 
-<% end %>
+		})
+		<% end %>
+
+		<% end %>

@@ -11,5 +11,15 @@ class Admin::PeopleController < AdminController
   def edit
     @person = Person.find(params[:id])
   end
+  
+  def order_people
+    people = Person.all
+    people.each do |person|
+      person.position = params['person'].index(person.id.to_s) + 1
+      person.save
+    end
+    render :nothing => true
+  end
+  
 
 end

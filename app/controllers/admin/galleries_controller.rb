@@ -23,5 +23,15 @@ class Admin::GalleriesController < AdminController
      render :nothing => true
    end
    
+   def order_galleries
+     galleries = Gallery.all
+     galleries.each do |gallery|
+       gallery.position = params['gallery'].index(gallery.id.to_s) + 1
+       gallery.save
+     end
+     render :nothing => true
+   end
+   
+   
 
 end

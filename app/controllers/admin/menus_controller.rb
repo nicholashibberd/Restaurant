@@ -35,5 +35,14 @@ class Admin::MenusController < AdminController
      render :nothing => true
    end
    
+   def order_menus
+     menus = Menu.all
+     menus.each do |menu|
+       menu.position = params['menu'].index(menu.id.to_s) + 1
+       menu.save
+     end
+     render :nothing => true
+   end
+   
   
 end

@@ -164,9 +164,6 @@ ul#top_nav li.selected a {
 	height: 30px;
 }
 
-.index_item_testimonials {
-	padding-bottom: 10px;
-}
 
 .index_item_heading {
 	float: left;	
@@ -220,6 +217,14 @@ ul#top_nav li.selected a {
 	padding: 10px;
 	position: relative;	
 	min-height: 40px;
+}
+
+.user_heading {
+	font-size: 18px;
+}
+
+.user_status {
+	font-size: 14px;
 }
 
 
@@ -365,13 +370,13 @@ Menus
 	margin-bottom: 20px;
 }
 
-#dishes .controls, #photos .controls, #testimonials .controls, #offers .controls {
+#dishes .controls, #photos .controls, #testimonials .controls, #offers .controls, #menus .controls, #people .controls, #galleries .controls {
 	float: right;
 	margin-top: 25px;
 	
 }
 
-ul#menu li, ul#gallery li, ul#testimonials, ul#offers {
+ul#menu li, ul#gallery li, ul#testimonials, ul#offers, ul#menus, ul#people, ul#galleries {
 	list-style-type: none;
 	padding: 5px;
 	margin-bottom: 5px;

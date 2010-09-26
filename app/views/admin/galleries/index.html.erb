@@ -9,24 +9,60 @@
 	</div>	
 
 	<div class="user_input">
-		<% for gallery in @galleries %>
-		<div class="index_item">
-			<div class="index_item_heading">
-				<%= link_to gallery.name, :controller => 'admin/galleries', :id => gallery, :action => 'edit' %>
-			</div>
-			<div class="controls">
-				<div class="controls_item" id="controls_edit">
-					<%= link_to "edit", :controller => 'admin/galleries', :id => gallery, :action => 'edit' %>
+		
+		<ul id="galleries" class="move">
+			<% @galleries.each do |gallery| %>
+			<li id="gallery_<%= gallery.id %>">
+
+				<div class="controls">
+					<div class="controls_item" id="controls_edit">
+						<%= link_to "edit", :controller => 'galleries', :id => gallery, :action => 'edit' %>
+					</div>
+					<div class="controls_item" id="controls_delete">
+						<%= link_to "delete", gallery, :method => :delete, :confirm => "You sure?" %>
+					</div>
 				</div>
-				<div class="controls_item" id="controls_delete">
-					<%= link_to "delete", gallery, :method => :delete, :confirm => "You sure?" %>
+
+				<div class="index_item_orderable">
+					<div class="move_icon"></div>
+					<%= gallery.name %>
 				</div>
-			</div>
-		</div>
-		<% end %>
+
+
+				<br />
+			</li>
+			<% end %>
+		</ul>		
+		
 	</div>
 </div>
 
 <div class="add_new">
 <%= link_to "Add new gallery", :controller => 'admin/galleries', :action => 'new' %>
 </div>
+
+<% content_for :jqueryui do %>
+	<% javascript_tag do %>
+	$('#galleries').sortable(
+	{
+		axis: 'y', 
+		dropOnEmpty:false, 
+		cursor: 'crosshair',
+		items: 'li',
+		opacity: 0.4,
+		scroll: true,
+		update: function(){
+			$.ajax({
+				type: 'post', 
+				data: $('#galleries').sortable('serialize'),
+				dataType: 'script', 
+				complete: function(request){
+					$('#galleries').effect('highlight');
+				},
+				url: '/admin/galleries/order_galleries'})
+			}	
+
+		})
+		<% end %>
+
+<% end %>
