@@ -469,25 +469,32 @@ Homepage
 }
 
 
-.homepage_slider_left, .offer_left {
+.homepage_slider_left{
 	float: left;
-	width: 260px;
-	height: 260px;
+	width: 250px;
+	height: 270px;
 	background-color: #972D1F;
-	padding: 20px 10px 20px 30px;
+	padding: 20px;
 	position: relative;
 	color: #FFF;
-	text-shadow: none;
+	text-shadow: 1px 1px #000;	
+	text-align: center;
 }
 
 .homepage_slider_left_top, .offer_left_top {
 	font-size: 30px;
-	height: 130px;
+	height: 90px;
 }
 
 .homepage_slider_left_bottom, .offer_left_bottom {
 	font-size: 18px;
 	padding-top: 10px;
+}
+
+.homepage_slider_inner {
+	border: 1px solid #d13e2c; 
+	height: 240px;
+	padding: 10px 10px 10px 20px;	
 }
 
 .homepage_slider_submit {
@@ -499,7 +506,7 @@ Homepage
 	border: 1px solid #157F9F;
 	cursor: pointer;	
 	position: absolute;
-	bottom: 20px;
+	bottom: 50px;
 	left: 80px;
 }
 
