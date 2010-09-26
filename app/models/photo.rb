@@ -10,7 +10,7 @@ class Photo < ActiveRecord::Base
     :path => "/:style/:filename",
      :styles => {
        :thumb => "100x100#",
-       :small  => "150x150>" }
+       :small  => "300x200>" }
 
     attr_accessible :name, :photo, :gallery_id, :caption    
 

@@ -3,6 +3,9 @@ class Offer < ActiveRecord::Base
 
     has_attached_file :photo,
      :styles => {
+       :storage => :s3,
+       :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+       :path => "/:style/:filename",
        :thumb => "100x100#",
        :home  => "565x300>",
        :index  => "226x120>" }
