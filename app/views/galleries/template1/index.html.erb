@@ -1,0 +1,24 @@
+<% content_for :head do %>
+	<link rel="stylesheet" type="text/css" href="../style-projects-jquery.css" />    
+	<%= javascript_include_tag 'jquery-lightbox-0.5/js/jquery.lightbox-0.5.min' %>	
+    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen" />
+    <script type="text/javascript">
+    $(function() {
+        $('#gallery a').lightBox();
+    });
+    </script>
+<% end %>
+<h1>Gallery</h1>
+<p id="gallery_snippet">Click an image below to view full size</p>
+<div id="gallery">
+    <ul>
+		<% @galleries.each do |gallery| %>
+			<% gallery.photos.each do |photo|  %>
+				<li>
+					<%= link_to (image_tag photo.photo.url(:thumbnail)), photo.photo.url, :title => photo.caption %>
+				</li>
+			<% end %>
+		<% end %>
+	
+	</ul>
+</div>

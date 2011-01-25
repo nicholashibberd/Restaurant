@@ -1,0 +1,659 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color: #333;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+body {
+	font-family: Arial;
+	color: #666;
+	font-size: 14px;
+}
+
+#background {
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+}
+
+#background_header {
+	height: 100px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#CA3739), to(#780000));
+	background: -moz-linear-gradient(top,  #CA3739,  #780000);
+	border-bottom: 1px solid #9E2024;
+}
+
+#background_menu_gradient {
+	height: 4px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#490101), to(#4F0000));
+	background: -moz-linear-gradient(top,  #490101,  #4F0000);
+}
+
+#background_menu {
+	height: 36px;
+	background-color: #4F0000;
+}
+
+#background_content {
+	height: 60px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#EBE5D8), to(#FFF));
+	background: -moz-linear-gradient(top,  #EBE5D8,  #FFF);
+	border-top: 1px solid #FFF;
+}
+
+#footer_background_top {
+	margin-top: 30px;
+	height: 60px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EBE5D8));
+	background: -moz-linear-gradient(top, #FFF,  #EBE5D8);
+	border-bottom: 1px solid #FFF;
+}
+
+#footer {
+	height: 200px;
+	background: -webkit-gradient(linear, 0 0 , 0 10%, from(#490101), to(#780000));
+	background: -moz-linear-gradient(top,  #490101,  #780000 10%);
+}
+
+#footer_content {
+	margin: auto;
+	width: 920px;
+	padding: 20px 0;
+	text-align: center;
+}
+
+#footer_content a{
+	color: #fff;
+}
+
+#wrapper {
+	margin: auto;
+	width: 920px;
+}
+
+#header {
+	height: 80px;
+	color: #FFF;
+}
+
+#restaurant_name {
+	float:left;
+	padding: 30px 0 0 12px;
+}
+
+#restaurant_name a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 30px;
+}
+
+#restaurant_name a img {
+	border: none;
+}
+
+#address_phone {
+	padding-top:30px;
+	text-align: right;
+	font-size: 16px;
+}
+
+#sitenav {
+	margin: 32px 0 80px 0;
+	font-size: 16px;
+}
+
+#sitenav li {
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+
+#sitenav a{
+	color: #fff;
+	padding: 12px 15px;
+}
+
+#sitenav li.selected a {
+	background-color: #EBE5D8;
+	border: 1px solid #fff;
+	border-bottom: 1px #EBE5D8;
+	-moz-border-radius-topright: 5px;	
+	-moz-border-radius-topleft: 5px;	
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	color: #333;
+	
+}
+
+#homepage_image {
+	margin-bottom: 15px;
+}
+
+#homepage_content_left {
+	width: 600px;
+	float: left;
+	margin-right: 50px;
+}
+
+#homepage_content_left h1{
+	color: #860A0A;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+#homepage_reservations {
+	margin-left: 650px;
+}
+
+#homepage_reservations h2 {
+	padding: 12px 15px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#CA3739), to(#780000));
+	background: -moz-linear-gradient(top,  #CA3739,  #780000);
+	-moz-border-radius-topright: 5px;	
+	-moz-border-radius-topleft: 5px;	
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	color: #fff;
+}
+
+#homepage_reservations_fields {
+	background: -webkit-gradient(linear, left top, left bottom, from(#F7F5EF), to(#F2EEE5));
+	background: -moz-linear-gradient(top,  #F7F5EF,  #F2EEE5);
+	padding: 15px;
+}
+
+#homepage_reservations #label {
+	margin-bottom: 5px;
+}
+
+#homepage_reservations input {
+	width: 220px;
+	height: 15px;
+	padding: 5px;
+}
+
+#homepage_reservations select {
+	width: 236px;
+}
+
+#homepage_reservations .field {
+	margin-bottom: 20px;
+}
+
+#homepage_reservations input[type=submit] {
+	padding: 5px;
+	height: 33px;
+	width: 175px;
+	cursor: pointer;
+	background: -webkit-gradient(linear, left top, left bottom, from(#8BC51E), to(#438823));
+	background: -moz-linear-gradient(top,  #8BC51E,  #438823);
+	-moz-border-radius: 3px;	
+	-webkit-border-radius: 3px;
+	border: none;
+	color: #fff;
+}
+
+#homepage_reservations #submit {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+#footer {
+	clear: left;
+}
+
+/*
+**********************************************************
+Menu
+**********************************************************
+*/
+
+#menus_index_content {
+	height: 300px;
+}
+
+
+.menu_index_item {
+	width: 180px;
+	float: left;
+	position: relative;
+}
+
+.menu_index_item .image a {
+	position: absolute;
+	bottom: 30px;
+	text-align: center;
+	width: 100%;
+}
+
+.menu_index_item .image {
+	height: 300px;
+}
+
+.menu_index_item img {
+	border: none;
+}
+
+.menu_index_item h2 {
+	text-align: center;
+}
+
+#menu_menu {
+	height: 100px;
+	margin-bottom: 20px;
+	border-bottom: 1px dotted #ccc;
+	margin-left: 50px;
+	width: 700px;
+}
+
+#menu_menu li {
+	display: block;
+	float: left;
+	font-size: 18px;
+	padding-top: 44px;
+	height: 60px;
+	margin-right: 20px;
+}
+
+#menu_menu li.selected {
+	font-size: 24px;
+	color: #850A0A;
+	padding-top: 39px;
+}
+
+#menu_image {
+	float: left;
+	width: 70px;
+}
+
+#dishes {
+	clear: left;
+	margin-top: 50px;
+}
+
+.dish {
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.dish_name {
+	padding: 0 15px 0 0;
+	display: inline;
+	border-bottom: 1px solid #fff;
+	background-color: #fff;
+}
+
+.dish_left {
+	width: 700px;
+	float: left;
+}
+
+.dish_price {
+	margin-left: 720px;
+}
+
+.dot_dot_dot {
+	width: 700px;
+	border-bottom: 1px dotted #ccc;
+	position: absolute;
+	top: 8px;
+	z-index: -1;
+}
+
+.wine {
+	height: 30px;
+	position: relative;
+}
+
+.wine_name {
+	padding: 0 15px 0 0;
+	display: inline;
+	border-bottom: 1px solid #fff;
+	background-color: #fff;
+}
+
+.wine_left {
+	width: 600px;
+	float: left;
+}
+
+.wine_right {
+	margin-left: 630px;
+}
+
+.wine_right_item {
+	font-size: 11px;
+	float: left;
+	width: 50px;
+}
+
+.wine_headings {
+	height: 30px;
+	margin: 50px 0 10px 0;
+	font-size: 18px;
+	color: #333;
+}
+
+.dot_dot_dot_wine {
+	width: 600px;
+	border-bottom: 1px dotted #ccc;
+	position: absolute;
+	top: 8px;
+	z-index: -1;
+}
+
+/*
+**********************************************************
+Location
+**********************************************************
+*/
+
+#map_canvas {
+	width: 100%;
+	height: 300px;
+	margin-bottom: 10px;
+}
+
+/*
+**********************************************************
+Reservations
+**********************************************************
+*/
+
+#reservations_content_main {
+	padding: 10px 0
+}
+
+#reservations_text {
+	float:right;
+	width: 300px;
+	margin-right: 185px;
+	margin-top:22px;
+}
+
+#reservations_text p{
+	margin-bottom: 10px;
+}
+
+#reservation_form input {
+	border: 1px solid #999;
+	background: url(/images/admin/input_background.png);
+	padding: 8px;
+	width: 380px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	font-family: Arial;
+}
+
+#reservation_form input {
+}
+
+#reservation_form select {
+	width: 200px;
+	margin-bottom: 10px;
+}
+
+#reservation_form input[type=submit] {
+	padding: 5px;
+	height: 33px;
+	width: 175px;
+	cursor: pointer;
+	background: -webkit-gradient(linear, left top, left bottom, from(#8BC51E), to(#438823));
+	background: -moz-linear-gradient(top,  #8BC51E,  #438823);
+	-moz-border-radius: 3px;	
+	-webkit-border-radius: 3px;
+	border: none;
+	color: #fff;
+}
+
+.reservation_label {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+/*
+**********************************************************
+Gallery
+**********************************************************
+*/
+
+
+#thumbnails {
+	position: relative;
+	width:505px;
+	overflow: hidden;
+	height: 130px;
+}
+
+.block { 
+	position:absolute; 
+	left:0px;
+	height: 130px;
+	width: 1000%;
+	overflow: hidden;
+}
+
+.block img:hover {
+	cursor: pointer;
+}
+
+#gallery_main_image {
+	position: relative;
+	width:500px;
+	height: 333px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+#gallery_inner {
+	width:10000px;
+	position: relative;
+}
+
+#previous_main {
+	position: absolute;
+	top: 135px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+#next_main {
+	position: absolute;
+	top: 135px;
+	right: 0px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.block li {
+	float:left;
+	width: 113px;
+	height: 113px;
+	margin-right: 4px;
+	padding: 5px;
+	list-style-type: none;
+}
+
+.block li.selected {
+	border: 5px solid #333;
+	padding: 0px;
+	margin-right: 3px;
+}
+
+.block li img {
+	padding: 1px;
+}
+
+.block li.selected img {
+	padding: 0px;
+}
+
+
+.block li img:hover {
+	border: 1px solid black;
+	padding: 0px;
+}
+
+.block li.selected img:hover {
+	border: none;
+}
+
+#gallery_menu li.selected {
+	text-decoration: underline;
+}
+
+#gallery_caption {
+	float: right;
+	width: 200px;
+	margin-right: 200px;
+}
+
+/*
+**********************************************************
+Testimonials
+**********************************************************
+*/
+
+#testimonial_content {
+	padding: 20px;
+}
+
+.testimonial_text {
+	font-size: 16px;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.testimonial_wrapper {
+	border-bottom: 1px dotted #ccc;
+	width: 600px;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+}
+
+.testimonial_name {
+	font-weight: bold;
+	color: #333;
+}
+
+.quote_left {
+	height:10px;
+	width:13px;
+	background: url(/images/plane_food/quote.png) no-repeat;
+	position: absolute;
+	top: 0px;
+	left: -20px;
+}
+
+.quote_right {
+	height:10px;
+	width:13px;
+	background: url(/images/plane_food/quote.png) no-repeat;
+	position: absolute;
+	bottom: -10px;
+	right: -20px;
+}
+
+/*
+**********************************************************
+People
+**********************************************************
+*/
+
+#people_image {
+	float:left;
+	margin-right: 10px;
+}
+
+#people_content {
+	min-height: 400px;
+}
+
+.people_index_item {
+	height: 140px;
+}
+
+.people_image_index {
+	float:left;
+	margin-right: 10px;
+}
+
+.people_name_index {
+	font-size: 20px;
+	float: left;
+	margin-right: 5px;
+}
+
+.people_role_index {
+	font-size: 20px;	
+}
+
+/*
+**********************************************************
+Offer
+**********************************************************
+*/
+
+#offer_wrapper {
+	padding: 10px;
+	background-color: white;
+	-webkit-box-shadow: 0px 0px 5px #666;	
+}
+
+
+#offer_t_and_c {
+	margin: 20px 0px 10px 0px;
+}
+
+.offer_item {
+	height:150px;
+	position: relative;
+	width: 600px;
+}
+
+.offer_item_image {
+	float:left;
+	width: 240px;
+}
+
+.offer_submit {
+	background: -webkit-gradient(linear, left top, left bottom, from(#8BC51E), to(#438823));
+	background: -moz-linear-gradient(top,  #8BC51E,  #438823);
+	padding: 10px;
+	width: 100px;
+	-moz-border-radius: 3px;	
+	-webkit-border-radius: 3px;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	bottom: 40px;
+	right: 20px;
+	color: #fff;
+	text-align: center;
+}
+
+
+
+
+
+.offer_submit a, .offer_submit a:visited {
+	color: #fff;
+	text-shadow: none;
+}
+
+#offer_title {
+	
+}
+
+#offer_description {
+	margin-bottom: 20px;
+}

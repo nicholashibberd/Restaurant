@@ -1,0 +1,28 @@
+<div id="new_customer_form">
+	<% form_for @customer, :html => {:autocomplete => 'off'} do |f| %>
+	<%= f.error_messages %>
+	<div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :phone %><br />
+		<%= f.text_field :phone %>
+	</div>
+	<div class="field">
+		<%= f.label :email %><br />
+		<%= f.text_field :email %>
+	</div>
+	<div class="field">
+		<%= f.label :password %><br />
+		<%= f.password_field :password %>
+	</div>
+	<div class="field">
+		<%= f.label :password_confirmation %><br />
+		<%= f.password_field :password_confirmation %>
+	</div>
+	<div class="action">
+		<%= f.submit "Register", :class => 'button' %>
+	</div>
+	<% end %>
+</div>

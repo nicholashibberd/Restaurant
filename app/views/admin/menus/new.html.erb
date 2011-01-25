@@ -14,6 +14,10 @@
 			<%= f.label :Name %><br />
 			<%= f.text_field :name %><br />  
 		</div>
+		<div class="field">
+			<%= f.label :Menu_type %><br />
+			<%= f.select :menu_type, options_for_select([ "food", "wine" ], "food") %>
+		</div>
 		<div class="actions save">
 			<%= f.submit "Save" %>
 		</div>

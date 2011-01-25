@@ -1,15 +1,19 @@
 class PeopleController < ApplicationController
   def index
-    @people = Person.all
+    @people = @site.people.all
+		@photo_size = 'template' + @site.people_template.to_s + '_index'    
+		render_site_view
   end
 
   def show
-    @person = Person.find(params[:id])
-    @people = Person.all
+    @person = @site.people.find(params[:id])
+    @people = @site.people.all
+		@photo_size = 'template' + @site.people_template.to_s + '_show'
+		render_site_view		
   end
 
   def create
-     @person = Person.new(params[:person])
+     @person = @site.people.new(params[:person])
        if @person.save
         redirect_to :controller => 'admin/people', :action => 'index'
        else
@@ -18,7 +22,7 @@ class PeopleController < ApplicationController
    end
 
    def update
-     @person = Person.find(params[:id])
+     @person = @site.people.find(params[:id])
      if @person.update_attributes(params[:person])
        redirect_to :controller => 'admin/people', :action => 'index'
      else
@@ -27,7 +31,7 @@ class PeopleController < ApplicationController
    end
    
    def destroy
-     person = Person.find(params[:id]).destroy
+     person = @site.people.find(params[:id]).destroy
      redirect_to :controller => 'admin/people', :action => 'index'
    end
 

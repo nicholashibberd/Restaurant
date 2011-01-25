@@ -1,3 +1,4 @@
+<% content_for :sub_menu do %>
 <div id="gallery_menu">
 		<ul>
 			<li><%= link_to 'All', :controller => 'galleries', :action => 'index' %></li>
@@ -6,6 +7,7 @@
 			<% end %>
 		</ul>
 </div>
+<% end %>
 <div id="gallery_content">
 <h1><%= @gallery.name %></h1>
 	<div id="gallery_caption">
@@ -36,4 +38,4 @@
 	
 </div>
 
-<%= javascript_include_tag 'gallery' %>
+<%= javascript_include_tag @site.name + '/gallery' %>

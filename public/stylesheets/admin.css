@@ -24,7 +24,16 @@ a img {
 body {
   font-family: Arial;
   font-size: 12px;
-	font-weight: normal;
+  font-weight: normal;
+  background-color: #D8D8D8;
+}
+
+#header_background {
+	background: url(/images/admin/header_background.jpg);
+	height: 90px;
+	width: 100%;
+	position: absolute;
+	z-index: -1;
 }
 
 #envelope {
@@ -34,7 +43,7 @@ body {
 
 #wrapper {
   background-color: #d8d8d8;
-  padding: 15px 30px;
+  padding: 15px;
 }
 
 #content {
@@ -282,6 +291,15 @@ input[type=submit] {
 	padding: 4px;
 }
 
+input[type=submit].wide {
+margin-left: 603px;	
+}
+
+input[type=submit].search {
+margin-left: 603px;	
+}
+
+
 input[type=submit]:hover {
 	color: #3d5f88;
 	border: 1px solid #3d5f88;
@@ -306,6 +324,25 @@ input[type=submit]:hover {
 	padding-left: 20px;
 	
 }
+#geocode_button {
+	background: url(/images/admin/submit_buttons/tick.png) #E3E3E3;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+	width: 130px;
+	padding-left: 20px;
+	font-size: 14px;
+	padding: 3px 3px 3px 33px;
+	text-align: left;
+	float: right;
+	margin: 5px 136px 0 0;
+	
+}
+
+textarea {
+	margin-bottom: 10px;
+}
+
 
 
 /* 
@@ -370,13 +407,28 @@ Menus
 	margin-bottom: 20px;
 }
 
-#dishes .controls, #photos .controls, #testimonials .controls, #offers .controls, #menus .controls, #people .controls, #galleries .controls {
+#dishes .controls, 
+#photos .controls, 
+#testimonials .controls, 
+#offers .controls, 
+#menus .controls, 
+#people .controls, 
+#galleries .controls, 
+.wines .controls {
 	float: right;
 	margin-top: 25px;
 	
 }
 
-ul#menu li, ul#gallery li, ul#testimonials, ul#offers, ul#menus, ul#people, ul#galleries {
+ul#menu li,
+ul.menu li,
+ul#gallery li,
+ul#testimonials,
+ul#offers,
+ul#menus,
+ul.menu,
+ul#people,
+ul#galleries {
 	list-style-type: none;
 	padding: 5px;
 	margin-bottom: 5px;
@@ -411,7 +463,45 @@ select#user_status {
 	width: 200px;
 }
 
+/* 
+************************************************************
+Wines
+************************************************************
+*/
 
+.wines {
+	margin-bottom: 20px;
+}
+
+
+.dish_name {
+	float: left;	
+	width:450px;	
+}
+
+.wine_details {
+	font-size:12px;
+	background: url(/images/admin/orderable_menu_background.png);
+	width:550px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;	
+	padding: 10px;
+	position: relative;	
+}
+
+.wine_price {
+	text-align: right;
+	margin-right: 10px;
+}
+
+select#menu_menu_type {
+	width: 150px;
+}
+
+#index_menu_type {
+	font-size: 12px;
+}
 
 
 /* 
@@ -472,20 +562,20 @@ input.opening_input {
 .opening_label {
 	float: left;
 	height: 38px;
-	width: 150px;
+	width: 170px;
 	padding-top: 12px;
 }
 
 .opening_open {
 	float:left;
-	width: 150px;
+	width: 230px;
 
 	position: relative;
 }
 
 .opening_close {
-	width: 150px;
-	margin-left: 350px;
+	width: 200px;
+	margin-left: 393px;
 	position: relative;
 }
 

@@ -1,0 +1,10 @@
+<% content_for :head do %>
+<%= javascript_include_tag 'gmaps' %>
+<%= render 'layouts/gmaps_settings' %>
+<% end %>
+<div id="map_canvas"></div>
+<h1>Our location</h1>
+<div id="location_address">
+	<h3><%= @site.address %></h3>
+</div>
+<p><%= @site.directions %></p>

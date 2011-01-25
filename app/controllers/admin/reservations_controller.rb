@@ -2,7 +2,7 @@ class Admin::ReservationsController < AdminController
   
   def index
                 
-        @reservations = Reservation
+        @reservations = @site.reservations
                   
         if params[:customer]
            @reservations = @reservations.customer(params[:customer])
@@ -25,10 +25,10 @@ class Admin::ReservationsController < AdminController
         end
                 
         if @reservations == Reservation
-          @reservations = Reservation.all
+          @reservations = @site.reservations.all
         end
         
-        @unique_names = Reservation.all(:select => "DISTINCT name")
+        @unique_names = @site.reservations.all(:select => "DISTINCT name")
         
   end
 end

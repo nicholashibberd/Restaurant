@@ -27,5 +27,5 @@ class Reservation < ActiveRecord::Base
   def input_date
     self.date
   end
-  
+    
 end

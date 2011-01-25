@@ -1,8 +1,8 @@
 class InfoController < ApplicationController
-   include Geokit::Geocoders  
+   include Geokit::Geocoders
 
    def show
-     @info = Info.find(params[:id])
+     @info = @site.info.find(params[:id])
      @address = @info.address
 
        @user_location = MultiGeocoder.geocode(@address)
@@ -22,7 +22,7 @@ class InfoController < ApplicationController
 
 
   def update
-    @info = Info.find(1)
+    @info = @site.info.find(1)
     if @info.update_attributes(params[:info])
       redirect_to :controller => 'admin/info', :action => 'edit', :id => 1
     else

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title><%= @site.name %></title>
+	<%= stylesheet_link_tag 'malago', :media => 'screen' %>
+	<%= javascript_include_tag 'jquery' %>
+	<%= stylesheet_link_tag 'cupertino/jquery-ui.css' %>
+	<%= yield :head %>
+</head>
+<body>
+	<div id="background">
+		<div id="background_header">
+		</div>
+		<div id="background_content">
+		</div>
+	</div>	
+	<div id="wrapper">
+		<div id="header">
+			<%= render 'layouts/header' %>
+		</div>
+		<div id="site_nav">
+			<%= render 'layouts/sitenav' %>			
+		</div>
+		<div id="<%= params[:controller] %>_<%= params[:action] %>_content" class="<%= params[:controller] %>_content content clearfix">
+			<% flash.each do |key, value| %> 
+			<div class="flash <%= key %>"><%= value %></div>
+			<% end %>
+			<%= yield %>
+		</div>
+	</div>
+	<%= render 'layouts/footer' %>
+</body>
+</html>
+

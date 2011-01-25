@@ -2,21 +2,21 @@ class Admin::PagesController < AdminController
   uses_yui_editor
   
   def index
-    @pages = Page.find(:all)
+    @pages = @site.pages.find(:all)
   end
   
   def show
-    @page = Page.find(params[:id])
+    @page = @site.pages.find(params[:id])
   end
   
   def new
-    @page = Page.new
+    @page = @site.pages.new
     @page.elements.build
     
   end
     
   def edit
-    @page = Page.find(params[:id])
+    @page = @site.pages.find(params[:id])
     # add an extra new record for debugging purposes
     #@page.elements.build
     #@page.tags.build

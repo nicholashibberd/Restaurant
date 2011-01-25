@@ -8,7 +8,7 @@ module SessionsHelper
   end
   
   def current_user=(user)
-    @current_user = user
+   @current_user = user
   end
   
   def current_user

@@ -1,7 +1,9 @@
 <div id="footer">
-
-<% @pages.each do |page| %>
-	<%= link_to page.name, :controller => 'pages', :action => 'show', :id => page.id %>&nbsp;&nbsp;&nbsp; 
-<% end %>
-
+	<div id="footer_content">
+		<% if @pages %>
+			<% @pages.each do |page| %>
+			<%= link_to page.name, :controller => 'pages', :action => 'show', :id => page.id %>&nbsp;&nbsp;&nbsp; 
+			<% end %>
+		<% end %>		
+	</div>
 </div>

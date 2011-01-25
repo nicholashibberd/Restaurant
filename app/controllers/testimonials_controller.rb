@@ -1,25 +1,25 @@
 class TestimonialsController < ApplicationController
   def new
-    @testimonial = Testimonial.new
+    @testimonial = @site.testimonials.new
   end
   
   def show
-    @testimonial = Testimonial.find(params[:id])
+    @testimonial = @site.testimonials.find(params[:id])
   end
   
   def index
-    @testimonials = Testimonial.all
+    @testimonials = @site.testimonials.all
   end
   
   def admin
   end
   
   def edit
-    @testimonial = Testimonial.find(params[:id])
+    @testimonial = @site.testimonials.find(params[:id])
   end
   
    def update
-    @testimonial = Testimonial.find(params[:id])
+    @testimonial = @site.testimonials.find(params[:id])
     if @testimonial.update_attributes(params[:testimonial])
       redirect_to :controller => 'admin/testimonials', :action => 'index'
     else
@@ -28,7 +28,7 @@ class TestimonialsController < ApplicationController
   end
   
    def create
-    @testimonial = Testimonial.new(params[:testimonial])
+    @testimonial = @site.testimonials.new(params[:testimonial])
     if @testimonial.save
       redirect_to :controller => 'admin/testimonials', :action => 'index'
     else
@@ -37,7 +37,7 @@ class TestimonialsController < ApplicationController
   end
   
   def destroy
-    testimonial = Testimonial.find(params[:id]).destroy
+    testimonial = @site.testimonials.find(params[:id]).destroy
       redirect_to :controller => 'admin/testimonials', :action => 'index'
   end
 

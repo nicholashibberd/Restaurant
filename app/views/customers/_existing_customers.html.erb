@@ -1,0 +1,15 @@
+<% form_for(:customer_session, :url => customer_sessions_path, :html => {:autocomplete => 'off'}) do |f| %> 
+<%= f.error_messages %>
+<div class="field">
+	<%= f.label :email %><br />
+	<%= f.text_field :email %>
+</div>
+<div class="field">
+	<%= f.label :password %><br /> 
+	<%= f.password_field :password %>
+</div> 
+<div class="actions save">
+	<%= f.submit "Sign in", :class => 'button' %> 
+</div>
+<% end %> 
+

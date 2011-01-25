@@ -1,0 +1,5 @@
+<% if customer_signed_in? %>
+	<div id="customer_status">
+		Signed in as: <%= current_customer.name %> - <%= link_to "Sign out", signout_path, :method => :delete %>
+	</div>
+<% end %>

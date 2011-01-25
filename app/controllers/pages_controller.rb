@@ -1,14 +1,14 @@
 class PagesController < ApplicationController
   def index
-    @pages = Page.find(:all)
+    @pages = @site.pages.find(:all)
   end
   
   def show
-    @page = Page.find(params[:id])
+    @page = @site.pages.find(params[:id])
   end
     
   def create
-    @page = Page.new(params[:page])
+    @page = @site.pages.new(params[:page])
     if @page.save
       flash[:notice] = "Successfully created page."
         redirect_to :controller => 'admin/pages', :action => 'index'
@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   end
   
   def update
-    @page = Page.find(params[:id])
+    @page = @site.pages.find(params[:id])
     @page.attributes = params[:page]
     if @page.save
       flash[:notice] = "Successfully updated page."
@@ -29,7 +29,7 @@ class PagesController < ApplicationController
   end
   
   def destroy
-    @page = Page.find(params[:id])
+    @page = @site.pages.find(params[:id])
     @page.destroy
     flash[:notice] = "Successfully destroyed page."
     redirect_to :controller => 'admin/pages', :action => 'index'

@@ -1,11 +1,10 @@
-<head>
-	<%= GMap.header(:host => request.host) %>
-	<title>Our location</title>
-</head>
-<h1>Our location</h1>
-<%= @map.to_html %>
-<%= @map.div(:width => 880, :height => 300) %>
+<% content_for :head do %>
+<%= javascript_include_tag 'gmaps' %>
+<%= render 'layouts/gmaps_settings' %>
+<% end %>
+<div id="map_canvas"></div>
+<h1>Our location (Default template)</h1>
 <div id="location_address">
-	<h3><%= @info.address %></h3>
+	<h3><%= @site.address %></h3>
 </div>
-<p><%= @info.directions %></p>
+<p><%= @site.directions %></p>

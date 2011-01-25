@@ -1,4 +1,4 @@
-
+<% content_for :sub_menu do %>
 <div id="menu_menu">
 		<ul>
 			<li class="selected">All</li>
@@ -6,32 +6,15 @@
 			<li><%= link_to menu.name, :controller => 'menus', :action => 'show', :id => menu.id %></li>
 			<% end %>
 		</ul>
-	
 </div>
-
+<% end %>
 <div id="menu_content">
-<h1>Menu</h1>	
-<% @menus.each do |menu| %>
-  <div class="menu_section">
-  <h2 class="menu_name"><%= menu.name %></h2>
-     <% for dish in menu.dishes %>
-		<div class="dish">
-			<div class="dish_right">
-				<div class="dish_price">
-					<%= dish.price %>
-				</div>
-			</div>
-			<div class="dish_name">
-				<%= dish.name %>
-			</div>
-			<div class="dish_description">
-				<%= dish.description %>
-			</div>
-
-		</div>
-     <% end %>
-	  
-  </div>
+<% @menus.each do |@menu| %>
+	<% if @menu.menu_type == 'food' %>
+		<%= render 'menus/food_menu_show' %>
+	<% else %>
+		<%= render 'menus/wine_menu_show' %>
+	<% end %>
 <% end %>
 </div>
 

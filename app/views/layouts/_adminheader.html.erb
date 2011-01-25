@@ -1,5 +1,5 @@
 <ul id="top_nav">
-	<li class="<%= controller.class == Admin::InfoController ? 'selected' : '' %>"><%= link_to "Restaurant details", :controller => 'admin/info', :action => 'edit', :id => 1 %></li>
+	<li class="<%= controller.class == Admin::InfoController ? 'selected' : '' %>"><%= link_to "Restaurant details", :controller => 'admin/sites', :action => 'index' %></li>
 	<li class="<%= controller.class == Admin::MenusController ? 'selected' : '' %>"><%= link_to "Menus", :controller => 'admin/menus', :action => 'index' %></li>
 	<li class="<%= controller.class == Admin::OffersController ? 'selected' : '' %>"><%= link_to "Offers", :controller => 'admin/offers', :action => 'index' %></li>
 	<li class="<%= controller.class == Admin::GalleriesController ? 'selected' : '' %>"><%= link_to "Galleries", :controller => 'admin/galleries', :action => 'index' %></li>

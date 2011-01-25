@@ -10,7 +10,13 @@ class Photo < ActiveRecord::Base
     :path => "/:style/:filename",
      :styles => {
        :thumb => "100x100#",
-       :small  => "300x200>" }
+       :small  => "300x200#",
+       :thumbnail => "225x150#",
+       :brasserie => "600x400#",
+       :planefood => "500x333#" }
+       
+       # # = exact aspect ratio
+       # > = makes the largest size the size you specify
 
     attr_accessible :name, :photo, :gallery_id, :caption    
 

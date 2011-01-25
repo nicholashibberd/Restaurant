@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation, :status
+  attr_accessible :name, :email, :password, :password_confirmation, :status, :site_id
   
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   
   before_save :encrypt_password
   
-  def has_password?(submitted_password) 
+  def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
   end
   
@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   
   def encrypt_password 
     unless password.nil?
-      self.salt = make_salt 
+      self.salt = make_salt
       self.encrypted_password = encrypt(password)
     end
   end
@@ -47,11 +47,11 @@ class User < ActiveRecord::Base
     secure_hash("#{salt}#{string}")
   end
   
-  def make_salt 
+  def make_salt
     secure_hash("#{Time.now.utc}#{password}")
   end
   
-  def secure_hash(string) 
+  def secure_hash(string)
     Digest::SHA2.hexdigest(string)
   end
     

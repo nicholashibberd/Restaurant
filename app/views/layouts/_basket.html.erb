@@ -1,0 +1,38 @@
+
+<div id="basket">
+	<h3>Basket</h3>
+	<ul>
+		<% current_order.items.each do |item| %>
+		<li><div class="dish">
+				<div class="price">
+					<%= pound_amount(item.total) %>
+					<div class="remove">
+						<% form_tag ({:controller => 'orders', :action => 'basket_remove' }) do %>
+							<%= hidden_field_tag :order_id, current_order.id %>
+							<%= hidden_field_tag :dish_id, item.dish.id %>
+							<%=  submit_tag 'Remove' %>
+						<% end %>
+					</div>
+				</div>
+				<div class="dish_name">
+					<%= item.dish.name %> <%= item.quantity_display %>
+				</div>
+			</div>
+		</li>
+		<% end %>
+		<li><div id="total">
+				<div class="price"><%= pound_amount(current_order.total) %></div>
+				<div>Total</div>
+			</div>
+		</li>
+	</ul>
+	<% page = request.path_parameters['controller'] + "/" + request.path_parameters['action'] %>
+	
+	<% if page == 'orders/edit' %>
+		<% if customer_signed_in? %>
+			<%= link_to 'Continue', delivery_path, :class => 'button', :id => 'orders_continue_button' %>
+		<% else %>
+			<%= link_to 'Continue', details_path, :class => 'button', :id => 'orders_continue_button' %>
+		<% end %>
+	<% end %>
+</div>

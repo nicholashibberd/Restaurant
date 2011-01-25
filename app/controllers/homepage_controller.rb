@@ -1,8 +1,21 @@
 class HomepageController < ApplicationController
   
   def index
-    @offers = Offer.all
-    @info = Info.find(1)
+    @offers = @site.offers.all
+    @info = @site
     @title = 'Welcome to My Restauant'
   end
+  
+  def brasserie
+    
+  end
+  
+  def planefood
+    
+  end
+  
+  def thegrill
+    
+  end
+
 end

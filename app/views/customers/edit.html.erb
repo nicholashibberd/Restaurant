@@ -1,0 +1,43 @@
+<%= render 'layouts/progress_bar' %>
+<% if current_order.nil? %>
+<h1>Nil order</h1>
+<% else %>
+<%= render 'layouts/basket' %>
+<% end %>
+<div class="details_section">
+	<% form_for @customer, :html => {:autocomplete => 'off'} do |f| %>
+	<%= f.error_messages %>
+	<div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :phone %><br />
+		<%= f.text_field :phone %>
+	</div>
+	<div class="field">
+		<%= f.label :email %><br />
+		<%= f.text_field :email %>
+	</div>
+	<div class="field">
+		<%= f.label :address1 %><br />
+		<%= f.text_field :address1 %>
+	</div>
+	<div class="field">
+		<%= f.label :address2 %><br />
+		<%= f.text_field :address2 %>
+	</div>
+	<div class="field">
+		<%= f.label :city %><br />
+		<%= f.text_field :city %>
+	</div>
+	<div class="field">
+		<%= f.label :postcode %><br />
+		<%= f.text_field :postcode %>
+	</div>
+	<div class="action">
+		<%= f.submit "Update", :class => 'button' %>
+	</div>
+	<% end %>
+
+</div>

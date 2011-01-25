@@ -3,11 +3,11 @@ class Admin::InfoController < AdminController
   include Geokit::Geocoders
   
   def show
-    @info = Info.find(1)
+    @info = @site.info
   end
 
   def edit
-    @info = Info.find(1)
+    @info = @site.info
      @address = @info.address
 
         @location = MultiGeocoder.geocode(@address)

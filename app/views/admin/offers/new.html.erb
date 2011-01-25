@@ -1,38 +1,36 @@
+<%= include_yui_editor_if_used %>
 <% content_for :header_tag do %>
-<h1>Add new offer</h1>
+<h1>New offer</h1>
 <% end %>
 
 <div class="content_unit">
 	<div class="heading">
 		<h3 class="heading">Add new offer</h3>
-		<p class="help_text">Please enter the offer details below and click save to save</p>
+		<p class="help_text">Enter the new offer details below and click save to save</p>
 	</div>	
 
-	<div class="user_input index_items">
-		<% form_for(@offer, :html => { :multipart => true }) do |f| %>
-		<div class="field">
-			<%= f.label :Title %><br />
-			<%= f.text_field :title %><br />  
-		</div>
-		<div class="field">
-			<%= f.label :Description %><br />
-			<%= f.text_field :description %><br />  
-		</div>
-		<div class="field">
-			<%= f.label :Start_date %><br />
-			<%= f.text_field :start_date, :class => 'datepicker' %><br />  
-		</div>
-		<div class="field">
-			<%= f.label :End_date %><br />
-			<%= f.text_field :end_date, :class => 'datepicker' %><br />  
-		</div>
-		<div class="photo"> 
-	    <%= f.label :File %><br />
-		<%= f.file_field :photo %>
-		</div>
-		<div class="actions save">
-			<%= f.submit "Save" %>
-		</div>
-		<% end %>
+<div class="user_input">
+	<% form_for(@offer, :html => { :multipart => true }) do |f| %>
+	<div class="field">
+		<%= f.label :Title %><br />
+		<%= f.text_field :title %><br />  
 	</div>
+	<div class="field">
+		<%= f.label :Description %><br />
+		<%= f.text_field :description %><br />  
+	</div>
+	<div class="photo"> 
+    <%= f.label :File %><br />
+	<%= f.file_field :photo %>
+	</div>
+	<div class="photo"> 
+    <%= f.label :Offer_conditions %><br />
+	<%= f.text_area :conditions, :class => 'rich_text_editor', :style => 'width: 700px; height: 200px' %><br />  
+	</div>
+
+	<br />
+	<div class="actions update">
+		<%= f.submit "Save", :class => 'wide' %>
+	</div>
+	<% end %>
 </div>

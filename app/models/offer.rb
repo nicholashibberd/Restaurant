@@ -8,10 +8,13 @@ class Offer < ActiveRecord::Base
     :path => "/:style/:filename",
     :styles => {
        :thumb => "100x100#",
-       :home  => "565x300>",
-       :index  => "226x120>" }
+       :home  => "565x300#",
+       :index  => "226x120#" }
        
-    attr_accessible :title, :description, :photo, :start_date, :end_date, :conditions  
+       # # = exact aspect ratio
+       # > = makes the largest size the size you specify
+       
+    attr_accessible :title, :description, :photo, :start_date, :end_date, :conditions, :site_id  
 
 end
 

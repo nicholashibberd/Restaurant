@@ -1,0 +1,8 @@
+<% @menus.each do |menu| %>
+<div class="menu_index_item">
+	<div class="image">
+	<%= link_to (image_tag "#{@site.theme}/menus/#{menu.name}.jpg"), :action => 'show', :id => menu.id %>
+</div>
+<h2><%= link_to menu.name, :action => 'show', :id => menu.id %></h2>
+</div>
+<% end %>

@@ -1,3 +1,4 @@
+<% content_for :sub_menu do %>
 <div id="people_menu">
 	<ul>
 		<li class="selected">All</li>
@@ -7,19 +8,25 @@
 	</ul>
 
 </div>
-
+<% end %>
 <div id="people_content">
+<div id="people_header">
 <h1>Our staff</h1>
+</div>
 <% @people.each do |person| %>
 <div class="people_index_item">
 	<div class="people_image_index">
-		<%= image_tag person.photo.url(:thumb) %>
+
+		<%= image_tag person.photo.url(@photo_size) %>
 	</div>
 	<div class="people_name_index">
-		<%= person.name %>
+		<%= link_to person.name, :action => 'show', :id => person.id %> - 
 	</div>
 	<div class="people_role_index">
 		<%= person.role %>
+	</div>
+	<div class="people_profile_index">
+		<%= truncate(person.profile, :length => 400, :omission => '...') %>
 	</div>
 </div>
 <% end %>

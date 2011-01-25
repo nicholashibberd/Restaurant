@@ -1,0 +1,11 @@
+<%= render 'layouts/progress_bar' %>
+<%= render 'layouts/basket' %>
+<div id="order_form">
+<%= render 'orders/order_form' %>
+</div>
+
+<% if customer_signed_in? %>
+	<%= link_to 'Continue', delivery_path, :class => 'button' %>
+<% else %>
+	<%= link_to 'Continue', details_path, :class => 'button' %>
+<% end %>

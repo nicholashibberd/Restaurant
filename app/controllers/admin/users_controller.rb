@@ -3,19 +3,19 @@ class Admin::UsersController < AdminController
   before_filter :admin_required, :only => [:edit]
   
   def show
-    @user = User.find(params[:id])
+    @user = @site.users.find(params[:id])
   end
   
   def new
-    @user = User.new
+    @user = @site.users.new
   end
   
   def index
-    @users = User.all
+    @users = @site.users.all
   end
   
   def edit
-    @user = User.find(params[:id])
+    @user = @site.users.find(params[:id])
   end
   
 end

@@ -16,10 +16,10 @@
 		</div>
 		<div class="field">
 			<%= f.label :Testimonial %><br />
-			<%= f.text_area :testimonial, :cols => '72' %><br />  
+			<%= f.text_area :testimonial, :style => 'width: 700px; height: 200px' %><br />  
 		</div>
-		<div class="actions save">
-			<%= f.submit "Save" %>
+		<div class="actions update">
+			<%= f.submit "Update", :class => 'wide' %>
 		</div>
 		<% end %>
 	</div>

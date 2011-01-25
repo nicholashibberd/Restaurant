@@ -1,20 +1,20 @@
 class Admin::GalleriesController < AdminController
   def index
-    @galleries = Gallery.all
-    @gallery = Gallery.new    
+    @galleries = @site.galleries.all
+    @gallery = @site.galleries.new    
   end
 
   def edit
-    @gallery = Gallery.find(params[:id])
+    @gallery = @site.galleries.find(params[:id])
      @photo = Photo.new
   end
 
   def new
-    @gallery = Gallery.new
+    @gallery = @site.galleries.new
   end
   
    def order_photos
-     gallery = Gallery.find(params[:id])
+     gallery = @site.galleries.find(params[:id])
      photos = gallery.photos
      photos.each do |photo|
        photo.position = params['photo'].index(photo.id.to_s) + 1
@@ -24,7 +24,7 @@ class Admin::GalleriesController < AdminController
    end
    
    def order_galleries
-     galleries = Gallery.all
+     galleries = @site.galleries.all
      galleries.each do |gallery|
        gallery.position = params['gallery'].index(gallery.id.to_s) + 1
        gallery.save

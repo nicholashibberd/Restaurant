@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100926173643) do
+ActiveRecord::Schema.define(:version => 20110124073743) do
+
+  create_table "customers", :force => true do |t|
+    t.string   "name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.string   "remember_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "site_id"
+  end
 
   create_table "datafiles", :force => true do |t|
     t.datetime "created_at"
@@ -20,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.integer  "menu_id"
     t.string   "name"
     t.string   "description"
-    t.string   "price"
+    t.integer  "price",       :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
@@ -38,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+    t.integer  "site_id"
   end
 
   create_table "infos", :id => false, :force => true do |t|
@@ -49,6 +66,15 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.datetime "updated_at"
     t.text     "content"
     t.text     "directions"
+    t.integer  "site_id"
+  end
+
+  create_table "items", :force => true do |t|
+    t.integer  "dish_id"
+    t.integer  "quantity"
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "menus", :force => true do |t|
@@ -56,6 +82,8 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+    t.integer  "site_id"
+    t.string   "menu_type"
   end
 
   create_table "offers", :force => true do |t|
@@ -71,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.datetime "photo_updated_at"
     t.text     "conditions"
     t.integer  "position"
+    t.integer  "site_id"
   end
 
   create_table "opening_times", :force => true do |t|
@@ -80,6 +109,16 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "info_id"
+    t.integer  "site_id"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "time"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "site_id"
   end
 
   create_table "pages", :force => true do |t|
@@ -87,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "content"
+    t.integer  "site_id"
   end
 
   create_table "people", :force => true do |t|
@@ -100,6 +140,7 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+    t.integer  "site_id"
   end
 
   create_table "photos", :force => true do |t|
@@ -124,6 +165,29 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.integer  "number_of_people"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "site_id"
+  end
+
+  create_table "sites", :force => true do |t|
+    t.string   "name"
+    t.string   "domain"
+    t.string   "theme"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "phone"
+    t.string   "address"
+    t.text     "content"
+    t.text     "directions"
+    t.string   "latlong"
+    t.integer  "menus_template"
+    t.integer  "checkout_template"
+    t.integer  "galleries_template"
+    t.integer  "homepage_template"
+    t.integer  "location_template"
+    t.integer  "offers_template"
+    t.integer  "people_template"
+    t.integer  "reservations_template"
+    t.integer  "testimonials_template"
   end
 
   create_table "testimonials", :force => true do |t|
@@ -132,6 +196,7 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+    t.integer  "site_id"
   end
 
   create_table "users", :force => true do |t|
@@ -143,9 +208,23 @@ ActiveRecord::Schema.define(:version => 20100926173643) do
     t.string   "salt"
     t.string   "remember_token"
     t.string   "status"
+    t.integer  "site_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "wines", :force => true do |t|
+    t.string   "name"
+    t.integer  "price",      :limit => 255
+    t.integer  "small",      :limit => 255
+    t.integer  "large",      :limit => 255
+    t.integer  "carafe",     :limit => 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "category"
+    t.integer  "menu_id"
+    t.integer  "position"
+  end
 
 end

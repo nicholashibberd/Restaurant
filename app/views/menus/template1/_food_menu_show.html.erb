@@ -1,0 +1,25 @@
+<div id="menu_image">
+	<%= image_tag "thegrill/menus/#{@menu.name}_thumb.png" %>
+</div>
+<ul id="menu_menu">
+	<% @menus.each do |menu| %>
+	<%= menu_item(menu) %>
+	<% end %>
+</ul>
+<div id="dishes">
+	<% @menu.dishes.each do |dish| %>
+	<div class="dish">
+		<div class="dish_left">
+			<div class="dish_name">
+				<%= dish.name %>
+			</div>
+		</div>
+		<div class="dot_dot_dot">
+		</div>
+		<div class="dish_price">
+			<%= pound_amount(dish.price) %>
+		</div>
+
+	</div>
+	<% end %>
+</div>

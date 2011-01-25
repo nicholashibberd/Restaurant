@@ -1,0 +1,40 @@
+<% content_for :head do %>
+<%= javascript_include_tag 'datepicker' %>
+<script type="text/javascript">
+	$(function() {
+		$("#datepicker").datepicker({dateFormat: 'DD d MM yy', firstDay: 1});
+	});
+</script>
+<% end %>
+<div id="order_online_button">
+<% form_for (@order) do |f| %>
+	<%= f.submit 'Order online' %>
+	<% end %>
+</div>
+<div id="homepage_image">
+<%= image_tag 'malago/homepage_main.jpg' %>
+</div>
+<div id="homepage_content_left">
+	<h1>Welcome to <%= @site.name %></h1>
+	<p><%= @site.content %></p>
+</div>
+<div id="homepage_reservations">
+	<h2>Reservations</h2>
+	<div id="homepage_reservations_fields">
+		<% form_tag (:controller => 'reservations', :action => 'new') do %>
+		<div class="field">
+			<%= text_field_tag 'datepicker', 'When would you like to visit?'  %>
+		</div>
+		<div class="field">
+			<%= select_tag :time, options_for_select([ ["Time", ""], "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00"], "") %>
+		</div>
+		<div class="field">
+			<%= select_tag :number_of_people, options_for_select([['Number of people', ""], 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], "") %>
+		</div>
+		<div class="field" id="submit">
+			<%= submit_tag 'Leave your details and book' %>
+			<% end %>
+		</div>
+	</div>
+</div>
+

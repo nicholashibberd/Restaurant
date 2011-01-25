@@ -1,0 +1,8 @@
+<div id="menu_menu">
+		<ul>
+			<li class="selected">All</li>
+			<% @menus.each do |menu| %>
+			<li><%= link_to menu.name, :controller => 'menus', :action => 'show', :id => menu.id %></li>
+			<% end %>
+		</ul>
+</div>

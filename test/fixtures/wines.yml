@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  price: MyString
+  small: MyString
+  large: MyString
+  carafe: MyString
+
+two:
+  name: MyString
+  price: MyString
+  small: MyString
+  large: MyString
+  carafe: MyString

@@ -16,7 +16,7 @@ class PhotosController < ApplicationController
      if @photo.save
      redirect_to :controller => 'admin/galleries', :action => 'edit', :id => @photo.gallery_id
      else
-      render 'admin/galleies/index'
+      render 'admin/galleries/index'
      end
    end
 

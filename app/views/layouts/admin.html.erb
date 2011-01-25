@@ -2,19 +2,21 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Admin system</title>
+    <title><%= @site.name %> Admin</title>
     <%= stylesheet_link_tag 'admin', :media => 'screen' %>
 	 <%= stylesheet_link_tag 'cupertino/jquery-ui.css' %> 
 	<%= javascript_include_tag 'jquery', 'jquery-ui' %>
 	 <%= yield :head %>
   </head>
   <body>
+	<div id="header_background">
+	</div>
 	<div id="envelope">
 		<div id="header">
 			<div id="user_status">
 				<%= render 'layouts/user_status' %>
 			</div>
-			<h1><%= link_to "Admin System", admin_path %></h1>
+			<h1><%= link_to @site.name + ' Admin', admin_path %></h1>
 			<%= render 'layouts/adminheader' %>
 		</div>
 		<div id="wrapper">

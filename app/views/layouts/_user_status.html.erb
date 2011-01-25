@@ -1,5 +1,5 @@
 <% if signed_in? %>
-	Signed in as: <%= current_user.status.titlecase %>: 
+	Signed in as: <%= current_user.name.titlecase %>: 
 	<span id="sign_in_out_link"><%= link_to "Sign out", signout_path, :method => :delete %></span>
 <% else %>
 		<span id="sign_in_out_link"><%= link_to "Sign in", signin_path %></span>

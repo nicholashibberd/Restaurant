@@ -1,0 +1,77 @@
+<%= render 'layouts/progress_bar' %>
+<h2 id="confirm">Confirm details</h2>
+<div id="confirm_dishes" class="confirm_section">
+	<h3>
+		Your order
+		<div class="edit">
+			<%= link_to 'Edit', :controller => 'orders', :action => 'edit', :id => current_order.id %>
+		</div>
+	</h3>
+	<ul>
+		<% current_order.items.each do |item| %>
+		<li><div class="dish">
+				<div class="price"><%= pound_amount(item.total) %></div>
+				<div class="dish_name"><%= item.dish.name %> <%= item.quantity_display %></div>
+			</div>
+		</li>
+		<% end %>
+		<li><div id="total">
+				<div class="price"><%= pound_amount(current_order.total) %></div>
+				<div class="dish_name">Total</div>
+			</div>
+		</li>
+	</ul></div>
+
+<div id="confirm_delivery" class="confirm_section">
+	<h3>
+		Delivery
+		<div class="edit">
+			<%= link_to 'Edit', delivery_path %>
+		</div>
+	</h3>
+	<div class="confirm_item clearfix">
+		<div class="confirm_right"><%= @order.time %></div>
+		<div class="confirm_left">Time:</div>
+	</div>
+	<div class="confirm_item clearfix">
+		<div class="confirm_right"><%= @customer.address1 %></div>
+		<div class="confirm_left">Address 1:</div>
+	</div>
+	<div class="confirm_item clearfix">
+		<div class="confirm_right"><%= @customer.address2 %></div>
+		<div class="confirm_left">Address 2:</div>
+	</div>
+	<div class="confirm_item clearfix">
+		<div class="confirm_right"><%= @customer.city %></div>
+		<div class="confirm_left">City:</div>
+	</div>
+	<div class="confirm_item clearfix">
+		<div class="confirm_right"><%= @customer.postcode %></div>
+		<div class="confirm_left">Postcode:</div>
+	</div>
+</div>
+
+<div id="confirm_customer" class="confirm_section">
+	<h3>
+		Your details
+		<div class="edit">
+			<%= link_to 'Edit', :controller => 'customers', :action => 'edit', :id => current_customer.id %>
+		</div>	
+	</h3>
+	<div class="confirm_item clearfix">
+		<div class="confirm_right"><%= @customer.name %></div>
+		<div class="confirm_left">Name:</div>
+	</div>
+	<div class="confirm_item clearfix">
+		<div class="confirm_right"><%= @customer.phone %></div>
+		<div class="confirm_left">Phone:</div>
+	</div>
+	<div class="confirm_item clearfix">
+		<div class="confirm_right"><%= @customer.email %></div>
+		<div class="confirm_left">Email:</div>
+	</div>
+</div>
+
+<div class="button" id="payment_button">
+	<%= link_to 'Proceed to payment', payment_path, :class => 'button' %>
+</div>

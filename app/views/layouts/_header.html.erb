@@ -1,31 +1,12 @@
-<div id="header">
-	<div id="header_top">
-		<div id="restaurant_name">
-		<h1><%= @info.name %></h1>
-		</div>
-		<div id="address_phone">
-			<div id="phone_number">
-				<%= @info.phone %>
-			</div>	
-			<div id="address">
-				<%= @info.address %>
-			</div>
-		</div>
-	</div>
-	<div id="top_nav">
-		<ul>
-			<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "Menus", :controller => 'menus', :action => 'index' %></li>
-			<li><%= link_to "Location", :controller => 'location', :action => 'index' %></li>
-			<li><%= link_to "Galleries", :controller => 'galleries', :action => 'index' %></li>
-			<li><%= link_to "Offers", :controller => 'offers', :action => 'index' %></li>
-			<li><%= link_to "Testimonials", :controller => 'testimonials', :action => 'index' %></li>
-			<li><%= link_to "People", :controller => 'people', :action => 'index' %></li>			
-			<li><%= link_to "Reservations", :controller => 'reservations', :action => 'new' %></li>
-		</ul>
-		<% if signed_in? %>
-		<%= link_to "Admin", admin_path %>
-		<% end %>
-	</div>
-
+<div id="restaurant_name">
+	<h1><%= logo %></h1>
 </div>
+<div id="address_phone">
+	<div id="phone">
+		<%= @site.phone %>
+	</div>
+	<div id="address">
+		<%= @site.address %>
+	</div>
+</div>
+

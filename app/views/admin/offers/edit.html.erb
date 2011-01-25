@@ -1,7 +1,3 @@
-<script type="text/javascript">$(function() {
-			$(".datepicker").datepicker({dateFormat: 'DD d MM yy', firstDay: 1});
-		});
-		</script>
 <%= include_yui_editor_if_used %>
 <% content_for :header_tag do %>
 <h1>Edit Offer</h1>
@@ -21,15 +17,7 @@
 	</div>
 	<div class="field">
 		<%= f.label :Description %><br />
-		<%= f.text_field :description %><br />  
-	</div>
-	<div class="field">
-		<%= f.label :Start_date %><br />
-		<%= f.text_field :start_date, :class => 'datepicker' %><br />  
-	</div>
-	<div class="field">
-		<%= f.label :End_date %><br />
-		<%= f.text_field :end_date, :class => 'datepicker' %><br />  
+		<%= f.text_field :description %><br />
 	</div>
 	<div class="photo"> 
     <%= f.label :File %><br />
@@ -37,12 +25,12 @@
 	</div>
 	<div class="photo"> 
     <%= f.label :Offer_conditions %><br />
-	<%= f.text_area :conditions, :class => 'rich_text_editor', :style => 'width: 800px; height: 200px' %><br />  
+	<%= f.text_area :conditions, :class => 'rich_text_editor', :style => 'width: 700px; height: 200px' %><br />  
 	</div>
 
 	<br />
 	<div class="actions update">
-		<%= f.submit "Update" %>
+		<%= f.submit "Update", :class => 'wide' %>
 	</div>
 	<% end %>
 </div>

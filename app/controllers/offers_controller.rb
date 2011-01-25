@@ -1,23 +1,17 @@
 class OffersController < ApplicationController
-  def new
-    @offer = Offer.new
-  end
-  
   def show
-    @offer = Offer.find(params[:id])
-    @offers = Offer.all
+    @offer = @site.offers.find(params[:id])
+    @offers = @site.offers.all
+    render_site_view
   end
   
   def index
-    @offers = Offer.all
+    @offers = @site.offers.all
+    render_site_view
   end
-  
-  def edit
-    @offer = Offer.find(params[:id])
-  end
-  
-   def update
-    @offer = Offer.find(params[:id])
+ 
+  def update
+    @offer = @site.offers.find(params[:id])
     if @offer.update_attributes(params[:offer])
       redirect_to :controller => 'admin/offers', :action => 'index'
     else
@@ -26,16 +20,17 @@ class OffersController < ApplicationController
   end
   
    def create
-    @offer = Offer.new(params[:offer])
+    @offer = @site.offers.new(params[:offer])
     if @offer.save
       redirect_to :controller => 'admin/offers', :action => 'index'
+      
     else
       render 'new'
     end
   end
   
   def destroy
-    offer = Offer.find(params[:id]).destroy
+    offer = @site.offers.find(params[:id]).destroy
     redirect_to :controller => 'admin/offers', :action => 'index'
   end
 

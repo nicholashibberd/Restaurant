@@ -1,0 +1,96 @@
+<% content_for :header_tag do %>
+<h1>Edit wines</h1>
+<% end %>
+
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Menu Name</h3>
+		<p class="help_text">This is the name of the menu as it will appear on the site</p>
+	</div>	
+	<div class="user_input">
+		<% form_for(@menu) do |f| %>
+		<div class="update_menu">
+			<%= f.label :Name %><br />
+			<%= f.text_field :name %>
+			<div class="edit_menu_type">
+				Wine menu
+			</div>
+			<div class="actions update">
+				<%= f.submit "Update" %>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>
+
+
+<% @wine_categories.each do |cat| %>
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading"><%= cat.category.titleize %></h3>
+		<p class="help_text">Click and drag the wines to reorder. Their positions will be saved automatically</p>
+	</div>	
+	<div class="user_input">
+		<% select_all_wines(cat) %>
+		<div class="wines">
+			<ul class="menu" class="move" id="<%= cat.category %>">
+				<% @wines.each do |wine| %>
+				<li id="wine_<%= wine.id %>">
+					<div class="controls">
+						<div class="controls_item" id="controls_edit">
+							<%= link_to "edit", :controller => 'admin/wines', :id => wine, :action => 'edit' %>
+						</div>
+						<div class="controls_item" id="controls_delete">
+							<%= link_to "delete", wine, :method => :delete, :confirm => "You sure?" %>
+						</div>
+
+					</div>
+
+					<div class="wine_details">
+						<div class="move_icon"></div>
+						<div class="wine_name"><%= wine.name %></div>
+						<div class="wine_price"><%= wine.price %></div>
+					</div>
+
+				</li>
+				<% end %> </ul>
+			</div>
+		</div>
+	</div>	
+	<% end %>
+
+
+
+	<div class="add_new">
+	<%= link_to "Add new wine", :controller => 'admin/wines', :action => 'new', :menu_id => params[:id] %>
+</div>
+
+<script>
+$('.menu').mouseenter(function(){
+	color = $(this).attr("id");
+	id = "#" + color;
+	});
+
+	$('.menu').sortable(
+		{
+			axis: 'y', 
+			dropOnEmpty:false, 
+			cursor: 'crosshair',
+			items: 'li',
+			opacity: 0.4,
+			scroll: true,
+			update: function(){
+				$.ajax({
+					type: 'post', 
+					data: $(id).sortable('serialize') + '&id=<%= @menu.id-%>' + '&cat=' + color, 
+					dataType: 'script', 
+					complete: function(request){
+						$('.menu').effect('highlight');
+					},
+					url: '/admin/menus/order_wines'})
+				}	
+
+			});
+
+		</script>

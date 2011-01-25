@@ -1,0 +1,38 @@
+<div id="progress_bar">
+	<ul>
+		<li>
+			<% if current_order.nil? %>
+			<%= link_to_unless_current 'New order', :controller => 'orders', :action => 'new' %>
+			<% else %>
+			<%= link_to_unless_current 'Your order', :controller => 'orders', :action => 'edit', :id => current_order.id %>
+			<% end %>
+		</li>
+		<li>
+			<% if current_order.nil? %>
+			Your details
+			<% else %>
+			<% if customer_signed_in? %>
+			<%= link_to_unless_current 'Your details', :controller => 'customers', :action => 'edit', :id => current_customer.id %>
+			<% else %>
+			<%= link_to_unless_current 'Your details', :controller => 'checkout', :action => 'details' %>
+			<% end %>
+			<% end %>
+		</li>
+		<li>
+			<% if current_customer.nil? %>
+			Delivery Information
+			<% else %>
+			<%= link_to_unless_current 'Delivery Information', :controller => 'checkout', :action => 'delivery' %>
+			<% end %>
+		</li>
+		<li>
+			<% if current_order.nil? %>
+			<% elsif current_customer.nil? %>
+			Confirm details
+			<% else %>
+			<%= link_to_unless_current 'Confirm details', :controller => 'checkout', :action => 'confirm' %>
+			<% end %>
+		</li>
+		<li>Payment</li>
+	</ul>
+</div>

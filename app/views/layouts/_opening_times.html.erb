@@ -1,0 +1,18 @@
+<div id="opening_times">
+	<div id="opening_times_header">
+		<h3>Opening Times</h3>
+	</div>
+	<% @info.opening_times.each do |opening| %>
+	<div class="opening_time">
+		<div class="opening_time_day">
+			<%= opening.day %>
+		</div>
+		<div class="opening_time_open">
+			<%= opening.open.to_s(:time_format) %>
+		</div>
+		<div class="opening_time_close">
+			<%= opening.close.to_s(:time_format) %>
+		</div>
+	</div>
+	<% end %>
+</div>

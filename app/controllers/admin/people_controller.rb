@@ -1,19 +1,19 @@
 class Admin::PeopleController < AdminController
     uses_yui_editor
   def index
-    @people = Person.all
+    @people = @site.people.all
   end
 
   def new
-    @person = Person.new
+    @person = @site.people.new
   end
 
   def edit
-    @person = Person.find(params[:id])
+    @person = @site.people.find(params[:id])
   end
   
   def order_people
-    people = Person.all
+    people = @site.people.all
     people.each do |person|
       person.position = params['person'].index(person.id.to_s) + 1
       person.save

@@ -1,12 +1,11 @@
 <%= include_yui_editor_if_used %>
 <head>
 	<%= GMap.header(:host => request.host) %>
-	<title>Our location</title>
 </head>
 
 
 <% content_for :header_tag do %>
-<h1>Restaurant Details</h1>
+<h1>Restaurant.details</h1>
 <% end %>
 
 <div class="content_unit">
@@ -73,7 +72,7 @@
 			<%= f.text_area :directions, :class => 'rich_text_editor', :style => 'width: 700px; height: 200px' %><br />  
 		</div>
 		<div class="actions update">
-			<%= f.submit "Update" %>
+			<%= f.submit "Update", :class => 'wide' %>
 		</div>
 		<% end %>
 	</div>
@@ -91,7 +90,7 @@
 			<%= f.text_area :content, :class => 'rich_text_editor', :style => 'width: 700px; height: 200px' %><br />  
 		</div>
 		<div class="actions update">
-			<%= f.submit "Update" %>
+			<%= f.submit "Update", :class => 'wide' %>
 		</div>
 		<% end %>
 	</div>

@@ -1,0 +1,40 @@
+<h1><%= link_to @menu.name, :controller => 'menus', :action => 'show', :id => @menu.id %></h1>
+<% @wine_categories.each do |cat| %>
+<% select_all_wines(cat) %>
+<div class="wine_section">
+	<div class="wine_headings">
+		<div class="wine_right">
+			<div class="wine_price wine_right_item">
+				Bottle
+			</div>
+			<div class="wine_small wine_right_item">
+				Small Glass
+			</div>
+			<div class="wine_large wine_right_item">
+				Large Glass
+			</div>
+		</div>
+		<div class="wine_name">
+			<%= cat.category.titleize %>
+		</div>
+	</div>
+	<% @wines.each do |wine| %>
+	<div class="wine">
+		<div class="wine_right">
+			<div class="wine_price wine_right_item">
+				<%= pound_amount(wine.price) %>
+			</div>
+			<div class="wine_small wine_right_item">
+				<%= pound_amount(wine.small) %>
+			</div>
+			<div class="wine_large wine_right_item">
+				<%= pound_amount(wine.large) %>
+			</div>
+		</div>
+		<div class="wine_name">
+			<%= wine.name %>
+		</div>
+	</div>
+	<% end %>
+</div>
+<% end %>

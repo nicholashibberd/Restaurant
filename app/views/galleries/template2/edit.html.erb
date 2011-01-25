@@ -1,0 +1,20 @@
+<h1><%= @gallery.name %></h1>
+
+		<ul id="gallery" class="move">
+		<% @gallery.photos.each do |photo| %> 
+		<li id="item_<%= photo.id %>">
+		<%= image_tag photo.photo.url(:thumb) %>
+		<%= photo.name %>
+		</li>
+		<% end %> </ul>
+		
+
+		<%= sortable_element 'gallery', :url => { :action => "sort", :id => @gallery }, :complete => visual_effect(:highlight, 'gallery')
+		%>
+		
+		
+
+
+
+
+		

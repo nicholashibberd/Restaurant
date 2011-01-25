@@ -1,17 +1,21 @@
 class MenusController < ApplicationController
     
   def index
-    @menus = Menu.all
-    @title = 'My Restaurant - Our Menu'
+    @menus = @site.menus
+    @title = @site 
+    @wine_categories = Wine.all(:select => "DISTINCT category")    
+    render_site_view
   end
   
   def show
-    @menus = Menu.all
-    @menu = Menu.find(params[:id])
+    @menus = @site.menus
+    @menu = @site.menus.find(params[:id])
+    @wine_categories = Wine.all(:select => "DISTINCT category")
+    render_site_view
   end
     
   def create
-     @menu = Menu.new(params[:menu])
+     @menu = @site.menus.new(params[:menu])
        if @menu.save
         redirect_to :controller => 'admin/menus', :action => 'index'
        else
@@ -20,7 +24,7 @@ class MenusController < ApplicationController
    end
 
    def update
-     @menu = Menu.find(params[:id])
+     @menu = @site.menus.find(params[:id])
      if @menu.update_attributes(params[:menu])
        redirect_to :controller => 'admin/menus', :action => 'index'
      else
@@ -29,7 +33,7 @@ class MenusController < ApplicationController
    end
    
    def destroy
-     menu = Menu.find(params[:id]).destroy
+     menu = @site.menus.find(params[:id]).destroy
      redirect_to :controller => 'admin/menus', :action => 'index'
    end
       

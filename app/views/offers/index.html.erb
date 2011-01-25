@@ -1,4 +1,4 @@
-
+<% content_for :sub_menu do %>
 <div id="offers_menu">
 	<ul>
 		<li class="selected">All offers</li>
@@ -7,6 +7,8 @@
 		<% end %>
 	</ul>
 </div>
+
+<% end %>
 <div id="offers_content">
 	<h1>All Offers</h1>
 
@@ -19,7 +21,7 @@
 			<h3><%= link_to h(offer.title), offer %></h3>
 			<%= offer.description %><br />
 			<div class="offer_submit">
-				<%= link_to 'More details', :controller => 'offers', :action => 'show', :id => offer.id %>
+				<%= link_to 'More details', {:controller => 'offers', :action => 'show', :id => offer.id}, :class => 'button' %>
 			</div>
 		</div>
 	</div>

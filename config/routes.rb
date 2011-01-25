@@ -14,10 +14,26 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :photos  
   map.resources :location
   map.resources :info
+  map.resources :homepages
+  map.resources :sites  
   map.resources :users  
+  map.resources :wines  
   map.resources :sessions, :only => [:new, :create, :destroy]
   map.signin '/signin', :controller => 'sessions', :action => 'new'  
-  map.signout '/signout', :controller => 'sessions', :action => 'destroy'    
+  map.signout '/signout', :controller => 'sessions', :action => 'destroy'
+  
+  map.resources :orders
+  map.resources :items  
+  map.resources :customers, :has_many => :orders
+  map.resources :customer_sessions, :only => [:new, :create, :destroy]
+  map.order '/order', :controller => 'checkout', :action => 'order'
+  map.details '/details', :controller => 'checkout', :action => 'details'
+  map.delivery '/delivery', :controller => 'checkout', :action => 'delivery'
+  map.payment '/payment', :controller => 'checkout', :action => 'payment'
+  map.confirm '/confirm', :controller => 'checkout', :action => 'confirm'  
+  map.error '/error', :controller => 'checkout', :action => 'error'
+  map.customer_signout '/customer_signout', :controller => 'customer_sessions', :action => 'destroy'
+  
   
   map.root :controller => 'homepage', :action => 'index'
   map.signup '/signup', :controller => 'admin/users', :action => 'new'
@@ -25,47 +41,13 @@ ActionController::Routing::Routes.draw do |map|
   map.admin '/admin', :controller => 'admin', :action => 'index'    
   map.namespace :admin do |admin|
     admin.resources :pages
-    admin.resources :menus, :has_many => :dishes
+    admin.resources :menus, :has_many => :dishes, :has_many => :wines
     admin.resources :dishes
+    admin.resources :wines    
     admin.resources :galleries, :has_many => :photos
     admin.resources :photos    
     admin.resources :people   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    admin.resources :sites    
     admin.resources :images
     admin.resources :pages
     admin.resources :galleries
