@@ -1,5 +1,19 @@
-<h1>New Page</h1>
+<%= include_yui_editor_if_used %>
 
-<%= render :partial => 'form' %>
+<h1>New page</h1>
 
-<p><%= link_to "Back to List", pages_path %></p>
+<div class="user_input">
+	<% form_for(@page) do |f| %>
+	<div class="field">
+		<%= f.label :page_name %><br />
+		<%= f.text_field :name %><br />  
+	</div>
+	<div class="field">
+		<%= f.label :Content %><br />
+		<%= f.text_area :content, :class => 'rich_text_editor', :style => 'width: 800px' %>
+	</div>
+	<div class="actions update">
+		<%= f.submit "Update" %>
+	</div>
+	<% end %>
+</div>

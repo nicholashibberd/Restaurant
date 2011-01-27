@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.contact '/contact', :controller => 'pages', :action => 'show', :id => 3
+  map.contact '/contact', :controller => 'pages', :action => 'contact'
   map.resources :pages
   map.resources :elements
   map.resources :menus
@@ -17,11 +17,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :homepages
   map.resources :sites  
   map.resources :users  
-  map.resources :wines  
+  map.resources :wines
   map.resources :sessions, :only => [:new, :create, :destroy]
   map.signin '/signin', :controller => 'sessions', :action => 'new'  
   map.signout '/signout', :controller => 'sessions', :action => 'destroy'
   
+  #order form
   map.resources :orders
   map.resources :items  
   map.resources :customers, :has_many => :orders

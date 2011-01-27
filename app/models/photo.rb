@@ -9,11 +9,9 @@ class Photo < ActiveRecord::Base
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
     :path => "/:style/:filename",
      :styles => {
-       :thumb => "100x100#",
-       :small  => "300x200#",
-       :thumbnail => "225x150#",
-       :brasserie => "600x400#",
-       :planefood => "500x333#" }
+       :photo_thumb => "100x100#",
+       :photo_small => "225x150#"
+       }
        
        # # = exact aspect ratio
        # > = makes the largest size the size you specify

@@ -38,7 +38,7 @@ Rails::Initializer.run do |config|
   config.gem 'paperclip'
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
   config.gem "geokit"
-
+  
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
@@ -52,3 +52,18 @@ ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
 ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
    :day_date_format => '%A %d %B %Y'
 )
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = true  
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.default_charset = "utf-8" 
+
+ActionMailer::Base.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address        => 'smtp.gmail.com',
+    :port           => 587,
+    :domain         => 'gmail.com',
+    :authentication => :plain,
+    :user_name      => "nicholashibberd@gmail.com",
+    :password       => "gupascoopg"
+  }

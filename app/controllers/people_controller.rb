@@ -1,14 +1,12 @@
 class PeopleController < ApplicationController
   def index
     @people = @site.people.all
-		@photo_size = 'template' + @site.people_template.to_s + '_index'    
 		render_site_view
   end
 
   def show
     @person = @site.people.find(params[:id])
     @people = @site.people.all
-		@photo_size = 'template' + @site.people_template.to_s + '_show'
 		render_site_view		
   end
 

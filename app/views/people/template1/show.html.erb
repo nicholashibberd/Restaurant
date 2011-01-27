@@ -13,7 +13,7 @@
 <div id="people_content">
 <h1><%= @person.name %> - <%= @person.role %></h1>
 	<div id="people_image">
-	<%= image_tag @person.photo.url(@photo_size) %>
+	<%= image_tag @person.photo.url(:person_profile) %>
 	</div>
 	<div id="people_profile">
 	<%= @person.profile %>

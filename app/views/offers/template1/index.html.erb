@@ -4,7 +4,7 @@
 	<% @offers.each do |offer| %>
 	<div class="offer_item">
 		<div class="offer_item_image">
-			<%= image_tag offer.photo.url(:index) %>
+			<%= image_tag offer.photo.url(:offer_small) %>
 		</div>
 		<div class="offer_item_details">
 			<h3><%= link_to h(offer.title), offer %></h3>

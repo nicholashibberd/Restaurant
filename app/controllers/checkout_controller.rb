@@ -1,12 +1,9 @@
 class CheckoutController < ApplicationController
   layout "/checkout/template1"  
 
-  def order
-    @order = Order.new
-  end
-
   def details
     @customer = Customer.new
+    render_site_view    
   end
 
   def delivery
@@ -15,11 +12,13 @@ class CheckoutController < ApplicationController
     else
       @customer = Customer.find(session[:customer_id])
     end
+    render_site_view
   end
   
   def confirm
     @customer = current_customer
     @order = current_order
+    render_site_view
   end
 
 end

@@ -1,0 +1,16 @@
+<% if current_order.nil? %>
+<h1>Nil order</h1>
+<% else %>
+<%= render 'layouts/basket' %>
+<% end %>
+
+<%= render 'layouts/progress_bar' %>
+<div class="details_section">
+<h2>Existing customers</h2>
+<%= render 'customers/existing_customers' %>
+</div>
+
+<div class="details_section">
+<h2>New customers</h2>
+<%= render 'customers/new_customer' %>
+</div>

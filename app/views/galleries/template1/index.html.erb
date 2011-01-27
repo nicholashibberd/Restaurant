@@ -15,10 +15,9 @@
 		<% @galleries.each do |gallery| %>
 			<% gallery.photos.each do |photo|  %>
 				<li>
-					<%= link_to (image_tag photo.photo.url(:thumbnail)), photo.photo.url, :title => photo.caption %>
+					<%= link_to (image_tag photo.photo.url(:photo_small)), photo.photo.url, :title => photo.caption %>
 				</li>
 			<% end %>
 		<% end %>
-	
 	</ul>
 </div>

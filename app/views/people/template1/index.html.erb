@@ -16,7 +16,7 @@
 <% @people.each do |person| %>
 <div class="people_index_item">
 	<div class="people_image_index">
-		<%= image_tag person.photo.url(@photo_size) %>
+		<%= image_tag person.photo.url(:person_thumb) %>
 	</div>
 	<div class= "people_right_index">
 		<div class="people_name_index">

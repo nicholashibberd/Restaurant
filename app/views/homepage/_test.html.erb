@@ -1,0 +1,13 @@
+<div id="order_online_button">
+<% form_for (@order) do |f| %>
+	<%= f.submit 'Order online' %>
+	<% end %>
+</div>
+<div id="homepage_image">
+<%= image_tag 'malago/homepage_main.jpg' %>
+</div>
+<div id="homepage_content_left">
+	<h1>Welcome to <%= @site.name %></h1>
+	<p><%= @site.content %></p>
+</div>
+<%= render 'layouts/opening_times' %>

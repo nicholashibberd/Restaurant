@@ -1,0 +1,37 @@
+<div id="contact_form_right">
+	<div class="headline">
+		Please leave your details and any message and we will get back to as soon as possible
+	</div>
+	<p>
+		Alternativey please contact us at <span class="bold"><%= auto_link("mail@site.com") %></span>
+	</p>
+</div>
+<h1>Contact Us</h1>
+<div id="contact_form">
+<% form_tag('pages/send_mail') do  %>
+<div class="form_item">
+<%= hidden_field_tag 'site', @site.name %>
+</div>
+<div class="form_item">
+<%= label_tag 'name' %><br />
+<%= text_field_tag 'name' %>
+</div>
+<div class="form_item">
+<%= label_tag 'email' %><br />
+<%= text_field_tag 'email' %>
+</div>
+<div class="form_item">
+<%= label_tag 'phone' %><br />
+<%= text_field_tag 'phone' %>
+</div>
+<div class="form_item">
+<%= label_tag 'Message' %><br />
+<%= text_area_tag 'details' %>
+</div>
+
+<div class="form_item" id="form_submit">
+<%= submit_tag 'Submit' %>
+</div>
+
+<% end %>
+</div>

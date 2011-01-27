@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
   
   def choose_layout
-    @site.theme
+      @site.theme
   end
     
   def login_required

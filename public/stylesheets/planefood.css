@@ -141,7 +141,6 @@ body {
   list-style: square;
 }
 
-
 /* 
 ************************************************************
 Flash message
@@ -150,12 +149,12 @@ Flash message
 
 .flash {
 	padding: 10px;
-	background: url(/images/plane_food/backgrounds/submit_button.png);
+	background: -webkit-gradient(linear, left top, left bottom, from(#8BC51E), to(#438823));
+	background: -moz-linear-gradient(top,  #8BC51E,  #438823);
 	color: white;
-	border: 1px solid #157F9F;
 	text-shadow: none;
+	margin-bottom: 20px;
 }
-
 
 
 /*

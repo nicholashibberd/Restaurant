@@ -6,6 +6,10 @@ class PagesController < ApplicationController
   def show
     @page = @site.pages.find(params[:id])
   end
+  
+  def contact
+    
+  end
     
   def create
     @page = @site.pages.new(params[:page])
@@ -33,5 +37,12 @@ class PagesController < ApplicationController
     @page.destroy
     flash[:notice] = "Successfully destroyed page."
     redirect_to :controller => 'admin/pages', :action => 'index'
+  end
+  
+  def send_mail
+      @message = Message.new(params)
+      Contactmailer.deliver_message(@message)
+      flash[:notice] = "Thank you for your message"
+      redirect_to :action => 'contact'
   end
 end

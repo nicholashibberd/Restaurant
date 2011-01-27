@@ -7,8 +7,8 @@ class Person < ActiveRecord::Base
        :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
        :path => "/:style/:filename",
          :styles => {
-           :template1_index => "100x125#",
-           :template1_show  => "300x375>"
+           :person_thumb => "100x125#",
+           :person_profile  => "300x375#"
             }
            
            # # = exact aspect ratio

@@ -7,9 +7,9 @@ class Offer < ActiveRecord::Base
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
     :path => "/:style/:filename",
     :styles => {
-       :thumb => "100x100#",
-       :home  => "565x300#",
-       :index  => "226x120#" }
+       :offer_large => "565x300#",
+       :offer_small => "226x120#"
+        }
        
        # # = exact aspect ratio
        # > = makes the largest size the size you specify

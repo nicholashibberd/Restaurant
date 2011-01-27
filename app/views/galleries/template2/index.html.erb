@@ -9,7 +9,7 @@
 </div>
 <% end %>
 <div id="gallery_content">
-<h1>Galleries</h1>
+	<h1>Galleries</h1>
 	<div id="gallery_caption">
 		<%= @first_photo.caption %><br />
 	</div>
@@ -27,12 +27,11 @@
 			<ul>
 				<% @photos.each do |photo| %>
 				<li class="thumb">
-					<%= image_tag photo.photo.url(:thumb), :class => 'thumb', :width => '113px', :full_url => photo.photo.url, :caption => photo.caption %>
+					<%= image_tag photo.photo.url(:photo_thumb), :class => 'thumb', :width => '113px', :full_url => photo.photo.url, :caption => photo.caption %>
 				</li>
 				<% end %>
 			</ul>
 		</div>
 	</div>
-
 </div>
 <%= javascript_include_tag "template#{@site.galleries_template}/gallery" %>

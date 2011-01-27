@@ -1,0 +1,7 @@
+Name: <%= @reservation.name %>
+Email: <%= @reservation.email %>
+Phone: <%= @reservation.phone %>
+Date: <%= @reservation.date %>
+Time: <%= @reservation.time %>
+Number of people: <%= @reservation.number_of_people %>
+Date of booking: <%= @reservation.created_at.to_s(:day_date_format) %>

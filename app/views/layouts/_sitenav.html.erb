@@ -22,6 +22,9 @@
 	<% if menu_link_active('reservations') %>
 		<%= site_menu({:menu_name => 'Reservations', :controller => 'reservations', :action => 'new'}) %>		
 	<% end %>
+	<% if menu_link_active('checkout') %>
+		<li><%= link_to "Order online", @order, :method => :create %></li>
+	<% end %>
 	<% if signed_in? %>
 	<li><%= link_to "Admin", admin_path %></li>
 	<% end %>
