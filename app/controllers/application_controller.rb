@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   def setup_site
-    @site = Site.find_by_domain(request.domain)
+    @site = Site.find_by_domain(request.domain(2))
     @order = @site.orders.new
   end
   
