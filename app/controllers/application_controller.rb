@@ -2,7 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  before_filter :info_details, :footer_links
+  before_filter :footer_links
   before_filter :setup_site
   layout :choose_layout
   
@@ -41,10 +41,6 @@ class ApplicationController < ActionController::Base
         return false
   end
   
-  def info_details
-    @info = Info.find(1)
-  end
-  
   def footer_links
     @site = Site.find_by_domain(request.domain)
     @pages = @site.pages.all
@@ -59,6 +55,7 @@ class ApplicationController < ActionController::Base
   
   def render_site_view
     controller = params["controller"]
+    action = params["action"]
     method_template = case controller
       when 'menus' then @site.menus_template
       when 'checkout' then @site.checkout_template
@@ -70,10 +67,10 @@ class ApplicationController < ActionController::Base
       when 'reservations' then @site.reservations_template
       when 'testimonials' then @site.testimonials_template
     end
-    if FileTest.exist?("#{RAILS_ROOT}/app/views/menus/template#{method_template}/#{params[:action]}.html.erb")
-      template = "#{params[:controller]}/template#{method_template}/#{params[:action]}"
+    if FileTest.exist?("#{RAILS_ROOT}/app/views/#{controller}/template#{method_template}/#{action}.html.erb")
+      template = "#{controller}/template#{method_template}/#{action}"
     else
-      template = "#{params[:controller]}/#{params[:action]}"
+      template = "#{controller}/#{action}"
     end
     render :template => template    
   end

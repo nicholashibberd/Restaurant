@@ -4,6 +4,7 @@
 			<% @pages.each do |page| %>
 			<%= link_to page.name, :controller => 'pages', :action => 'show', :id => page.id %>&nbsp;&nbsp;&nbsp; 
 			<% end %>
-		<% end %>		
+		<% end %>
+		<%= link_to 'Contact us', contact_path %>
 	</div>
 </div>

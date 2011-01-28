@@ -27,6 +27,10 @@
 			<%= f.label :price %><br />
 			<%= f.text_field :price_parse %><br />  
 		</div><br />
+		<div class="photo"> 
+	    <%= f.label :File %><br />
+		<%= f.file_field :photo %>
+		</div><br />
 		<div class="actions save">
 			<%= f.submit "Save" %>
 		</div>

@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
+ include AdminHelper 
  before_filter :login_required
- 
-  layout "admin"
+ layout "admin"
   
   def home 
   end

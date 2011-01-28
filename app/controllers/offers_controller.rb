@@ -13,6 +13,7 @@ class OffersController < ApplicationController
   def update
     @offer = @site.offers.find(params[:id])
     if @offer.update_attributes(params[:offer])
+      flash[:notice] = "Successfully updated offer"
       redirect_to :controller => 'admin/offers', :action => 'index'
     else
       render 'edit'
@@ -22,6 +23,7 @@ class OffersController < ApplicationController
    def create
     @offer = @site.offers.new(params[:offer])
     if @offer.save
+      flash[:notice] = "Successfully created offer"
       redirect_to :controller => 'admin/offers', :action => 'index'
       
     else
@@ -31,6 +33,7 @@ class OffersController < ApplicationController
   
   def destroy
     offer = @site.offers.find(params[:id]).destroy
+    flash[:notice] = "Successfully deleted offer"
     redirect_to :controller => 'admin/offers', :action => 'index'
   end
 

@@ -18,6 +18,7 @@ class GalleriesController < ApplicationController
    def create
        @gallery = @site.galleries.new(params[:gallery])
          if @gallery.save
+          flash[:notice] = "Successfully created gallery"
           redirect_to :controller => 'admin/galleries', :action => 'edit', :id => @gallery.id
          else
           render 'admin/galleries/new'
@@ -27,6 +28,7 @@ class GalleriesController < ApplicationController
      def update
        @gallery = @site.galleries.find(params[:id])
        if @gallery.update_attributes(params[:gallery])
+         flash[:notice] = "Successfully updated gallery"
          redirect_to :controller => 'admin/galleries', :action => 'index'
        else
          render 'admin/galleres/new'
@@ -35,6 +37,7 @@ class GalleriesController < ApplicationController
 
      def destroy
        gallery = @site.galleries.find(params[:id]).destroy
+       flash[:notice] = "Successfully deleted gallery"       
        redirect_to :controller => 'admin/galleries', :action => 'index'
      end
 
