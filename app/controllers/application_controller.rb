@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   end
   
   def footer_links
-    raise request.domain.inspect
+    raise request.domain(2).inspect
     @site = Site.find_by_domain(request.domain)
     @pages = @site.pages.all
     
