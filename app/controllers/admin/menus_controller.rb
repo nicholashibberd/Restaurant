@@ -1,7 +1,6 @@
 class Admin::MenusController < AdminController
 
   def index
-    raise @site.inspect
     @menus = @site.menus.top_level
     @menu = @site.menus.new
     render_admin_view
