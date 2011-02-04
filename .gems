@@ -3,5 +3,5 @@ ryanb-acts-as-list --source http://gems.github.com
 geokit
 paperclip
 aws-s3
-acts-as-tree
+acts_as_tree
 fastercsv
