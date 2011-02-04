@@ -9,10 +9,12 @@
 	</div>
 	<div class="user_input">
 
-		<div class="index_item">
+		<div class="index_item" id="users_index_item">
 			<div class="index_item_heading">
 				<%= link_to @user.name, :controller => 'admin/users', :id => @user.id, :action => 'edit' %><br />
-				<%= @user.email %>
+				<div class="index_item_subheading">
+					<%= @user.email %>
+				</div>
 			</div>
 			<div class="controls">
 				<div class="controls_item" id="controls_edit">

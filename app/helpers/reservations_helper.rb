@@ -6,4 +6,5 @@ module ReservationsHelper
       params[:datepicker]
     end
   end
+  
 end

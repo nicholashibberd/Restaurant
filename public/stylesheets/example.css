@@ -243,8 +243,15 @@ Menus
 	margin-bottom: 30px;
 }
 
+.menu_section h1 {
+	margin-bottom: 10px;
+}
+
 .dish {
 	margin-bottom: 10px;
+	border-bottom: 1px dotted #ddd;
+	padding-bottom: 5px;
+	width: 660px;
 }
 
 .dish_right {
@@ -259,33 +266,27 @@ Menus
 
 .dish_name {
 	font-weight: bold;
-}
-
-.wine_section {
-	margin-bottom: 50px;
-}
-
-.wine_headings {
-	height: 30px;
-	margin: 10px 0;
-	font-size: 18px;
-	font-weight: bold;
-}
-
-.wine_right {
-	float: right;
-	width: 150px;
-}
-.wine {
-	margin-bottom: 10px;
-}
-
-.wine_right_item {
-	font-size: 11px;
 	float: left;
-	width: 50px;
+	width: 600px;
 }
 
+.sub_menu_section {
+	margin-bottom: 30px;
+	background-color: #eee;
+	padding: 10px;
+}
+
+h3.sub_menu {
+	margin-bottom: 20px;
+}
+
+.sub_dish {
+	padding-left: 20px;
+}
+.sub_dish_name {
+	float: left;
+	width: 580px;
+}
 
 /*
 **********************************************************

@@ -1,0 +1,66 @@
+<% form_tag (update_individual_dishes_path, :method => :put) do %>
+	<% fields_for "products[]", @dish do |f| %>  
+	<div>  
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>  
+	</div>  
+	<div>  
+		<%= f.label :description %><br />
+		<%= f.text_field :description %>  
+	</div>  
+	<% end %>
+	<ul id="menu" class="move">
+	<% @dish.children.each do |dish| %>  
+		<li id="dish_<%= dish.id %>" class="child_dish_item">
+		<div class="child_move_icon"></div>
+		<% fields_for "products[]", dish do |f| %>  
+		<div class="edit_child_dishes">  
+			<div class="edit_child_dishes_name">
+				<%= f.label :sub_category %>  <br />
+				<%= f.text_field :name %>  
+			</div>  
+			<div class="edit_child_dishes_price">  
+				<%= f.label :price %>  <br />
+				<%= f.text_field :price %>  
+				<div class="child_dish_delete_button">
+					<%= submit_tag "Delete", :name => "delete[#{dish.id}]" %>
+				</div> 
+			</div>
+		</div>  
+		<% end %>  
+		</li>
+		<% end %>
+	</ul>
+	<div class="add_new" id="add_new_child_dish">
+		<% form_tag do %>
+		<%= hidden_field_tag :parent_id, @dish.id %>
+		<%= submit_tag 'Add new sub section' %>
+		<% end %>
+	</div>
+	<div class="actions update" id="save_dish_with_children">
+		<%= submit_tag "Save dish" %>
+	</div> 
+
+<% end %>
+<script>
+ $('#menu').sortable(
+    {
+      axis: 'y', 
+	   dropOnEmpty:false, 
+       cursor: 'crosshair',
+       items: 'li',
+       opacity: 0.4,
+       scroll: true,
+      update: function(){
+        $.ajax({
+            type: 'post', 
+            data: $('#menu').sortable('serialize') + '&id=<%= @dish.id-%>', 
+            dataType: 'script', 
+            complete: function(request){
+                $('#menu').effect('highlight');
+              },
+            url: '/admin/dishes/order_child_dishes'})
+        }	
+
+})
+</script>

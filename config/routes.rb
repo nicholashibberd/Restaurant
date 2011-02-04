@@ -2,8 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.contact '/contact', :controller => 'pages', :action => 'contact'
   map.resources :pages
   map.resources :elements
-  map.resources :menus
-  map.resources :dishes
+  map.resources :menus, :collection => { :download_pdf => :get }
+  map.resources :dishes, :collection => { :update_individual => :put, :add_child => :post, :destroy_child => :post }
   map.resources :testimonials
   map.resources :offers
   map.resources :images  
@@ -41,22 +41,23 @@ ActionController::Routing::Routes.draw do |map|
 
   map.admin '/admin', :controller => 'admin', :action => 'index'    
   map.namespace :admin do |admin|
-    admin.resources :pages
-    admin.resources :menus, :has_many => :dishes, :has_many => :wines
-    admin.resources :dishes
-    admin.resources :wines    
-    admin.resources :galleries, :has_many => :photos
-    admin.resources :photos    
-    admin.resources :people   
-    admin.resources :sites    
-    admin.resources :images
-    admin.resources :pages
-    admin.resources :galleries
-    admin.resources :photos        
-    admin.resources :reservations
-    admin.resources :location
-    admin.resources :users   
-    admin.resources :info     
+    #this stuff is all not needed because none of these are restful
+   # admin.resources :pages
+    #admin.resources :menus, :has_many => :dishes, :has_many => :wines
+    #admin.resources :dishes
+    #admin.resources :wines    
+    #admin.resources :galleries, :has_many => :photos
+    #admin.resources :photos    
+    #admin.resources :people   
+    #admin.resources :sites    
+    #admin.resources :images
+    #admin.resources :pages
+    #admin.resources :galleries
+    #admin.resources :photos        
+    #admin.resources :reservations
+    #admin.resources :location
+    #admin.resources :users   
+    #admin.resources :info     
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

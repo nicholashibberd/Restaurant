@@ -11,9 +11,9 @@
 <div id="menu_content">
 <% @menus.each do |@menu| %>
 	<% if @menu.menu_type == 'food' %>
-		<%= render 'menus/template2/food_menu_show' %>
+		<%= render 'menus/template3/food_menu_show' %>
 	<% else %>
-		<%= render 'menus/template2/wine_menu_show' %>
+		<%= render 'menus/template3/wine_menu_show' %>
 	<% end %>
 <% end %>
 

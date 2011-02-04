@@ -1,0 +1,19 @@
+<% content_for :header_tag do %>
+<h1>Edit Dish</h1>
+<% end %>
+
+<div class="content_unit">
+	<div class="heading">
+		<h3 class="heading">Edit <%= @dish.name %></h3>
+		<p class="help_text">Change the details below and click update to save</p>
+	</div>	
+
+	<div class="user_input">
+		<% if @dish.has_children? %>
+			<%= render 'admin/dishes/template4/edit_child_dish' %>
+		<% else %>
+			<%= render 'admin/dishes/template4/edit_single_dish' %>
+		<% end %>
+	</div>
+</div>
+

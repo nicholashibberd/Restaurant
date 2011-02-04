@@ -9,7 +9,7 @@
 	</div>	
 
 	<div class="user_input">
-		<% form_for(@dish) do |f| %>
+		<% form_for(@dish, :html => { :multipart => true }) do |f| %>
 		<div class="hidden_field">
 			<%= f.label :Menu %><br />
 			<%= f.text_field :menu_id %><br />  

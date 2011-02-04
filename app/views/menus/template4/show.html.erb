@@ -1,0 +1,33 @@
+<h1><%= @menu.name %></h1>
+<% @menu.dishes.each do |dish| %>
+<div class="dish"><%= dish.name %><%= pound_amount(dish.price) %></div>
+<% end %>
+<% @menu.children.each do |c| %>
+<div class="sub_menu_section">
+	<h3 class="sub_menu"><%= c.name %></h3>
+	<% c.dishes.each do |dish| %>
+	<div class="dish">
+		<div class="dish_name">
+			<%= dish.name %>
+		</div>
+		<div class="dish_price">
+			<% if !dish.has_children? %>
+				<%= pound_amount(dish.price) %>	
+			<% else %>
+				<br />
+			<% end %>
+		</div>
+		<% dish.children.each do |dish| %>
+		<div class="sub_dish">
+			<div class="sub_dish_name">
+				<%= dish.name %>
+			</div>
+			<div class="sub_dish_price">
+				<%= pound_amount(dish.price) %>
+			</div>
+		</div>	
+		<% end %>
+	</div>
+	<% end %>
+</div>
+<% end %>

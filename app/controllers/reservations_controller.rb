@@ -15,7 +15,6 @@ class ReservationsController < ApplicationController
       else
        render root_path
       end
-  end
-
-
+  end  
+  
 end

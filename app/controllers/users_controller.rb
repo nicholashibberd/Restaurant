@@ -1,4 +1,4 @@
-class UsersController < AdminController
+class UsersController < ApplicationController
 
   def create
     @user = @site.users.new(params[:user]) 
@@ -6,7 +6,6 @@ class UsersController < AdminController
         flash[:success] = "Welcome to the Sample App!"
         sign_in @user
         redirect_to :controller => 'admin/users', :action => 'show', :id => @user.id
-        
       else
         render 'admin/users/new' 
       end

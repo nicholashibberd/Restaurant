@@ -173,13 +173,18 @@ ul#top_nav li.selected a {
 	height: 30px;
 }
 
+#users_index_item {
+	height: 45px;
+}
+
 
 .index_item_heading {
 	float: left;	
+	font-size:18px;
 }
 
-.index_item_heading {
-	font-size:18px;
+.index_item_subheading {
+	font-size: 14px;
 }
 
 .index_item .controls {
@@ -201,12 +206,12 @@ ul#top_nav li.selected a {
 }
 
 #controls_edit a {
-	background: url(/images/admin/submit_buttons/edit.png);	
+	background: url(/images/admin/submit_buttons/edit.jpg);	
 	padding: 5px 10px 5px 25px;
 }
 
 #controls_delete a {
-	background: url(/images/admin/submit_buttons/delete.png);	
+	background: url(/images/admin/submit_buttons/delete.jpg);	
 	padding: 5px 10px 5px 30px;
 }
 
@@ -237,19 +242,6 @@ ul#top_nav li.selected a {
 }
 
 
-
-/* 
-************************************************************
-Flash message
-************************************************************
-*/
-
-.flash {
-	padding: 10px;
-	background-color:red;
-
-}
-
 /* 
 ************************************************************
 Autocomplete
@@ -270,7 +262,7 @@ Forms
 ************************************************************
 */
 
-input {
+input[type=text], input[type=textarea] {
 	border: 1px solid #999;
 	background: url(/images/admin/input_background.png);
 	padding: 8px;
@@ -279,16 +271,6 @@ input {
 	font-size: 16px;
 	font-family: Arial;
 
-}
-
-input[type=submit] {
-	border: none;
-	cursor: pointer;
-	-moz-border-radius: 6px; 
-	-webkit-border-radius: 6px;	
-	font-size:12px;
-	margin-left: 419px;
-	padding: 4px;
 }
 
 input[type=submit].wide {
@@ -300,13 +282,8 @@ margin-left: 603px;
 }
 
 
-input[type=submit]:hover {
-	color: #3d5f88;
-	border: 1px solid #3d5f88;
-}
-
 .update input[type=submit] {
-	background: url(/images/admin/submit_buttons/tick.png) #E3E3E3;
+	background: url(/images/admin/submit_buttons/tick.jpg) no-repeat #E3E3E3;
 	border: 1px solid #ccc;
 	-moz-border-radius: 3px; 
 	-webkit-border-radius: 3px;	
@@ -316,7 +293,7 @@ input[type=submit]:hover {
 }
 
 .save input[type=submit] {
-	background: url(/images/admin/submit_buttons/tick.png) no-repeat #E3E3E3;
+	background: url(/images/admin/submit_buttons/tick.jpg) no-repeat #E3E3E3;
 	border: 1px solid #ccc;
 	-moz-border-radius: 3px; 
 	-webkit-border-radius: 3px;	
@@ -325,7 +302,7 @@ input[type=submit]:hover {
 	
 }
 #geocode_button {
-	background: url(/images/admin/submit_buttons/tick.png) #E3E3E3;
+	background: url(/images/admin/submit_buttons/tick.jpg) #E3E3E3;
 	border: 1px solid #ccc;
 	-moz-border-radius: 3px; 
 	-webkit-border-radius: 3px;	
@@ -371,7 +348,7 @@ Menus
 
 .dish_details {
 	font-size:16px;
-	background: url(/images/admin/orderable_menu_background.png);
+	background: url(/images/admin/orderable_menu_background.png) repeat-x #e3e3e3;
 	width:550px;
 	border: 1px solid #ccc;
 	-moz-border-radius: 5px; 
@@ -401,6 +378,7 @@ Menus
 .dish_description {
 	margin-bottom: 10px;
 	font-size:12px;	
+	clear: left;
 }
 
 .update_menu {
@@ -413,11 +391,10 @@ Menus
 #offers .controls, 
 #menus .controls, 
 #people .controls, 
-#galleries .controls, 
+#galleries .controls,
 .wines .controls {
 	float: right;
 	margin-top: 25px;
-	
 }
 
 ul#menu li,
@@ -435,8 +412,12 @@ ul#galleries {
 	width: 725px;
 }
 
-.add_new a{
-	background: url(/images/admin/submit_buttons/add.png);	
+.add_new {
+	margin-bottom: 30px;
+}
+
+.add_new a, .add_new input[type=submit] {
+	background: url(/images/admin/submit_buttons/add.jpg) no-repeat #e3e3e3;	
 	padding: 5px 10px 5px 29px;
 	border: 1px solid #ccc;
 	-moz-border-radius: 3px; 
@@ -462,6 +443,23 @@ select#user_status {
 	margin-bottom: 10px;
 	width: 200px;
 }
+
+#submenus .menu_details {
+	font-size:16px;
+	width:350px;
+	padding: 10px;
+	position: relative;	
+}
+
+#submenus  li {
+	list-style-type: none;
+}
+
+#submenus .controls {
+	float: right;
+	margin: 13px 300px 0 0;
+}
+
 
 /* 
 ************************************************************
@@ -503,6 +501,85 @@ select#menu_menu_type {
 	font-size: 12px;
 }
 
+/* Child dishes */
+
+.edit_child_dishes {
+	margin-top: 10px;
+	padding-left: 20px;
+}
+
+.edit_child_dishes_name {
+	float: left;
+	margin-right: 20px;
+}
+
+.edit_child_dishes_price {
+	margin-right: 20px;
+	position: relative;
+}
+
+.child_dish_delete_button {
+	margin-left: 700px;
+	position: absolute;
+	top: 20px;
+	right: 70px;
+}
+
+.child_dish_delete_button input {
+background: url(/images/admin/submit_buttons/delete.jpg) no-repeat #e3e3e3;	
+padding: 5px 10px 5px 29px;
+border: 1px solid #ccc;
+-moz-border-radius: 3px; 
+-webkit-border-radius: 3px;
+}
+
+.edit_child_dishes_name input {
+	width: 342px;
+}
+
+.edit_child_dishes_price input {
+	width: 100px;
+}
+
+#add_new_child_dish {
+	margin: 10px 0 0 20px;
+}
+
+#save_dish_with_children {
+	margin-top: 20px;
+}
+
+#save_dish_with_children input[type=submit]{
+	padding: 5px 5px 5px 20px;
+}
+
+li.child_dish_item {
+	position: relative;
+}
+
+.child_move_icon {
+	position: absolute;
+	left: 0px;
+	top: 40px;
+	background: url(/images/admin/move_icon.png);
+	height: 14px;
+	width: 14px;
+}
+
+.child_dish_name {
+	float: left;	
+	width:450px;
+	font-size: 12px;
+}
+
+.child_dish_price {
+	font-size: 12px;
+	text-align: right;
+	margin-right: 10px;	
+}
+
+
+
 
 /* 
 ************************************************************
@@ -529,7 +606,7 @@ Reservations
 }
 
 .remove_button a{
-	background: url(/images/admin/submit_buttons/delete.png);	
+	background: url(/images/admin/submit_buttons/delete.jpg);	
 	padding: 5px 10px 5px 29px;
 	border: 1px solid #ccc;
 	-moz-border-radius: 3px; 
@@ -542,6 +619,17 @@ Reservations
 	float: left;
 	padding: 10px 10px 0px 0px;
 	text-align: right;
+}
+
+#reservations_download a{
+	float: right;
+	background: url(/images/admin/submit_buttons/download.jpg) #E3E3E3;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+	width: 100px;
+	padding: 5px 0 5px 33px;
+	
 }
 
 /* 
@@ -593,6 +681,7 @@ Flash
 
 .flash {
 	padding: 10px;
+	background: #438823; /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#8BC51E), to(#438823));
 	background: -moz-linear-gradient(top,  #8BC51E,  #438823);
 	color: white;

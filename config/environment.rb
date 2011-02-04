@@ -37,7 +37,9 @@ Rails::Initializer.run do |config|
   
   config.gem 'paperclip'
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
+  config.gem 'acts_as_tree'
   config.gem "geokit"
+  config.gem "fastercsv"    
   
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]

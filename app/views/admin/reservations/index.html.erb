@@ -20,7 +20,9 @@ $(document).ready(function() {
 <% content_for :header_tag do %>
 <h1>Reservations</h1>
 <% end %>
-
+<div id="reservations_download">
+<%= link_to 'Download CSV', :controller => 'admin/reservations', :action => 'export_to_csv' %>	
+</div>
 <div class="content_unit">
 	<div class="heading">
 		<h3 class="heading">Reservations</h3>

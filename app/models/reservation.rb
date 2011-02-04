@@ -1,4 +1,5 @@
 class Reservation < ActiveRecord::Base
+require 'fastercsv'
   
   start_date = "2010-05-13"
   end_date = "2010-05-14"

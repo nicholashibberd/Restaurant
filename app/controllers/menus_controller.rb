@@ -1,9 +1,8 @@
 class MenusController < ApplicationController
     
   def index
-    @menus = @site.menus
+    @menus = @site.menus.top_level
     @title = @site 
-    @wine_categories = Wine.all(:select => "DISTINCT category")    
     render_site_view
   end
   
@@ -36,6 +35,9 @@ class MenusController < ApplicationController
      menu = @site.menus.find(params[:id]).destroy
      redirect_to :controller => 'admin/menus', :action => 'index'
    end
+   
+   def download_pdf 
+    return send_file "#{RAILS_ROOT}/public/pdf/thegrill/menu.pdf", :type => "application/pdf", :filename => "menu.pdf"
+   end
       
 end
-

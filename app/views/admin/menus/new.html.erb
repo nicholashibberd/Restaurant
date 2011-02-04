@@ -10,17 +10,15 @@
 
 	<div class="user_input">
 		<% form_for(@menu) do |f| %>
-		<div class="field">
+			<%= f.hidden_field :parent_id, :value => params[:parent_id] %>
+			<%= f.hidden_field :site_id, :value => params[:site_id] %>			
+			<div class="field">
 			<%= f.label :Name %><br />
 			<%= f.text_field :name %><br />  
-		</div>
-		<div class="field">
-			<%= f.label :Menu_type %><br />
-			<%= f.select :menu_type, options_for_select([ "food", "wine" ], "food") %>
-		</div>
-		<div class="actions save">
+			</div>
+			<div class="actions save">
 			<%= f.submit "Save" %>
-		</div>
+			</div>
 		<% end %>
 	</div>
 </div>
