@@ -12,6 +12,7 @@ body {
 	position: absolute;
 	z-index: -1;
 	width: 100%;
+	left: 0px;
 }
 
 #background_header {
@@ -279,6 +280,7 @@ Header
 #header {
 	padding-top: 20px;
 	color: #fff;
+	height: 140px;
 }
 
 #header a {
@@ -297,8 +299,6 @@ div#user_status {
 
 #top_nav {
 	margin-top: 57px;
-	height: 50px;
-
 }
 
 #top_nav li{
