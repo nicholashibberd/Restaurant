@@ -1,11 +1,13 @@
 <ul id="top_nav">
-	<li class="<%= controller.class == Admin::InfoController ? 'selected' : '' %>"><%= link_to "Restaurant details", :controller => 'admin/sites', :action => 'index' %></li>
-	<li class="<%= controller.class == Admin::MenusController ? 'selected' : '' %>"><%= link_to "Menus", :controller => 'admin/menus', :action => 'index' %></li>
-	<li class="<%= controller.class == Admin::OffersController ? 'selected' : '' %>"><%= link_to "Offers", :controller => 'admin/offers', :action => 'index' %></li>
-	<li class="<%= controller.class == Admin::GalleriesController ? 'selected' : '' %>"><%= link_to "Galleries", :controller => 'admin/galleries', :action => 'index' %></li>
-	<li class="<%= controller.class == Admin::TestimonialsController ? 'selected' : '' %>"><%= link_to "Testimonials", :controller => 'admin/testimonials', :action => 'index' %></li>
-	<li class="<%= controller.class == Admin::PagesController ? 'selected' : '' %>"><%= link_to "Pages", :controller => 'admin/pages', :action => 'index' %></li>
-	<li class="<%= controller.class == Admin::ReservationsController ? 'selected' : '' %>"><%= link_to "Reservations", :controller => 'admin/reservations', :action => 'index' %></li>
-	<li class="<%= controller.class == Admin::PeopleController ? 'selected' : '' %>"><%= link_to "People", :controller => 'admin/people', :action => 'index' %></li>
-	<li class="<%= controller.class == Admin::UsersController ? 'selected' : '' %>"><%= link_to "Users", :controller => 'admin/users', :action => 'index' %></li>	 - 
+
+		<%= admin_menu({:menu_name => 'Home', :pages => ['admin/sites'], :controller => 'admin/sites', :action => 'index'}) %>
+		<%= admin_menu({:menu_name => 'Menus', :pages => ['admin/menus', 'admin/dishes'], :controller => 'admin/menus', :action => 'index'}) %>
+		<%= admin_menu({:menu_name => 'Offers', :pages => ['admin/offers'], :controller => 'admin/offers', :action => 'index'}) %>
+		<%= admin_menu({:menu_name => 'Galleries', :pages => ['admin/galleries'], :controller => 'admin/galleries', :action => 'index'}) %>				
+		<%= admin_menu({:menu_name => 'Testimonials', :pages => ['admin/testimonials'], :controller => 'admin/testimonials', :action => 'index'}) %>				
+		<%= admin_menu({:menu_name => 'Pages', :pages => ['admin/pages'], :controller => 'admin/pages', :action => 'index'}) %>				
+		<%= admin_menu({:menu_name => 'Reservations', :pages => ['admin/reservations'], :controller => 'admin/reservations', :action => 'index'}) %>				
+		<%= admin_menu({:menu_name => 'People', :pages => ['admin/people'], :controller => 'admin/people', :action => 'index'}) %>				
+		<%= admin_menu({:menu_name => 'Users', :pages => ['admin/users'], :controller => 'admin/users', :action => 'index'}) %>				
+
 </ul>

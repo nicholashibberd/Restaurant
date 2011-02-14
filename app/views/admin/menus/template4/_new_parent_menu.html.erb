@@ -1,0 +1,13 @@
+<div class="content_unit">
+		<h3>Add new menu</h3>
+		<% form_for(@menu) do |f| %>
+			<%= f.hidden_field :site_id, :value => params[:site_id] %>			
+			<div class="field">
+			<%= f.label :Name %><br />
+			<%= f.text_field :name %><br />  
+			</div>
+			<div class="update_button">
+			<%= f.submit "Save" %>
+			</div>
+		<% end %>
+</div>

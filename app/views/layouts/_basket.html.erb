@@ -15,7 +15,11 @@
 					</div>
 				</div>
 				<div class="dish_name">
-					<%= item.dish.name %> <%= item.quantity_display %>
+					<% if item.dish.has_parent? %>
+						<%= item.dish.parent.name %> (<%= item.dish.name %>) <%= item.quantity_display %>
+					<% else %>
+						<%= item.dish.name %> <%= item.quantity_display %>
+					<% end %>
 				</div>
 			</div>
 		</li>

@@ -1,94 +1,63 @@
-<% content_for :header_tag do %>
 <h1>Edit Gallery</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Gallery Name</h3>
-		<p class="help_text">This is the name of the gallery as it will appear on the site</p>
-	</div>	
-	<div class="user_input">
-		<% form_for(@gallery) do |f| %>
-		<div class="update_gallery">
-			<%= f.label :Name %><br />
-			<%= f.text_field :name %>
-			<div class="actions update">
-			<%= f.submit "Update" %>
-			</div>
-		</div>
-	</div>
-	<% end %>
-</div>
-
-
-<div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Edit <%= @gallery.name %> Photos</h3>
-		<p class="help_text">Click and drag the gallery items to reorder. Their positions will be saved automatically</p>
-	</div>	
-
-<div class="user_input">
 	<div id="photos">
 		<ul id="gallery" class="move">
-		<% @gallery.photos.each do |photo| %> 
-		<li id="photo_<%= photo.id %>">
-			<div class="controls">
-				<div class="controls_item" id="controls_edit">
-				<%= link_to "edit", :controller => 'admin/photos', :id => photo, :action => 'edit' %>
+			<% @gallery.photos.each do |photo| %> 
+			<li id="photo_<%= photo.id %>">
+				<div class="controls">
+					<div class="controls_item" id="controls_edit">
+						<%= link_to "edit", :controller => 'admin/photos', :id => photo, :action => 'edit' %>
+					</div>
+					<div class="controls_item" id="controls_delete">
+						<%= link_to "delete", photo, :method => :delete, :confirm => "You sure?" %>
+					</div>
 				</div>
-				<div class="controls_item" id="controls_delete">
-				<%= link_to "delete", photo, :method => :delete, :confirm => "You sure?" %>
+				<div class="photo_details index_item_orderable">
+					<div class="move_icon"></div>
+					<div id="photo_wrapper">
+						<div id="photo">
+							<%= image_tag photo.photo.url(:photo_thumb)%>
+						</div>
+						<div id="photo_text">
+							<div id="photo_name">
+								<%= photo.caption %>
+							</div>
+						</div>
+					</div>
 				</div>
-
-			</div>
-		<div class="photo_details">
-			<div class="move_icon"></div>
-			<div id="photo_wrapper">
-			<div id="photo">
-				<%= image_tag photo.photo.url(:photo_thumb)%>
-			</div>
-			<div id="photo_text">
-				<div id="photo_name">
-				<%= photo.caption %>
-				</div>
-			</div>
-			</div>
-		</div>
-		</li>
-		<% end %> </ul>
+			</li>
+			<% end %> 
+		</ul>
 	</div>
 </div>	
 
 <div class="add_new add_new_photo">
-<%= link_to "Add new photo", :controller => 'admin/photos', :action => 'new', :gallery_id => @gallery.id %>
+	<%= link_to "Add new photo", :controller => 'admin/photos', :action => 'new', :gallery_id => @gallery.id %>
 </div>	
 
-		<%= sortable_element 'gallery', :url => { :action => "sort", :id => @gallery }, :complete => visual_effect(:highlight, 'gallery')
-		%>
-		
-		<% content_for :jqueryui do %>
-		<% javascript_tag do %>
-		     $('#gallery').sortable(
-			    {
-		          axis: 'y', 
-				   dropOnEmpty:false, 
-			       cursor: 'crosshair',
-			       items: 'li',
-			       opacity: 0.4,
-			       scroll: true,
-		          update: function(){
-		            $.ajax({
-		                type: 'post', 
-		                data: $('#gallery').sortable('serialize') + '&id=<%= @gallery.id-%>', 
-		                dataType: 'script', 
-		                complete: function(request){
-		                    $('#gallery').effect('highlight');
-		                  },
-		                url: '/admin/galleries/order_photos'})
-		            }	
+<%= sortable_element 'gallery', :url => { :action => "sort", :id => @gallery }, :complete => visual_effect(:highlight, 'gallery')
+%>
 
-			})
-			
+<% content_for :jqueryui do %>
+	<% javascript_tag do %>
+	$('#gallery').sortable(
+	{
+		axis: 'y', 
+		dropOnEmpty:false, 
+		cursor: 'crosshair',
+		items: 'li',
+		opacity: 0.4,
+		scroll: true,
+		update: function(){
+			$.ajax({
+				type: 'post', 
+				data: $('#gallery').sortable('serialize') + '&id=<%= @gallery.id-%>', 
+				dataType: 'script', 
+				url: '/admin/galleries/order_photos'})
+			}	
+
+		})
+
 		<% end %>
 
 		<% end %>

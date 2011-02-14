@@ -1,41 +1,29 @@
-<% content_for :header_tag do %>
 <h1>Users</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Current Users</h3>
-		<p class="help_text">Here are all the active users at the moment. Click to edit or delete</p>
-	</div>	
-	<div class="user_input index_items">
-		<ul>
-			<% @users.each do |user| %>
-			<div class="index_item_testimonials">
-				<div class="controls_right">
-					<div class="controls_item" id="controls_edit">
-						<% if current_user.is_administrator? %>
-						<%= link_to "edit", :controller => 'users', :id => user, :action => 'edit' %>
-						<% end %>
-					</div>
-					<div class="controls_item" id="controls_delete">
-						<% if current_user.is_administrator? %>
-						<%= link_to "delete", user, :method => :delete, :confirm => "You sure?" %>
-						<% end %>
-					</div>
-				</div>
-				<div class="user_heading">
-					<%= user.name %>
-					<div class="user_status">
-						<%= user.status %>
-					</div>
+	<ul>
+		<% @users.each do |user| %>
+		<div class="controls">
+			<div class="controls_item" id="controls_edit">
+				<% if current_user.is_administrator? %>
+				<%= link_to "edit", :controller => 'users', :id => user, :action => 'edit' %>
+				<% end %>
+			</div>
+			<div class="controls_item" id="controls_delete">
+				<% if current_user.is_administrator? %>
+				<%= link_to "delete", user, :method => :delete, :confirm => "You sure?" %>
+				<% end %>
+			</div>
+		</div>
+		<div class="index_item_users">
+			<div class="user_heading">
+				<%= user.name.titleize %>
+				<div class="user_status">
+					<%= user.status %>
 				</div>
 			</div>
-
-			<br />
-			<% end %>
-		</ul>
-	</div>
-
+		</div>
+		<% end %>
+	</ul>
 </div>
 
 

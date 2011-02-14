@@ -1,105 +1,43 @@
 #Parent Child Menu
-site_id = 10
+mains_id = 2
 
-wines_id = 50
+# With attached photo
+dish = Dish.create(:name => "Lamb curry", :description => "with a cumin and coriander sauce", :price => 975, :menu_id => mains_id)
+File.open('public/images/image_uploads/food/curry.jpg') {|photo_file| dish.photo = photo_file }
+dish.save
 
-#Wines Child Menu - White  
-sub_menu = Menu.create(:name => 'White', :parent_id => wines_id)
-sub_id = sub_menu.id
+dish = Dish.create(:name => "Lasagne", :description => "with bolognese sauce", :price => 999, :menu_id => mains_id)
+File.open('public/images/image_uploads/food/lasagne.jpg') {|photo_file| dish.photo = photo_file }
+dish.save
 
-dish = Dish.create(:name => "Sauvignon Blanc / Ugni Blanc, Le Pionnier Blanc, Cotes de Gascogne 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1450, :parent_id => dish.id)
-dish = Dish.create(:name => "Chardonnay/Pinot Bianco, Riva delle Venezie, Veneto, Italy 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1450, :parent_id => dish.id)
-dish = Dish.create(:name => "Chenin Blanc, Backsberg Estate Cellars, Paarl, South Africa 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1650, :parent_id => dish.id)
-dish = Dish.create(:name => "Sauvignon Blanc, Los Caminos, Colchagua Valley, Chile 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1750, :parent_id => dish.id)
-dish = Dish.create(:name => "Gros Manseng, Domaine Cambos, Cotes de Gascogne 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1895, :parent_id => dish.id)
-dish = Dish.create(:name => "Pinot Grigio, Ca’Luca, Delle Venezie 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1895, :parent_id => dish.id)
-dish = Dish.create(:name => "Viognier, La Playa, Colchagua Valley, Chile 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1995, :parent_id => dish.id)
-dish = Dish.create(:name => "Chardonnay Sur Lie, De Wetshof Estate, Robertson, South Africa 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1675, :parent_id => dish.id)
-dish = Dish.create(:name => "Riesling, Duckbill, Great Southern Region, Western Australia 2008", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1725, :parent_id => dish.id)
-dish = Dish.create(:name => "Torrontes, Nomade, Cafayate, Argentina 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1855, :parent_id => dish.id)
-dish = Dish.create(:name => "Gewurztraminer, Paul & Phillipe Zinck, Alsace 2008", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 2350, :parent_id => dish.id)
-dish = Dish.create(:name => "Pinot Gris, Willunga 100, Adelaide Hills, South Australia 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 2285, :parent_id => dish.id)
-dish = Dish.create(:name => "Albarino, Ramon Bilboa, Rias Baixas, Spain 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 2500, :parent_id => dish.id)
-dish = Dish.create(:name => "Sauvignon Blanc, Durvillea, Marlborough, New Zealand 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 2695, :parent_id => dish.id)
+dish = Dish.create(:name => "Stir-fried noodles", :description => "with fresh seasonal vegetables", :price => 850, :menu_id => mains_id)
+File.open('public/images/image_uploads/food/noodles.jpg') {|photo_file| dish.photo = photo_file }
+dish.save
 
+dish = Dish.create(:name => "Mushroom tagliatelli", :description => "with a cream and herb sauce", :price => 899, :menu_id => mains_id)
+File.open('public/images/image_uploads/food/pasta.jpg') {|photo_file| dish.photo = photo_file }
+dish.save
 
+dish = Dish.create(:name => "Homemade italian pizza", :description => "cooked in our wood fired oven", :price => 750, :menu_id => mains_id)
+File.open('public/images/image_uploads/food/pizza.jpg') {|photo_file| dish.photo = photo_file }
+dish.save
 
+dish = Dish.create(:name => "Three cheese pizza", :description => "with your choice of toppings", :price => 875, :menu_id => mains_id)
+File.open('public/images/image_uploads/food/chessy_pizza.jpg') {|photo_file| dish.photo = photo_file }
+dish.save
 
-#Wines Child Menu - White  
-sub_menu = Menu.create(:name => 'Rose', :parent_id => wines_id)
-sub_id = sub_menu.id
+dish = Dish.create(:name => "Spinach and chickpea casserole", :description => "served with creamed potato and seasonal vegetables", :price => 899, :menu_id => mains_id)
+File.open('public/images/image_uploads/food/spinach_chick_pea.jpg') {|photo_file| dish.photo = photo_file }
+dish.save
 
-dish = Dish.create(:name => "Pinot Noir, Croix d’Or, Vin de Pays du Val de Loire 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1995, :parent_id => dish.id)
-dish = Dish.create(:name => "Grenache Noir / Cinsault, Le Poussin, Pays d’Oc 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1675, :parent_id => dish.id)
-dish = Dish.create(:name => "Cabernet Sauvignon, Mulderbosch, Stellenbosch, South Africa 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1725, :parent_id => dish.id)
-dish = Dish.create(:name => "Côteaux de Peyriac, Domaine Massamier la Mignarde France 2008", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 1855, :parent_id => dish.id)
-dish = Dish.create(:name => "Malbec Rosé ‘La Flor’, Mendoza Argentina 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 2350, :parent_id => dish.id)
-dish = Dish.create(:name => "Château de Fonscolombe Rosé, Côteaux d'Aix en Provence France 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 2285, :parent_id => dish.id)
-dish = Dish.create(:name => "Sancerre Rosé, Domaine Sautereau, Loire France 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 2500, :parent_id => dish.id)
-dish = Dish.create(:name => "Bandol Rosé, Domaine de Terrebrune, Provence France 2009", :menu_id => sub_id)
-Dish.create(:name => "Small Glass", :price => 450, :parent_id => dish.id)
-Dish.create(:name => "Large Glass", :price => 650, :parent_id => dish.id)
-Dish.create(:name => "Bottle", :price => 2695, :parent_id => dish.id)
+dish = Dish.create(:name => "Argentinian steak", :description => "cooked to your liking and served with hand cut chips", :price => 1299, :menu_id => mains_id)
+File.open('public/images/image_uploads/food/steak.jpg') {|photo_file| dish.photo = photo_file }
+dish.save
+
+dish = Dish.create(:name => "Herb stuffed lamb fillets", :description => "with a tarragon sauce and green beans", :price => 1199, :menu_id => mains_id)
+File.open('public/images/image_uploads/food/stuffed_steak.jpg') {|photo_file| dish.photo = photo_file }
+dish.save
+
+dish = Dish.create(:name => "Chicken tikka masala", :description => "served with rice and a garlic naan", :price => 1099, :menu_id => mains_id)
+File.open('public/images/image_uploads/food/tikka.jpg') {|photo_file| dish.photo = photo_file }
+dish.save

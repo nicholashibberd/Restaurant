@@ -66,6 +66,8 @@ class ApplicationController < ActionController::Base
       when 'people' then @site.people_template
       when 'reservations' then @site.reservations_template
       when 'testimonials' then @site.testimonials_template
+      when 'orders' then @site.orders_template        
+      when 'dishes' then @site.dishes_template                
     end
     if FileTest.exist?("#{RAILS_ROOT}/app/views/#{controller}/template#{method_template}/#{action}.html.erb")
       template = "#{controller}/template#{method_template}/#{action}"

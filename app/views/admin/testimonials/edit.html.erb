@@ -1,13 +1,5 @@
-<% content_for :header_tag do %>
 <h1>Edit Testimonial</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Edit <%= @testimonial.name %>'s Testimonial'</h3>
-		<p class="help_text">Edit the testimonial below and click update to save</p>
-	</div>	
-	<div class="user_input">
 		<% form_for(@testimonial) do |f| %>
 		<div class="field">
 			<%= f.label :Name %><br />
@@ -17,9 +9,8 @@
 			<%= f.label :Testimonial %><br />
 			<%= f.text_area :testimonial, :style => 'width: 700px; height: 200px' %><br />  
 		</div>
-		<div class="actions update">
-			<%= f.submit "Update", :class => 'wide' %>
+		<div class="update_button">
+			<%= f.submit "Save", :class => 'wide' %>
 		</div>
 		<% end %>
-	</div>
 </div>

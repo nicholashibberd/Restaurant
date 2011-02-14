@@ -1,0 +1,744 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+ul, ol{
+	padding: 0px;
+	margin: 0px;
+} 
+
+p {
+	margin:0px 0px 10px 0px;	
+}
+
+a {
+	text-decoration:none;	
+	color: black;
+}
+
+a img {
+	border:none;	
+}
+
+body {
+  font-family: Arial;
+  font-size: 12px;
+  font-weight: normal;
+  background-color: #D8D8D8;
+}
+
+#header_background {
+	background: url(/images/admin/header_background.jpg);
+	height: 90px;
+	width: 100%;
+	position: absolute;
+	z-index: -1;
+}
+
+#envelope {
+	width:960px;
+	margin: 0px auto 0px auto;
+}
+
+#wrapper {
+  background-color: #d8d8d8;
+  padding: 15px;
+}
+
+#content {
+	background: url(/images/admin/content_background.png) repeat-x #FFF;
+	border: 1px solid #aaa;
+	padding: 20px;
+}
+
+#header {
+	background: url(/images/admin/header_background.jpg);
+	padding: 10px;
+	height: 70px;
+}
+
+#header #user_status {
+	float:right;
+	color: white;
+}
+
+#header a, #header a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+span#sign_in_out_link a, span#sign_in_out_link a:visited {
+	text-decoration: underline;
+}
+
+
+#header h1 {
+	margin-bottom: 20px;
+}
+
+
+h1, h2, h3 {
+  color: #3d5f88;
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 1.5em;
+}
+
+.heading h3 {
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+
+#page_title {
+	margin-bottom:10px;
+}
+
+ul#top_nav li {
+	display:inline;
+}
+
+ul#top_nav li a{
+	float: left;
+	padding: 10px 20px;
+	margin-right: 10px;
+	background: url(/images/admin/menu_item_background.png);
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;	
+	border: 1px solid #121e32;
+}
+
+ul#top_nav li.selected a{
+	background: #d8d8d8;
+	padding-bottom: 18px;
+	border: none;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+}
+
+ul#top_nav li a:hover{
+	background: #d8d8d8;
+	color: black;
+}
+
+ul#top_nav li.selected a {
+	color: black;
+}
+
+#menu_header {
+	height:30px;
+	margin-top:	10px;
+}
+
+#menu_title {
+	font-size: 22px;
+	color: blue;
+	float: left;
+	margin-right:20px;
+	
+}
+
+.move {
+	cursor:	move;
+}
+
+.hidden_field {
+	display:none;
+}
+
+.content_unit {
+	background: url(/images/admin/content_unit_background.png) repeat-x;	
+	margin-bottom: 10px;
+	padding:15px;
+}
+
+.help_text {
+	color: #bdbdbd;
+}
+
+.user_input {
+	padding: 10px 0px 0px 30px;
+}
+
+.index_item {
+	border-bottom: 1px dotted #ddd;
+	padding-top: 10px ;
+}
+
+.index_item {
+	height: 30px;
+}
+
+#users_index_item {
+	height: 45px;
+}
+
+
+.index_item_heading {
+	float: left;	
+	font-size:18px;
+}
+
+.index_item_subheading {
+	font-size: 14px;
+}
+
+.controls {
+	margin-left: 400px;
+}
+
+
+.controls_item {
+	float: left;
+	margin-left: 10px;
+}
+
+.controls_item a {
+	padding: 5px;
+	background-color: red;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+}
+
+#controls_edit a {
+	background: url(/images/admin/submit_buttons/edit.jpg);	
+	padding: 5px 10px 5px 25px;
+}
+
+#controls_delete a {
+	background: url(/images/admin/submit_buttons/delete.jpg);	
+	padding: 5px 10px 5px 30px;
+}
+
+
+.controls_right {
+	float:right;
+	margin-right: 200px;
+}
+
+.index_item_orderable {
+	font-size:16px;
+	background: url(/images/admin/orderable_menu_background.png);
+	width:550px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;	
+	padding: 10px;
+	position: relative;	
+	min-height: 40px;
+}
+
+.user_heading {
+	font-size: 18px;
+}
+
+.user_status {
+	font-size: 14px;
+}
+
+
+/* 
+************************************************************
+Autocomplete
+************************************************************
+*/
+
+
+.ui-autocomplete {
+	background-color: red;
+	border: 1px solid;
+	width: 200px;
+	cursor: pointer;
+}
+
+/* 
+************************************************************
+Forms
+************************************************************
+*/
+
+input[type=text], input[type=textarea] {
+	border: 1px solid #999;
+	background: url(/images/admin/input_background.png);
+	padding: 8px;
+	width: 500px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	font-family: Arial;
+
+}
+
+input[type=submit].wide {
+margin-left: 603px;	
+}
+
+input[type=submit].search {
+margin-left: 603px;	
+}
+
+
+.update input[type=submit] {
+	background: url(/images/admin/submit_buttons/tick.jpg) no-repeat #E3E3E3;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+	width: 100px;
+	padding-left: 20px;
+	
+}
+
+.save input[type=submit] {
+	background: url(/images/admin/submit_buttons/tick.jpg) no-repeat #E3E3E3;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+	width: 80px;
+	padding-left: 20px;
+	
+}
+#geocode_button {
+	background: url(/images/admin/submit_buttons/tick.jpg) #E3E3E3;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+	width: 130px;
+	padding-left: 20px;
+	font-size: 14px;
+	padding: 3px 3px 3px 33px;
+	text-align: left;
+	float: right;
+	margin: 5px 136px 0 0;
+	
+}
+
+textarea {
+	margin-bottom: 10px;
+}
+
+
+
+/* 
+************************************************************
+Menus
+************************************************************
+*/
+
+#dishes {
+	margin-bottom: 20px;
+}
+
+.move_icon {
+	position: absolute;
+	left: -35px;
+	top: 22px;
+	background: url(/images/admin/move_icon.png);
+	height: 14px;
+	width: 14px;
+}
+
+.dish_name {
+	float: left;	
+	width:450px;	
+}
+
+.dish_details {
+	font-size:16px;
+	background: url(/images/admin/orderable_menu_background.png) repeat-x #e3e3e3;
+	width:550px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;	
+	padding: 10px;
+	position: relative;	
+}
+
+.photo_details {
+	font-size:16px;
+	background: url(/images/admin/orderable_photo_background.png);
+	width:550px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;	
+	padding: 10px;
+	position: relative;	
+	height: 100px;
+}
+
+
+.dish_price {
+	text-align: right;
+	margin-right: 10px;
+}
+
+.dish_description {
+	margin-bottom: 10px;
+	font-size:12px;	
+	clear: left;
+}
+
+.update_menu {
+	margin-bottom: 20px;
+}
+
+#dishes .controls, 
+#photos .controls, 
+#testimonials .controls, 
+#offers .controls, 
+#menus .controls, 
+#people .controls, 
+#galleries .controls,
+.wines .controls {
+	float: right;
+	margin-top: 25px;
+}
+
+ul#menu li,
+ul.menu li,
+ul#gallery li,
+ul#testimonials,
+ul#offers,
+ul#menus,
+ul.menu,
+ul#people,
+ul#galleries {
+	list-style-type: none;
+	padding: 5px;
+	margin-bottom: 5px;
+	width: 725px;
+}
+
+.add_new {
+	margin-bottom: 30px;
+}
+
+.add_new a, .add_new input[type=submit] {
+	background: url(/images/admin/submit_buttons/add.jpg) no-repeat #e3e3e3;	
+	padding: 5px 10px 5px 29px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+}
+
+#photo {
+	float:left;
+	margin-right: 10px;
+}
+
+.add_new_photo {
+	margin-top: 20px;
+}
+
+.index_testimonial {
+	font-size: 14px;
+}
+
+select#user_status {
+	padding: 3px;
+	font-size: 14px;
+	margin-bottom: 10px;
+	width: 200px;
+}
+
+#submenus .menu_details {
+	font-size:16px;
+	width:350px;
+	padding: 10px;
+	position: relative;	
+}
+
+#submenus  li {
+	list-style-type: none;
+}
+
+#submenus .controls {
+	float: right;
+	margin: 13px 300px 0 0;
+}
+
+input#dish_photo {
+	vertical-align: top;
+	border: 1px solid #999;
+	background: url(/images/admin/input_background.png);
+	padding: 8px;
+	width: 300px;
+	font-size: 16px;
+	font-family: Arial;
+	
+}
+
+.photo img {
+	margin-right: 10px;
+}
+
+
+
+
+/* 
+************************************************************
+Wines
+************************************************************
+*/
+
+.wines {
+	margin-bottom: 20px;
+}
+
+
+.dish_name {
+	float: left;	
+	width:450px;	
+}
+
+.wine_details {
+	font-size:12px;
+	background: url(/images/admin/orderable_menu_background.png);
+	width:550px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;	
+	padding: 10px;
+	position: relative;	
+}
+
+.wine_price {
+	text-align: right;
+	margin-right: 10px;
+}
+
+select#menu_menu_type {
+	width: 150px;
+}
+
+#index_menu_type {
+	font-size: 12px;
+}
+
+/* Child dishes */
+
+.edit_child_dishes {
+	margin-top: 10px;
+	padding-left: 20px;
+}
+
+.edit_child_dishes_name {
+	float: left;
+	margin-right: 20px;
+}
+
+.edit_child_dishes_price {
+	margin-right: 20px;
+	position: relative;
+}
+
+.child_dish_delete_button {
+	margin-left: 700px;
+	position: absolute;
+	top: 20px;
+	right: 70px;
+}
+
+.child_dish_delete_button input {
+background: url(/images/admin/submit_buttons/delete.jpg) no-repeat #e3e3e3;	
+padding: 5px 10px 5px 29px;
+border: 1px solid #ccc;
+-moz-border-radius: 3px; 
+-webkit-border-radius: 3px;
+}
+
+.edit_child_dishes_name input {
+	width: 342px;
+}
+
+.edit_child_dishes_price input {
+	width: 100px;
+}
+
+#add_new_child_dish {
+	margin: 10px 0 0 20px;
+}
+
+#save_dish_with_children {
+	margin-top: 20px;
+}
+
+#save_dish_with_children input[type=submit]{
+	padding: 5px 5px 5px 20px;
+}
+
+li.child_dish_item {
+	position: relative;
+}
+
+.child_move_icon {
+	position: absolute;
+	left: 0px;
+	top: 40px;
+	background: url(/images/admin/move_icon.png);
+	height: 14px;
+	width: 14px;
+}
+
+.child_dish_name {
+	float: left;	
+	width:450px;
+	font-size: 12px;
+}
+
+.child_dish_price {
+	font-size: 12px;
+	text-align: right;
+	margin-right: 10px;	
+}
+
+
+
+
+/* 
+************************************************************
+Reservations
+************************************************************
+*/
+
+.form_hidden {
+	display: none;
+}
+
+.reservations_form {
+	position: relative;
+	float: left;
+	margin-right: 10px;
+}
+
+.form_wrapper {
+	height: 50px;
+}
+
+.remove_button {
+	padding: 10px 0px 0px 0px;
+}
+
+.remove_button a{
+	background: url(/images/admin/submit_buttons/delete.jpg);	
+	padding: 5px 10px 5px 29px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+}
+
+
+.field_name_select {
+	width: 120px;
+	float: left;
+	padding: 10px 10px 0px 0px;
+	text-align: right;
+}
+
+#reservations_download a{
+	float: right;
+	background: url(/images/admin/submit_buttons/download.jpg) #E3E3E3;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+	width: 100px;
+	padding: 5px 0 5px 33px;
+	
+}
+
+table {
+	width: 800px;
+}
+
+table td{
+	padding: 3px;
+	border-bottom: 1px dotted #ccc;
+}
+
+/* 
+************************************************************
+Info
+************************************************************
+*/
+
+
+input.opening_input {
+	width:100px;
+}
+
+.opening_item {
+	height:50px;
+}
+
+.opening_label {
+	float: left;
+	height: 38px;
+	width: 170px;
+	padding-top: 12px;
+}
+
+.opening_open {
+	float:left;
+	width: 230px;
+
+	position: relative;
+}
+
+.opening_close {
+	width: 200px;
+	margin-left: 393px;
+	position: relative;
+}
+
+.opening_sub_label {
+	position: absolute;
+	top: 12px;
+	left: -35px;
+}
+
+/*
+************************************************************
+Flash
+************************************************************
+*/
+
+.flash {
+	padding: 10px;
+	background: #438823; /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#8BC51E), to(#438823));
+	background: -moz-linear-gradient(top,  #8BC51E,  #438823);
+	color: white;
+	text-shadow: none;
+	margin-bottom: 20px;
+}
+
+
+/* 
+************************************************************
+Hacks
+************************************************************
+*/
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}

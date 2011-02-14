@@ -1,8 +1,6 @@
 <%= include_yui_editor_if_used %>
-
 <h1>New page</h1>
-
-<div class="user_input">
+<div class="content_unit">
 	<% form_for(@page) do |f| %>
 	<div class="field">
 		<%= f.label :page_name %><br />
@@ -12,8 +10,8 @@
 		<%= f.label :Content %><br />
 		<%= f.text_area :content, :class => 'rich_text_editor', :style => 'width: 800px' %>
 	</div>
-	<div class="actions update">
-		<%= f.submit "Update" %>
+	<div class="update_button">
+		<%= f.submit "Save" %>
 	</div>
 	<% end %>
 </div>

@@ -1,17 +1,8 @@
-<% content_for :header_tag do %>
 <h1>Testimonials</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Current testimonials</h3>
-		<p class="help_text">These are all the testimonials on the site at the moment</p>
-	</div>	
-	<div class="user_input">
 		<ul id="testimonials" class="move">
 			<% @testimonials.each do |testimonial| %>
 			<li id="testimonial_<%= testimonial.id %>">
-
 				<div class="controls">
 					<div class="controls_item" id="controls_edit">
 						<%= link_to "edit", :controller => 'testimonials', :id => testimonial, :action => 'edit' %>
@@ -22,20 +13,18 @@
 				</div>
 			<div class="index_item_testimonials">
 				<div class="index_item_orderable">
-				<div class="move_icon"></div>
-					<%= testimonial.name %>
-					<div class="index_testimonial">
+					<div class="move_icon"></div>
+					<div class="testimonial_name">
+						<%= testimonial.name %>
+					</div>
+					<div class="testimonial_testimonial">
 						<%= testimonial.testimonial %>
 					</div>
 				</div>
 			</div>
-
-			<br />
 			</li>
 			<% end %>
 		</ul>		
-		
-	</div>
 </div>
 
 <div class="add_new">
@@ -58,9 +47,6 @@
                 type: 'post', 
                 data: $('#testimonials').sortable('serialize'),
                 dataType: 'script', 
-                complete: function(request){
-                    $('#testimonials').effect('highlight');
-                  },
                 url: '/admin/testimonials/order_testimonials'})
             }	
 	

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110130224319) do
+ActiveRecord::Schema.define(:version => 20110206140046) do
 
   create_table "customers", :force => true do |t|
     t.string   "name"
@@ -195,6 +195,7 @@ ActiveRecord::Schema.define(:version => 20110130224319) do
     t.integer  "reservations_template"
     t.integer  "testimonials_template"
     t.integer  "dishes_template"
+    t.integer  "orders_template"
   end
 
   create_table "testimonials", :force => true do |t|

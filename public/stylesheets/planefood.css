@@ -76,7 +76,7 @@ body {
 	color: #fff;
 }
 
-#content {
+.content {
 	margin-top: 30px;
 	background-color: #efefe5;
 	padding: 20px;
@@ -222,7 +222,7 @@ Menu
 .dish_right {
 	float: right;
 	width: 100px;
-	margin-right: 100px;
+	margin-right: 50px;
 }
 
 .dish {
@@ -234,39 +234,27 @@ Menu
 	font-weight: bold;
 }
 
+.dish_name_description {
+	float: right;
+	width: 390px;
+}
+
 .dish_price {
+	font-size: 22px;
+}
+
+.dish img {
+	border: none;
+}
+
+#back_to_menu_link {
+	float: right;
+	margin-right: 20px;
 	font-size: 16px;
 }
 
-
-.wine_right {
-	float: right;
-	width: 190px;
-	margin-left: 50px;
-}
-
-.wine_right_item {
-	float: left;
-	width: 50px;
-	margin-right: 10px;
-}
-
-.wine {
+#dishes_show_content #dish_description {
 	margin-bottom: 10px;
-	font-size: 12px;
-	padding-left: 10px;
-}
-
-.wine_headings {
-	height: 30px;
-	margin: 20px 0 10px 0;
-	background: #F6F6F0;
-	padding: 10px 0 10px 10px;
-	font-size: 18px;
-}
-
-.wine_headings .wine_right_item {
-	font-size: 11px;
 }
 
 /*
@@ -703,4 +691,227 @@ Location
 	width: 100%;
 	height: 300px;
 	margin-bottom: 10px;
+}
+
+/*
+************************************************************
+Checkout
+************************************************************
+*/
+
+.checkout_content {
+	background: #EFEFE5;
+	padding: 20px;
+	position: relative;	
+}
+
+#order_online_button {
+	position: absolute;
+	top: -27px;
+	right: -110px;
+}
+
+#order_form {
+	width: 490px;
+}
+
+#order_form .menu_section h2 {
+	margin-bottom: 10px;
+}
+
+#order_form .dish_add {
+	float: right;
+	width: 70px;
+}
+
+#order_form .dish_name {
+	font-weight: normal;
+}
+
+.field {
+	margin-bottom: 10px;
+}
+
+.field input {
+	width: 300px;
+	height: 20px;
+}
+
+#orders_continue_button {
+	position: absolute;
+	bottom: -50px;
+	right: 0px;
+}
+
+
+
+/*
+************************************************************
+Progress bar
+************************************************************
+*/
+
+#progress_bar {
+	background-color: #E4E3C4;
+	padding: 10px 25px 10px 45px;
+	margin-bottom: 20px;
+	height: 20px;
+}
+
+#progress_bar li {
+	float: left;
+	margin-right: 40px;
+	color: #666;
+	list-style-type: none;
+}
+
+#progress_bar a, #progress_bar a:visited {
+	color: #000;
+}
+
+
+/*
+************************************************************
+Basket
+************************************************************
+*/
+
+#basket {
+	float: right;
+	background-color: #E4E3C4;
+	width: 350px;
+	padding: 10px;
+	position: relative;
+}
+
+#basket h3 {
+	margin-bottom: 10px;
+}
+
+#basket .dish {
+	margin-bottom: 10px;
+	font-size: 12px;
+	min-height: 10px;
+	width: 350px;
+}
+
+* html #basket .dish {
+	height: 10px;
+}
+
+#basket .dish_name {
+	font-weight: normal;
+	font-size: 14px;
+	width: 200px;
+}
+
+#basket .price {
+	float: right;
+	width: 105px;
+	height: 20px;
+	font-size: 14px;
+	position: relative;
+	margin-left: 20px;
+}
+
+#basket .remove {
+	width: 61px;
+	position: absolute;
+	right: 0px;
+	top: -2px;
+}
+
+#basket #total, #basket #total .price {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#basket #total .price {
+	text-align: right;
+	margin-right: 5px;
+}
+
+#basket li {
+	list-style-type: none;
+}
+/*
+************************************************************
+Delivery
+************************************************************
+*/
+
+.details_section {
+	margin-bottom: 40px;
+}
+
+#address_change {
+	margin-top: 10px;
+}
+
+/*
+************************************************************
+Confirm
+************************************************************
+*/
+
+h2#confirm {
+	margin-bottom: 10px;
+}
+
+.confirm_section {
+	background-color: #E2E7EC;
+	padding: 10px;
+	margin-bottom:20px;
+	width: 450px;
+	position: relative;	
+}
+
+.confirm_section h3 {
+	margin-bottom: 10px;
+}
+
+.confirm_section .edit {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+#confirm_dishes .dish {
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+
+#confirm_dishes .dish_name {
+	font-weight: normal;	
+}
+
+#confirm_dishes .price {
+	float: right;
+	width: 60px;
+	text-align: right;
+}
+
+#confirm_dishes #total {
+	font-weight: bold;
+}
+
+.confirm_item {
+	margin-bottom: 5px;
+}
+
+.confirm_right {
+	text-align: right;
+	float: right;
+	width: 200px;
+}
+
+#payment_button {
+	text-align: right;
+	margin-right: 250px;
+}
+
+#total {
+	margin-top: 20px;
 }

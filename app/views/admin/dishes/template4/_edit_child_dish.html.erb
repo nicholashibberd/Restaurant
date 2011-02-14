@@ -15,17 +15,17 @@
 		<div class="child_move_icon"></div>
 		<% fields_for "products[]", dish do |f| %>  
 		<div class="edit_child_dishes">  
-			<div class="edit_child_dishes_name">
-				<%= f.label :sub_category %>  <br />
-				<%= f.text_field :name %>  
-			</div>  
 			<div class="edit_child_dishes_price">  
-				<%= f.label :price %>  <br />
+				<%= f.label :price %>
 				<%= f.text_field :price %>  
 				<div class="child_dish_delete_button">
 					<%= submit_tag "Delete", :name => "delete[#{dish.id}]" %>
 				</div> 
 			</div>
+			<div class="edit_child_dishes_name">
+				<%= f.label :sub_category %>
+				<%= f.text_field :name %>  
+			</div>  
 		</div>  
 		<% end %>  
 		</li>
@@ -37,7 +37,7 @@
 		<%= submit_tag 'Add new sub section' %>
 		<% end %>
 	</div>
-	<div class="actions update" id="save_dish_with_children">
+	<div class="update_button" id="save_dish_with_children">
 		<%= submit_tag "Save dish" %>
 	</div> 
 
@@ -56,9 +56,6 @@
             type: 'post', 
             data: $('#menu').sortable('serialize') + '&id=<%= @dish.id-%>', 
             dataType: 'script', 
-            complete: function(request){
-                $('#menu').effect('highlight');
-              },
             url: '/admin/dishes/order_child_dishes'})
         }	
 

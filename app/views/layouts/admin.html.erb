@@ -1,37 +1,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>Test<%= @site.name %> Admin</title>
-    <%= stylesheet_link_tag 'admin', :media => 'screen' %>
-	 <%= stylesheet_link_tag 'cupertino/jquery-ui.css' %> 
-	<%= javascript_include_tag 'jquery', 'jquery-ui' %>
-	 <%= yield :head %>
-  </head>
-  <body>
-	
-	<div id="header_background">
-	</div>
-	<div id="envelope">
-		<div id="header">
-			<div id="user_status">
-				<%= render 'layouts/user_status' %>
-			</div>
-			<h1><%= link_to @site.name + ' Admin', admin_path %></h1>
-			<%= render 'layouts/adminheader' %>
+<head>
+   <title><%= @site.name %> Admin</title>
+   <%= stylesheet_link_tag 'admin', :media => 'screen' %>
+ <%= stylesheet_link_tag 'cupertino/jquery-ui.css' %> 
+<%= javascript_include_tag 'jquery', 'jquery-ui' %>
+ <%= yield :head %>
+</head>
+<body>
+	<div id="background">
+		<div id="background_header">
 		</div>
-		<div id="wrapper">
-			<div id="page_title">
-				<%= yield :header_tag %>
+		<div id="background_menu">
+		</div>
+		<div id="background_content">
+		</div>
+	</div>	
+		<div id="envelope">
+			<div id="header">
+				<div id="user_status">
+					<%= render 'layouts/user_status' %>
+				</div>
+				<h1><%= link_to @site.name + ' Admin', admin_path %></h1>
+				<div id="top_nav">
+					<%= render 'layouts/adminheader' %>				
+				</div>
 			</div>
-			<div id="content">
-				<% flash.each do |key, value| %> 
-				<div class="flash <%= key %>"><%= value %></div>
-				<% end %>
-				<%= yield %>
+			<div id="<%= params[:controller] %>_<%= params[:action] %>_content" class="content">
+					<% flash.each do |key, value| %> 
+					<div class="flash <%= key %>"><%= value %></div>
+					<% end %>
+					<%= yield %>
 			</div>
 		</div>
-	</div>
-    <%= yield :jqueryui %>
-  </body>
+		<div id="footer_background_top">
+		</div>
+		<div id="footer">
+		</div>
+
+<%= yield :jqueryui %>
+</body>
 </html>

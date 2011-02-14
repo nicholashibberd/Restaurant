@@ -1,18 +1,8 @@
-<% content_for :header_tag do %>
-<h1>Edit Dish</h1>
-<% end %>
-
+<h1>Edit dish</h1>
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Edit <%= @dish.name %></h3>
-		<p class="help_text">Change the details below and click update to save</p>
-	</div>	
-
-	<div class="user_input">
 		<% form_for(@dish) do |f| %>
 		<div class="hidden_field">
-			<%= f.label :Menu %><br />
-			<%= f.text_field :menu_id %><br />  
+			<%= f.hidden_field :menu_id %><br />  
 		</div>
 		<div class="field">
 			<%= f.label :name %><br />
@@ -26,9 +16,8 @@
 			<%= f.label :price %><br />
 			<%= f.text_field :price_parse %><br />  
 		</div><br />
-		<div class="actions update">
-			<%= f.submit "Update" %>
+		<div class="update_button">
+			<%= f.submit "Save" %>
 		</div>
 		<% end %>
-	</div>
 </div>

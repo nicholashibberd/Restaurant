@@ -1,14 +1,5 @@
-<% content_for :header_tag do %>
 <h1>Sign in</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Sign in</h3>
-		<p class="help_text">Enter your login details below and click "sign in" to access the admin interface</p>
-	</div>
-	<div class="user_input">
-
 		<% form_for(:session, :url => sessions_path) do |f| %> 
 		<%= f.error_messages %>
 		<div class="field">
@@ -19,11 +10,11 @@
 			<%= f.label :password %><br /> 
 			<%= f.password_field :password %>
 		</div> 
-		<div class="actions save">
+		<div class="update_button">
 			<%= f.submit "Sign in" %> 
 		</div>
 		<% end %> 
-		<p>New user? <%= link_to "Sign up!", signup_path %></p>
-
-	</div>
+</div>
+<div class="add_new" id="new_user_signup">
+<%= link_to "Create new user", signup_path %>
 </div>

@@ -16,34 +16,26 @@ $(document).ready(function() {
 });
 
 </script>
-
-<% content_for :header_tag do %>
-<h1>Reservations</h1>
-<% end %>
 <div id="reservations_download">
-<%= link_to 'Download CSV', :controller => 'admin/reservations', :action => 'export_to_csv' %>	
+<%= link_to 'Download CSV', url_options = {:controller => 'admin/reservations', :action => 'export_to_csv', :records_to_select => request.GET}, html_options = {:method => 'post' } %>
 </div>
+<h1>Reservations</h1>
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Reservations</h3>
-		<p class="help_text">Click the filters below to find your reservation</p>
-	</div>	
-
 <% current_page = request.request_uri %>
 <form name="input" action="<%= current_page %>" method="get">
 	
 	<!-- Customer field  -->
-		<% if params[:customer] %>
+		<% if params[:name] %>
 		<div class="form_wrapper">
 		<div id="customer_form" class="reservations_form">
 		<div class="field_name_select">
 		<label for="customer_form">Customer</label><br />
 		</div>
-		<input class="autocomplete" type="text" name="customer" value="<%= params[:customer] %>"/>
+		<input class="autocomplete" type="text" name="name" value="<%= params[:name] %>"/>
 		</div>
 		<div class="remove_button">
 		<% c = params.dup %>
-		<% c.delete 'customer' %>
+		<% c.delete 'name' %>
 		<%= link_to "Remove", url_for(c) %>
 		</div>
 		</div>
@@ -121,7 +113,7 @@ $(document).ready(function() {
 		<div class="field_name_select">
 		<select id="select_simple">
 			<option value="0">Add new filter</option>
-			<option value="customer">Customer</option>
+			<option value="name">Customer</option>
 			<option value="date">Date</option>
 			<option value="phone">Phone</option>	
 			<option value="email">Email</option>
@@ -130,8 +122,8 @@ $(document).ready(function() {
 		</div>
 
 	
-	<input id="test" type="text" name="whatever" /><br />
-	<div class="actions update">
+	<input id="test" type="text" name="name" /><br />
+	<div class="search_button">
 	<input type="submit" value="Search" class="search" />
 	</div>
 </form>

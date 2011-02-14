@@ -3,7 +3,7 @@
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title><%= @site.name %></title>
-	<%= stylesheet_link_tag 'malago', :media => 'screen' %>
+	<%= stylesheet_link_tag "#{@site.theme}", :media => 'screen' %>
 	<%= javascript_include_tag 'jquery', 'jquery-ui' %>
 	<%= stylesheet_link_tag 'cupertino/jquery-ui.css' %>
 	<%= yield :head %>

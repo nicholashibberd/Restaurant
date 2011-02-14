@@ -431,11 +431,18 @@ Basket
 #basket .dish {
 	margin-bottom: 10px;
 	font-size: 12px;
+	min-height: 10px;
+	width: 350px;
+}
+
+* html #basket .dish {
+	height: 10px;
 }
 
 #basket .dish_name {
 	font-weight: normal;
 	font-size: 14px;
+	width: 200px;
 }
 
 #basket .price {
@@ -746,6 +753,8 @@ Flash message
 }
 
 
+
+
 /*
 ************************************************************
 Clearfix
@@ -772,3 +781,179 @@ html[xmlns] .clearfix {
 * html .clearfix {
 	height: 1%;
 }
+
+/*
+************************************************************
+Checkout
+************************************************************
+*/
+
+.checkout_content {
+	background: #fff;
+	padding: 20px;
+	position: relative;	
+}
+
+#order_online_button {
+	position: absolute;
+	top: -27px;
+	right: -110px;
+}
+
+#order_form {
+	width: 490px;
+}
+
+#order_form .menu_section h2 {
+	margin-bottom: 10px;
+}
+
+.order_dish {
+	padding-bottom: 5px;
+}
+
+
+.order_child_dish {
+	height: 25px;
+	padding-left: 10px;
+}
+
+* html .order_child_dish {
+	height: 25px;
+}
+
+.order_dish_add {
+	float: right;
+	width: 70px;
+}
+
+.order_dish_name {
+	font-weight: normal;
+}
+
+.field {
+	margin-bottom: 10px;
+}
+
+.field input {
+	width: 300px;
+	height: 20px;
+}
+
+#orders_continue_button {
+	position: absolute;
+	bottom: -50px;
+	right: 0px;
+}
+
+
+
+/*
+************************************************************
+Progress bar
+************************************************************
+*/
+
+#progress_bar {
+	background-color: #E2E7EC;
+	padding: 10px 25px 10px 45px;
+	margin-bottom: 20px;
+	height: 20px;
+}
+
+#progress_bar li {
+	float: left;
+	margin-right: 40px;
+	color: #666;
+}
+
+#progress_bar a, #progress_bar a:visited {
+	color: #000;
+}
+
+
+
+
+/*
+************************************************************
+Delivery
+************************************************************
+*/
+
+.details_section {
+	margin-bottom: 40px;
+}
+
+#address_change {
+	margin-top: 10px;
+}
+
+/*
+************************************************************
+Confirm
+************************************************************
+*/
+
+h2#confirm {
+	margin-bottom: 10px;
+}
+
+.confirm_section {
+	background-color: #E2E7EC;
+	padding: 10px;
+	margin-bottom:20px;
+	width: 450px;
+	position: relative;	
+}
+
+.confirm_section h3 {
+	margin-bottom: 10px;
+}
+
+.confirm_section .edit {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+#confirm_dishes .dish {
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+
+#confirm_dishes .dish_name {
+	font-weight: normal;	
+}
+
+#confirm_dishes .price {
+	float: right;
+	width: 60px;
+	text-align: right;
+}
+
+#confirm_dishes #total {
+	font-weight: bold;
+}
+
+.confirm_item {
+	margin-bottom: 5px;
+}
+
+.confirm_right {
+	text-align: right;
+	float: right;
+	width: 200px;
+}
+
+#payment_button {
+	text-align: right;
+	margin-right: 250px;
+}
+
+#total {
+	margin-top: 20px;
+}
+
+

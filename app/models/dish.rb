@@ -33,7 +33,7 @@ class Dish < ActiveRecord::Base
   end
 
   def has_parent?
-    !self.parent.empty?
+    !self.parent_id.nil?
   end
   
 end

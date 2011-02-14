@@ -1,0 +1,5 @@
+<% unless params[:parent_id] %>
+  <%= render 'admin/menus/template4/new_parent_menu' %>
+<% else %>
+  <%= render 'admin/menus/template4/new_child_menu' %>
+<% end %>

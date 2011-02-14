@@ -1,15 +1,5 @@
-<% content_for :header_tag do %>
 <h1>Edit User</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Edit <%= @user.name %></h3>
-		<p class="help_text">Edit the details below and click update to save</p>
-	</div>	
-	<div class="user_input">
-
-
 		<% form_for(@user) do |f| %> 
 		<div class="field">
 			<%= f.label :name %>
@@ -26,20 +16,13 @@
 			<br />
 			<%= f.select :status, options_for_select([ "administrator", "user" ], @user.status) %>
 		</div>
-		<div class="field">
-			<%= f.label :password %>
-			<br />
-			<%= f.password_field :password %>
-		</div>
-		<div class="field"> 
-			<%= f.label :password_confirmation, "Confirmation" %>
-			<br />
-			<%= f.password_field :password_confirmation %> 
-		</div>
-		<div class="actions update"> 
-			<%= f.submit "Update" %>
+		<div class="update_button"> 
+			<%= f.submit "Save" %>
 		</div> 
 		<% end %>
-
-	</div>
 </div>
+
+<div class="edit_button">
+	<%= link_to 'Change password', url_options = {:controller => 'admin/users', :action => 'change_password', :user_id => @user.id}, html_options = {:method => 'post' } %>	
+</div>
+

@@ -1,15 +1,6 @@
 <%= include_yui_editor_if_used %>
-<% content_for :header_tag do %>
 <h1>Edit person</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Edit staff member</h3>
-		<p class="help_text">Please enter the details below and click save to save</p>
-	</div>	
-
-	<div class="user_input index_items">
 		<% form_for(@person, :html => { :multipart => true }) do |f| %>
 		<div class="field">
 			<%= f.label :Name %><br />
@@ -27,9 +18,8 @@
 	    <%= f.label :File %><br />
 		<%= f.file_field :photo %>
 		</div>
-		<div class="actions save">
+		<div class="update_button">
 			<%= f.submit "Save" %>
 		</div>
 		<% end %>
-	</div>
 </div>

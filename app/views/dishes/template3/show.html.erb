@@ -1,0 +1,13 @@
+<%= link_to 'Back to menu', url_options = {:controller => 'menus', :action => 'show', :id => @dish.menu_id}, html_options = {:id => 'back_to_menu_link'} %>
+<h1><%= @dish.name %></h1>
+<div id="dish_description"><%= @dish.description %></div>
+<div id="dish_image">
+  <%= image_tag @dish.photo.url %>	
+</div>
+<div id="dish_show_order_button">
+  <% form_tag url_options = {:controller => 'orders', :action => 'new_order_from_dish_show'} do -%>
+    <%= hidden_field_tag :dish_id, @dish.id %>
+	<%= submit_tag 'Order this dish online' %>
+  <% end -%>
+
+</div>

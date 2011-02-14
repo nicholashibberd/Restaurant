@@ -1,15 +1,5 @@
-<% content_for :header_tag do %>
 <h1>Add new photo</h1>
-<% end %>
-
 <div class="content_unit">
-			<div class="heading">
-				<h3 class="heading">Add new photo</h3>
-				<p class="help_text">Click browse to upload a photo on your hard drive and enter the photo details below</p>
-			</div>	
-
-	<div class="user_input">
-
 		<% form_for(@photo, :html => { :multipart => true }) do |f| %>
 		  <%= f.error_messages %>
 		 <div class="hidden_field"§>
@@ -23,10 +13,8 @@
 		    <%= f.label :File %><br />
 			<%= f.file_field :photo%>
 			</div>
-		  <div class="actions save">
+		  <div class="update_button">
 		    <%= f.submit "Save" %>
 		  </div>
 		<% end %>
-
-	</div>
 </div>

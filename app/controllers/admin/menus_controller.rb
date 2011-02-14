@@ -14,7 +14,6 @@ class Admin::MenusController < AdminController
   def edit
     @menu = @site.menus.find(params[:id])
     @dish = Dish.new
-    @wine_categories = Wine.all(:select => "DISTINCT category")
     render_admin_view
   end
    
@@ -38,18 +37,8 @@ class Admin::MenusController < AdminController
      render :nothing => true
    end
 
-   def order_wines
-     menu = @site.menus.find(params[:id])
-     @wines = menu.wines.all(:conditions => ["category = ?", params[:cat]])
-     @wines.each do |wine|
-       wine.position = params[:wine].index(wine.id.to_s) + 1
-       wine.save
-     end
-     render :nothing => true
-   end
-
    def order_menus
-     menus = @site.menus.all
+     menus = @site.menus.top_level
      menus.each do |menu|
        menu.position = params['menu'].index(menu.id.to_s) + 1
        menu.save
@@ -57,5 +46,14 @@ class Admin::MenusController < AdminController
      render :nothing => true
    end
    
+   def order_parent_menus
+     parent = Menu.find(params['id'])
+     menus = parent.children
+     menus.each do |menu|
+       menu.position = params['menu'].index(menu.id.to_s) + 1
+       menu.save
+     end
+     render :nothing => true
+   end
   
 end

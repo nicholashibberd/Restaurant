@@ -1,20 +1,7 @@
-<% content_for :header_tag do %>
-<h1>Add new dish</h1>
-<% end %>
-
-
+<h1>Add a new dish</h1>
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Add a dish</h3>
-		<p class="help_text">Enter details of the new dish and click “Add” to save the dish to this menu</p>
-	</div>	
-		<div class="user_input">
-
-
 		<% form_for(@dish) do |f| %>
-		<div class="hidden_field"§>
-			<%= f.hidden_field :menu_id, :value => params[:menu_id] %><br />  
-		</div>
+			<%= f.hidden_field :menu_id, :value => params[:menu_id] %>
 		<div class="field">
 			<%= f.label :name %><br />
 			<%= f.text_field :name %><br />  
@@ -27,9 +14,8 @@
 			<%= f.label :price %><br />
 			<%= f.text_field :price_parse %><br />  
 		</div><br />
-		<div class="actions save">
+		<div class="update_button">
 			<%= f.submit "Save" %>
 		</div>
 		<% end %>
-		</div>
 </div>

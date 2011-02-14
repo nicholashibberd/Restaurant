@@ -17,7 +17,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :homepages
   map.resources :sites  
   map.resources :users  
-  map.resources :wines
   map.resources :sessions, :only => [:new, :create, :destroy]
   map.signin '/signin', :controller => 'sessions', :action => 'new'  
   map.signout '/signout', :controller => 'sessions', :action => 'destroy'
@@ -42,9 +41,8 @@ ActionController::Routing::Routes.draw do |map|
   map.admin '/admin', :controller => 'admin', :action => 'index'    
   map.namespace :admin do |admin|
    admin.resources :pages
-    admin.resources :menus, :has_many => :dishes, :has_many => :wines
-    admin.resources :dishes
-    admin.resources :wines    
+    admin.resources :menus, :has_many => :dishes
+    admin.resources :dishes 
     admin.resources :galleries, :has_many => :photos
     admin.resources :photos    
     admin.resources :people   
@@ -55,7 +53,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :photos        
     admin.resources :reservations
     admin.resources :location
-    admin.resources :users   
+    admin.resources :users
     admin.resources :info     
   end
   

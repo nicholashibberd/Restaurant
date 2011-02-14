@@ -1,28 +1,8 @@
-<script type="text/javascript">$(function() {
-	$(".datepicker").datepicker({dateFormat: 'DD d MM yy', firstDay: 1});
-});
-</script>
-
-<% content_for :header_tag do %>
 <h1>Offers</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">All Offers</h3>
-		<p class="help_text">Here are all the offers live on the site at the moment. Click to edit, view or delete</p>
-	</div>	
-
-
-	<div class="user_input index_items">
-
-
-
-
 		<ul id="offers" class="move">
 			<% @offers.each do |offer| %>
 			<li id="offer_<%= offer.id %>">
-
 				<div class="controls">
 					<div class="controls_item" id="controls_edit">
 						<%= link_to "edit", :controller => 'offers', :id => offer, :action => 'edit' %>
@@ -31,19 +11,13 @@
 						<%= link_to "delete", offer, :method => :delete, :confirm => "You sure?" %>
 					</div>
 				</div>
-
 				<div class="index_item_orderable">
 					<div class="move_icon"></div>
 					<%= offer.title %>
 				</div>
-
-
-				<br />
 			</li>
 			<% end %>
-		</ul>		
-
-	</div>
+		</ul>
 </div>
 
 <div class="add_new">
@@ -65,9 +39,6 @@
 				type: 'post', 
 				data: $('#offers').sortable('serialize'),
 				dataType: 'script', 
-				complete: function(request){
-					$('#offers').effect('highlight');
-				},
 				url: '/admin/offers/order_offers'})
 			}	
 

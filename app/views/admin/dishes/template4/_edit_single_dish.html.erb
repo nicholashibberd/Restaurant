@@ -1,8 +1,5 @@
 <% form_for(@dish) do |f| %>
-<div class="hidden_field">
-	<%= f.label :Menu %><br />
-	<%= f.text_field :menu_id %><br />  
-</div>
+	<%= f.hidden_field :menu_id %><br />  
 <div class="field">
 	<%= f.label :name %><br />
 	<%= f.text_field :name %><br />  
@@ -15,15 +12,16 @@
 	<%= f.label :price %><br />
 	<%= f.text_field :price_parse %><br />  
 </div><br />
-<div class="actions update">
-	<%= f.submit "Update" %>
+<div class="update_button">
+	<%= f.submit "Save" %>
 </div>
 <% end %>
 
-
-<div class="add_new" id="add_new_child_dish">
+<div class="add_new" id="add_new_child_dish_single">
 	<% form_tag add_child_dishes_path do %>
 	<%= hidden_field_tag :parent_id, @dish.id %>
 	<%= submit_tag 'Add new sub section' %>
 	<% end %>
 </div>
+
+

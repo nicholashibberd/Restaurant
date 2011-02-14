@@ -9,14 +9,17 @@ class MenusController < ApplicationController
   def show
     @menus = @site.menus
     @menu = @site.menus.find(params[:id])
-    @wine_categories = Wine.all(:select => "DISTINCT category")
     render_site_view
   end
     
   def create
      @menu = @site.menus.new(params[:menu])
        if @menu.save
-        redirect_to :controller => 'admin/menus', :action => 'index'
+         unless params[:menu][:parent_id]
+           redirect_to :controller => 'admin/menus', :action => 'index'
+         else
+           redirect_to :controller => 'admin/menus', :action => 'edit', :id => params[:menu][:parent_id]
+         end
        else
         render 'admin/menus/new'
        end
@@ -32,8 +35,13 @@ class MenusController < ApplicationController
    end
    
    def destroy
-     menu = @site.menus.find(params[:id]).destroy
-     redirect_to :controller => 'admin/menus', :action => 'index'
+     menu = @site.menus.find(params[:id])
+     menu.destroy
+      unless menu.has_parent?
+       redirect_to :controller => 'admin/menus', :action => 'index'
+     else
+       redirect_to :controller => 'admin/menus', :action => 'edit', :id => menu.parent_id
+     end
    end
    
    def download_pdf 

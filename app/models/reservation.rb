@@ -19,8 +19,12 @@ require 'fastercsv'
   named_scope :date_of_booking, lambda { |date_of_booking|
     {:conditions => ["created_at between ? and ?", date_of_booking.to_time, date_of_booking.to_time + 1.day]}
   }
-
-      
+  
+  named_scope :current_selection, lambda { |current|
+    {:conditions => current}
+  }
+  
+  
   def input_date=(user_date)
     self.date = Date.parse(user_date)
   end

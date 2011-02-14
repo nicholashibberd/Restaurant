@@ -1,4 +1,4 @@
-<% @food_menus.each do |menu| %>
+<% @menus.each do |menu| %>
 <div class="menu_section">
 	<h2><%= menu.name %></h2>
 	<% menu.dishes.all.each do |dish| %>
@@ -17,33 +17,3 @@
 	<% end %>
 </div>
 <% end %>
-
-<!--
-<%# @wine_menus.each do |@menu| %>
-<div class="menu_section">
-	<h2><%#= @menu.name %></h2>
-	<%# @wine_categories.each do |cat| %>
-	<div>	
-	<%#= cat.category.titleize %>
-	</div>
-	<%# select_all_wines(cat) %>
-		<%# @wines.each do |wine| %>
-		<div class="wine">
-			<div class="wine_right">
-				<div class="wine_price wine_right_item">
-					<%#= pound_amount(wine.price) %>
-				</div>
-				<div class="wine_small wine_right_item">
-					<%#= pound_amount(wine.small) %>
-				</div>
-				<div class="wine_large wine_right_item">
-					<%#= pound_amount(wine.large) %>
-				</div>
-			</div>
-			<div class="wine_name">
-				<%#= wine.name %>
-			</div>
-		</div>
-		<%# end %>
-	<%# end %></div>
-<%# end %>-->

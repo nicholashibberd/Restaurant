@@ -1,0 +1,43 @@
+<% @menus.each do |menu| %>
+	<% menu.children.each do |c| %>
+	<div class="menu_section">
+		<h2><%= c.name %></h2>
+		<% c.dishes.all.each do |dish| %>
+		<% if !dish.has_children? %>
+			<% form_tag ({:controller => 'orders', :action => 'basket' }) do %>
+			<div class="order_dish">
+				<%= hidden_field_tag :order_id, params[:id] %>
+				<%= hidden_field_tag :dish_id, dish.id %>
+					<div class="order_dish_add">
+						<%=  submit_tag pound_amount(dish.price) %>
+					</div>
+					<div class="order_dish_name">
+						<%= dish.name %>
+					</div>
+			</div>
+			<% end %>
+			<% else %>
+			<div class="order_dish">
+				<div class="order_dish_name">
+					<%= dish.name %>
+				</div>
+				<% dish.children.each do |c| %>
+					<% form_tag ({:controller => 'orders', :action => 'basket' }) do %>
+					<div class="order_child_dish">
+					<%= hidden_field_tag :order_id, params[:id] %>
+					<%= hidden_field_tag :dish_id, c.id %>
+						<div class="order_dish_add">
+							<%=  submit_tag pound_amount(c.price) %>
+						</div>
+						<div class="order_dish_name">
+							<%= c.name %>
+						</div>
+					</div>
+					<% end %>
+				<% end %>
+			</div>
+			<% end %>	
+		<% end %>
+	</div>
+	<% end %>
+<% end %>

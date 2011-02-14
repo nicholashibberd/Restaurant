@@ -1,17 +1,8 @@
-<% content_for :header_tag do %>
 <h1>People</h1>
-<% end %>
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Our staff</h3>
-		<p class="help_text">These are all the people with profiles on the site at the moment. Click to edit</p>
-	</div>	
-	<div class="user_input index_items">
-
 		<ul id="people" class="move">
 			<% @people.each do |person| %>
 			<li id="person_<%= person.id %>">
-
 				<div class="controls">
 					<div class="controls_item" id="controls_edit">
 						<%= link_to "edit", :controller => 'people', :id => person, :action => 'edit' %>
@@ -20,19 +11,13 @@
 						<%= link_to "delete", person, :method => :delete, :confirm => "You sure?" %>
 					</div>
 				</div>
-
 				<div class="index_item_orderable">
 					<div class="move_icon"></div>
 					<%= person.name %>
 				</div>
-
-
-				<br />
 			</li>
 			<% end %>
 		</ul>		
-
-	</div>
 </div>
 
 <div class="add_new">
@@ -54,9 +39,6 @@
 				type: 'post', 
 				data: $('#people').sortable('serialize'),
 				dataType: 'script', 
-				complete: function(request){
-					$('#people').effect('highlight');
-				},
 				url: '/admin/people/order_people'})
 			}	
 

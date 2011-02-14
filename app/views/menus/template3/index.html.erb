@@ -10,11 +10,28 @@
 <% end %>
 <div id="menu_content">
 <% @menus.each do |@menu| %>
-	<% if @menu.menu_type == 'food' %>
-		<%= render 'menus/template3/food_menu_show' %>
-	<% else %>
-		<%= render 'menus/template3/wine_menu_show' %>
-	<% end %>
-<% end %>
+	<h1><%= link_to @menu.name, :controller => 'menus', :action => 'show', :id => @menu.id %></h1>
+	     <% @menu.dishes.each do |dish| %>
+			<div class="dish">
+				<div class="dish_right">
+					<div class="dish_price">
+						<%= pound_amount(dish.price) %>
+					</div>
+				</div>
+				<div class="dish_left">
+					<div class="dish_name_description">
+						<div class="dish_name">
+							<%= dish.name %>
+						</div>
+						<div class="dish_description">
+							<%= dish.description %>
+						</div>
+					</div>
+					<div class="dish_photo">
+						<%= link_to image_tag dish.photo.url(:dish_small), :controller => 'dishes', :action => 'show', :id => dish.id %>
+					</div>
+				</div>
+			</div>
+	     <% end %><% end %>
 
 

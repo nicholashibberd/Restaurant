@@ -18,4 +18,8 @@ class Admin::UsersController < AdminController
     @user = @site.users.find(params[:id])
   end
   
+  def change_password
+   @user = User.find(23)
+  end
+  
 end

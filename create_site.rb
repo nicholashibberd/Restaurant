@@ -69,52 +69,6 @@ Dish.create(:name => "Scandinavian iced berries", :description => "with hot whit
 Dish.create(:name => "Chocolate pudding", :description => "with mint chocolate chip ice cream", :price => 675, :menu_id => desserts_id)
 Dish.create(:name => "Ice creams", :description => "vanilla, pistachio, chocolate", :price => 535, :menu_id => desserts_id)
 
-wines_menu = Menu.create(:name => 'Wines', :site_id => site_id, :menu_type => 'wine')
-wines_id = wines_menu.id
-
-#White
-Wine.create(:name => "Sauvignon Blanc / Ugni Blanc, Le Pionnier Blanc, Cotes de Gascogne 2009", :price => 1450, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Chardonnay/Pinot Bianco, Riva delle Venezie, Veneto, Italy 2009", :price => 1450, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Chenin Blanc, Backsberg Estate Cellars, Paarl, South Africa 2009", :price => 1465, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Sauvignon Blanc, Los Caminos, Colchagua Valley, Chile 2009", :price => 1650, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Gros Manseng, Domaine Cambos, Cotes de Gascogne 2009", :price => 1750, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Pinot Grigio, Ca’Luca, Delle Venezie 2009", :price => 2050, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Viognier, La Playa, Colchagua Valley, Chile 2009", :price => 2150, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Chardonnay Sur Lie, De Wetshof Estate, Robertson, South Africa 2009", :price => 2150, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Riesling, Duckbill, Great Southern Region, Western Australia 2008", :price => 2095, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Torrontes, Nomade, Cafayate, Argentina 2009", :price => 2500, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Gewurztraminer, Paul & Phillipe Zinck, Alsace 2008", :price => 2450, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Pinot Gris, Willunga 100, Adelaide Hills, South Australia 2009", :price => 2250, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Albarino, Ramon Bilboa, Rias Baixas, Spain 2009", :price => 3050, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-Wine.create(:name => "Sauvignon Blanc, Durvillea, Marlborough, New Zealand 2009", :price => 2950, :small => 450, :large => 650, :carafe => 1050, :category => Wine::WHITE, :menu_id => wines_id)
-
-#Rose
-Wine.create(:name => "Pinot Noir, Croix d’Or, Vin de Pays du Val de Loire 2009", :price => 1450, :small => 450, :large => 650, :carafe => 1050, :category => Wine::ROSE, :menu_id => wines_id)  
-Wine.create(:name => "Grenache Noir / Cinsault, Le Poussin, Pays d’Oc 2009", :price => 1650, :small => 450, :large => 650, :carafe => 1050, :category => Wine::ROSE, :menu_id => wines_id)    
-Wine.create(:name => "Cabernet Sauvignon, Mulderbosch, Stellenbosch, South Africa 2009", :price => 1850, :small => 450, :large => 650, :carafe => 1050, :category => Wine::ROSE, :menu_id => wines_id)    
-Wine.create(:name => "Côteaux de Peyriac, Domaine Massamier la Mignarde France 2008", :price => 2150, :small => 450, :large => 650, :carafe => 1050, :category => Wine::ROSE, :menu_id => wines_id)    
-Wine.create(:name => "Malbec Rosé ‘La Flor’, Mendoza Argentina 2009", :price => 2650, :small => 450, :large => 650, :carafe => 1050, :category => Wine::ROSE, :menu_id => wines_id)    
-Wine.create(:name => "Château de Fonscolombe Rosé, Côteaux d'Aix en Provence France 2009", :price => 2950, :small => 450, :large => 650, :carafe => 1050, :category => Wine::ROSE, :menu_id => wines_id)    
-Wine.create(:name => "Sancerre Rosé, Domaine Sautereau, Loire France 2009", :price => 3000, :small => 450, :large => 650, :carafe => 1050, :category => Wine::ROSE, :menu_id => wines_id)    
-Wine.create(:name => "Bandol Rosé, Domaine de Terrebrune, Provence France 2009", :price => 3695, :small => 450, :large => 650, :carafe => 1050, :category => Wine::ROSE, :menu_id => wines_id)    
-
-#Red
-Wine.create(:name => "Grenache / Merlot, Terre d’Or, Vin de Pays de Mediterranee 2008", :price => 1450, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)  
-Wine.create(:name => "Nero d’Avola / Shiraz, IL Paradosso, Sicily, Italy 2009", :price => 1450, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)  
-Wine.create(:name => "Merlot, Los Caminos, Colchagua Valley, Chile 2009", :price => 1650, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)  
-Wine.create(:name => "Monastrell/Syrah, Familia Pacheco, Jumilla, Spain 2008", :price => 1650, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)  
-Wine.create(:name => "Merlot/Cabernet Sauvignon/Cabernet Franc, Klein Steenberg, South Africa 2007", :price => 1750, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)  
-Wine.create(:name => "Pinot Noir, Sol y Sombra, Reserve, Central Valley, Chile 2008", :price => 1895, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)  
-Wine.create(:name => "Vaquero Cabernet Sauvignon, Lodi, California, U.S.A 2005", :price => 1895, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)  
-Wine.create(:name => "Cotes-du-Rhone, Trois Couronnes, Louis Mousset, 2007", :price => 2125, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)  
-Wine.create(:name => "Beaujolais-Villages, Domaine Les Tours de Montmelas, 2008", :price => 2150, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)  
-Wine.create(:name => "Zinfandel, Wente Vineyards, Beyer ranch, San Francisco Bay, USA 2008", :price => 2250, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)    
-Wine.create(:name => "Cabernet Merlot, Polish Hill River, Paulett Wines, Clare Valley, Australia 2006", :price => 2250, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)      
-Wine.create(:name => "Pinot Noir Paper Road, Wairarapa, New Zealand 2008", :price => 2350, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)        
-Wine.create(:name => "Cabernet Sauvignon, Castle Rock, Napa Valley, California, USA 2007", :price => 2650, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)        
-Wine.create(:name => "Pesquera Crianza, Bodegas Alejandro Fernandez, Ribera del Duero, Spain 2007", :price => 2900, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)        
-Wine.create(:name => "Margari, Ca’Marcanda, Angelo Gaja, Tuscany, Italy 2006", :price => 3100, :small => 450, :large => 650, :carafe => 1050, :category => Wine::RED, :menu_id => wines_id)        
-
 #Testimonials
 Testimonial.create(:testimonial => "Had a wonderful time at #{site_name}. Will definitely be coming back and certainly recommending to friends", :name => 'Alan', :site_id => site_id)
 Testimonial.create(:testimonial => "We love this place and make sure we drop in every couple of months at the least. Try the chateaubriand, it's divine", :name => 'Eleanor', :site_id => site_id)

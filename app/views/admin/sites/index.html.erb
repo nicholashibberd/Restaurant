@@ -4,69 +4,37 @@
 <% end %>
 <%= include_yui_editor_if_used %>
 
-<% content_for :header_tag do %>
 <h1>Restaurant details</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Restaurant Name</h3>
-		<p class="help_text">This is the name that will appear next to the logo of the site, and whenever the name of the restaurant is mentioned</p>
-	</div>
-	<div class="user_input">
-		<% form_for(@site) do |f| %>
-		<div class="field">
-			<%= f.text_field :name %><br />  
-		</div>
+	<h3 class="heading">Restaurant Name</h3>
+	<% form_for(@site) do |f| %>
+	<div class="field">
+	<%= f.text_field :name %><br />  
 	</div>
 </div>
-
 <div class="content_unit">	
-	<div class="heading">
-		<h3>Phone Number</h3>
-		<p class="help_text">This number will appear at the top of all pages on the site, and also in the footer</p>
-	</div>
-	<div class="user_input">
-
-		<div class="field">
-			<%= f.text_field :phone %><br />  
-		</div>
+	<h3>Phone Number</h3>
+	<div class="field">
+	<%= f.text_field :phone %><br />  
 	</div>
 </div>
-
 <div class="content_unit">	
-	<div class="heading">
-		<h3>Address</h3>
-		<p class="help_text">This address will appear at the top of all pages on the site, and also controls the map that is shown on the location page. Drag the map controls below to reposition the map if necessary</p>
+	<h3>Address</h3>
+	<div class="field">
+	<input id="geocode_button" type="button" value="Find address" onclick="codeAddress()">
+	<%= f.text_field :address, :id => 'geocode_address' %><br />
 	</div>
-	<div class="user_input">
-		<div class="field">
-			<input id="geocode_button" type="button" value="Find address" onclick="codeAddress()">
-			<%= f.text_field :address, :id => 'geocode_address' %><br />
-		</div>
-		<div class="field">
-			<%= f.hidden_field :latlong %><br />  
-		</div>
-		<div id="map_canvas" style="width: 600px; height: 400px;"></div>
-		<div>
-		</div>
+	<div class="field">
+	<%= f.hidden_field :latlong %><br />  
+	</div>
+	<div id="map_canvas" style="width: 600px; height: 400px;">
 	</div>
 </div>
-
 <div class="content_unit">	
-	<div class="heading">
-		<h3>Directions</h3>
-		<p class="help_text">Enter directions to the restaurant here and this will appear on the map page</p>
-	</div>
-	<div class="user_input">
-
-		<div class="field">
-			<%= f.text_area :directions, :style => 'width: 700px; height: 200px' %><br />  
-			<!--:class => 'rich_text_editor'-->
-
-		</div>
-
-
+<h3>Directions</h3>
+<div class="field">
+<%= f.text_area :directions, :style => 'width: 700px; height: 200px' %><br />  
+<!--:class => 'rich_text_editor'-->
 <!--
 </div>
 
@@ -75,58 +43,40 @@
 
 
 <div class="content_unit">	
-
-
-	<div class="heading">
-		<h3>Homepage Intro</h3>
-		<p class="help_text">This text will appear on the homepage</p>
-	</div> 
-
-	<div class="user_input">
-
-
-
-		<div class="field">
-			<%= f.text_area :content, :style => 'width: 700px; height: 200px' %><br />  
-			<!--:class => 'rich_text_editor'-->
-		</div>
-
-	</div>
+<h3>Homepage Intro</h3>
+<div class="field">
+<%= f.text_area :content, :style => 'width: 700px; height: 200px' %><br />  
+<!--:class => 'rich_text_editor'-->
+</div>
 </div>
 
 <div class="content_unit">	
-	<div class="heading">
-		<h3>Opening Times</h3>
-		<p class="help_text">Enter the opening times for your restaurant</p>
-	</div>
-	<div class="user_input">
-
-		<% @site.opening_times.each do |opening| %>
-
-		<% f.fields_for :opening_times, opening do |i| %>
-		<div class="opening_item">
-			<div class="opening_label">
-				<%= i.label opening.day %>
-			</div>
-			<div class="opening_open">
-				<div class="opening_sub_label">
-					Open
-				</div>
-				<%= i.text_field :input_open, :class => 'opening_input' %>
-			</div>
-			<div class="opening_close">
-				<div class="opening_sub_label">
-					Close
-				</div>
-				<%= i.text_field :input_close, :class => 'opening_input' %>
-			</div>
-		</div>
-		<% end %>
-		<% end %>
-
-		<div class="actions update">
-			<%= f.submit "Update" %>
-		</div>
-		<% end %>
-	</div>
+<h3>Opening Times</h3>
+<% @site.opening_times.each do |opening| %>
+<% f.fields_for :opening_times, opening do |i| %>
+<div class="opening_item">
+<div class="opening_label">
+<%= i.label opening.day %>
+</div>
+<div class="opening_open">
+<div class="opening_sub_label">
+Open
+</div>
+<%= i.text_field :input_open, :class => 'opening_input' %>
+</div>
+<div class="opening_close">
+<div class="opening_sub_label">
+Close
+</div>
+<%= i.text_field :input_close, :class => 'opening_input' %>
+</div>
+</div>
+<% end %>
+<% end %>
+<div class="update_button">
+<%= f.submit "Save" %>
+</div>
+<% end %>
+</div>
+</div>
 </div>

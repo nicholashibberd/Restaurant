@@ -10,11 +10,23 @@
 <% end %>
 <div id="menu_content">
 <% @menus.each do |@menu| %>
-	<% if @menu.menu_type == 'food' %>
-		<%= render 'menus/template2/food_menu_show' %>
-	<% else %>
-		<%= render 'menus/template2/wine_menu_show' %>
-	<% end %>
+	<h1><%= link_to @menu.name, :controller => 'menus', :action => 'show', :id => @menu.id %></h1>
+	     <% @menu.dishes.each do |dish| %>
+			<div class="dish">
+				<div class="dish_right">
+					<div class="dish_price">
+						<%= pound_amount(dish.price) %>
+					</div>
+				</div>
+				<div class="dish_name">
+					<%= dish.name %>
+				</div>
+				<div class="dish_description">
+					<%= dish.description %>
+				</div>
+
+			</div>
+	     <% end %>
 <% end %>
 
 

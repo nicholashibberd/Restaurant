@@ -1,15 +1,6 @@
 <%= include_yui_editor_if_used %>
-<% content_for :header_tag do %>
-<h1>New offer</h1>
-<% end %>
-
+<h1>Add new offer</h1>
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Add new offer</h3>
-		<p class="help_text">Enter the new offer details below and click save to save</p>
-	</div>	
-
-<div class="user_input">
 	<% form_for(@offer, :html => { :multipart => true }) do |f| %>
 	<div class="field">
 		<%= f.label :Title %><br />
@@ -27,9 +18,8 @@
     <%= f.label :Offer_conditions %><br />
 	<%= f.text_area :conditions, :class => 'rich_text_editor', :style => 'width: 700px; height: 200px' %><br />  
 	</div>
-
 	<br />
-	<div class="actions update">
+	<div class="update_button">
 		<%= f.submit "Save", :class => 'wide' %>
 	</div>
 	<% end %>

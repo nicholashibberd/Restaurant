@@ -1,16 +1,8 @@
-<% content_for :header_tag do %>
 <h1>Sign up</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Sign up</h3>
-		<p class="help_text">Enter your details below and click save to save</p>
-	</div>	
-	<div class="user_input">
-
 		<% form_for(@user) do |f| %> 
 		<%= f.error_messages %>
+			<%= f.hidden_field :status, :value => 'user' %>
 		<div class="field">
 			<%= f.label :name %>
 			<br />
@@ -31,10 +23,8 @@
 			<br />
 			<%= f.password_field :password_confirmation %> 
 		</div>
-		<div class="actions save"> 
+		<div class="update_button"> 
 			<%= f.submit "Sign up" %>
 		</div> 
 		<% end %>
-
-	</div>
 </div>

@@ -1,0 +1,75 @@
+<h1><%= link_to 'Menus', :action => 'index' %> / <%= link_to @menu.parent.name, :action => 'edit', :id => @menu.parent.id %> / <%= @menu.name %></h1>
+<div class="content_unit">
+	<div class="user_input">
+		<div id="dishes">
+			<ul class="menu" class="move" id="<%= @menu.id %>">	
+				<% @menu.dishes.each do |dish| %> 
+				<li id="dish_<%= dish.id %>">
+					<div class="controls">
+						<div class="controls_item" id="controls_edit">
+							<%= link_to "edit", :controller => 'admin/dishes', :id => dish, :action => 'edit' %>
+						</div>
+						<div class="controls_item" id="controls_delete">
+							<%= link_to "delete", dish, :method => :delete, :confirm => "You sure?" %>
+						</div>
+
+					</div>
+
+					<div class="index_item_orderable dish_details move">
+						<div class="move_icon"></div>
+							<% if !dish.has_children? %>	
+								<div class="dish_price"><%= pound_amount(dish.price) %></div>
+							<% end %>
+							<div class="dish_name">
+							<%= dish.name %>
+							</div>
+							<div class="dish_description"><%= dish.description %></div>
+						<% if dish.has_children? %>
+							<div class="dish_children">
+								<% dish.children.each do |c| %>
+								<div class="dish_child">
+									<div class="child_dish_price"><%= pound_amount(c.price) %></div>
+									<div class="child_dish_name"><%= c.name %></div>
+								</div>
+								<% end %>		
+							</div>		
+						<% end %>
+					</div>
+				</li>
+				<% end %>
+				
+
+
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="add_new">
+<%= link_to "Add new dish", :controller => 'admin/dishes', :action => 'new', :menu_id => params[:id] %>
+</div>
+
+<script>
+$('.menu').mouseenter(function(){
+	menu_id = $(this).attr("id");
+	id = "#" + menu_id;
+});
+
+	$('.menu').sortable(
+		{
+			axis: 'y', 
+			dropOnEmpty:false, 
+			cursor: 'crosshair',
+			items: 'li',
+			opacity: 0.4,
+			scroll: true,
+			update: function(){
+				$.ajax({
+					type: 'post', 
+					data: $(id).sortable('serialize') + '&id=' + menu_id,
+					dataType: 'script', 
+					url: '/admin/menus/order_child_dishes'})
+				}	
+
+			});
+
+		</script>

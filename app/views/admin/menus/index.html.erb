@@ -1,40 +1,23 @@
-<% content_for :header_tag do %>
 <h1>Menus</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Current Menus</h3>
-		<p class="help_text">Here are all the menus live on the site at the moment. Click to edit, view or delete</p>
-	</div>	
-	<div class="user_input index_items">
-
-
-		<ul id="menus" class="move">
-			<% @menus.each do |menu| %>
-			<li id="menu_<%= menu.id %>">
-
-				<div class="controls">
-					<div class="controls_item" id="controls_edit">
-						<%= link_to "edit", :controller => 'menus', :id => menu, :action => 'edit' %>
-					</div>
-					<div class="controls_item" id="controls_delete">
-						<%= link_to "delete", menu, :method => :delete, :confirm => "You sure?" %>
-					</div>
+	<ul id="menus" class="move">
+		<% @menus.each do |menu| %>
+		<li id="menu_<%= menu.id %>">
+			<div class="controls">
+				<div class="controls_item" id="controls_edit">
+					<%= link_to "edit", :controller => 'menus', :id => menu, :action => 'edit' %>
 				</div>
-
-				<div class="index_item_orderable">
-					<div class="move_icon"></div>
-					<%= menu.name %> <span id="index_menu_type">(<%= menu.menu_type.titleize %> menu)</span>
+				<div class="controls_item" id="controls_delete">
+					<%= link_to "delete", menu, :method => :delete, :confirm => "You sure?" %>
 				</div>
-
-
-				<br />
-			</li>
-			<% end %>
-		</ul>		
-
-	</div>
+			</div>
+			<div class="index_item_orderable">
+				<div class="move_icon"></div>
+				<%= menu.name %>
+			</div>
+		</li>
+		<% end %>
+	</ul>		
 </div>
 
 
@@ -43,27 +26,24 @@
 </div>
 
 <% content_for :jqueryui do %>
-	<% javascript_tag do %>
-	$('#menus').sortable(
-	{
-		axis: 'y', 
-		dropOnEmpty:false, 
-		cursor: 'crosshair',
-		items: 'li',
-		opacity: 0.4,
-		scroll: true,
-		update: function(){
-			$.ajax({
-				type: 'post', 
-				data: $('#menus').sortable('serialize'),
-				dataType: 'script', 
-				complete: function(request){
-					$('#menus').effect('highlight');
-				},
-				url: '/admin/menus/order_menus'})
-			}	
+<% javascript_tag do %>
+$('#menus').sortable(
+{
+	axis: 'y', 
+	dropOnEmpty:false, 
+	cursor: 'crosshair',
+	items: 'li',
+	opacity: 0.4,
+	scroll: true,
+	update: function(){
+		$.ajax({
+			type: 'post', 
+			data: $('#menus').sortable('serialize'),
+			dataType: 'script', 
+			url: '/admin/menus/order_menus'})
+		}	
 
-		})
-		<% end %>
+	})
+	<% end %>
 
 <% end %>

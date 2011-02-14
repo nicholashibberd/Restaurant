@@ -1,5 +1,10 @@
 class DishesController < ApplicationController
   include DishesHelper
+  
+  def show
+    @dish = Dish.find(params[:id])
+    render_site_view
+  end
 
   def create
     @dish = Dish.new(params[:dish])
@@ -56,7 +61,9 @@ class DishesController < ApplicationController
     else
     Dish.update(params[:products].keys, params[:products].values)
       flash[:notice] = "Dishes updated"
-      redirect_to :controller => 'admin/menus', :action => 'edit', :id => 43
+      parent = Dish.find(params[:parent_id])
+      menu = parent.menu_id
+      redirect_to :controller => 'admin/menus', :action => 'edit', :id => menu
     end
   end
   

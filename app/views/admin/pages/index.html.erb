@@ -1,30 +1,20 @@
-<% content_for :header_tag do %>
 <h1>Pages</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Current pages</h3>
-		<p class="help_text">These are all the pages on the site at the moment. Click to edit</p>
-	</div>	
-	<div class="user_input index_items">
-		<% for page in @pages %>
-			<div class="index_item">
+		<% @pages.each do |page| %>
+		<div class="controls">
+			<div class="controls_item" id="controls_edit">
+			<%= link_to "edit", :controller => 'admin/pages', :id => page, :action => 'edit' %>
+			</div>
+			<div class="controls_item" id="controls_delete">
+				<%= link_to "delete", page, :method => :delete, :confirm => "You sure?" %>
+			</div>
+		</div>
+			<div class="index_item_orderable">
 				<div class="index_item_heading">
 			<%= link_to page.name, :controller => 'admin/pages', :id => page, :action => 'edit' %>
 				</div>
-				<div class="controls">
-					<div class="controls_item" id="controls_edit">
-					<%= link_to "edit", :controller => 'admin/pages', :id => page, :action => 'edit' %>
-					</div>
-					<div class="controls_item" id="controls_delete">
-						<%= link_to "delete", page, :method => :delete, :confirm => "You sure?" %>
-					</div>
-				</div>
 			</div>
 		<% end %>
-
-	</div>
 </div>
 
 <div class="add_new">

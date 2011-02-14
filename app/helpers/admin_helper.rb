@@ -20,4 +20,18 @@ module AdminHelper
     render :template => template    
   end
   
+  def admin_menu(url)
+    menu_name = url[:menu_name]
+    link = {:controller => url[:controller], :action => url[:action]}
+    current_controller = request[:controller]
+    if url[:pages].include?(current_controller)
+    #if url[:controller] == current_controller
+      css_class = 'selected'
+    else
+      css_class = ''
+    end  
+    return content_tag(:li, link_to(url[:menu_name], link), :class => css_class)
+  end
+  
+  
 end

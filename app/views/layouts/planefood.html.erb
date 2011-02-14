@@ -16,7 +16,7 @@
 		<div id="top_nav">
 			<%= render 'layouts/sitenav' %>
 		</div>
-		<div id="content">
+		<div id="<%= params[:controller] %>_<%= params[:action] %>_content" class="<%= params[:controller] %>_content content">
 			<% flash.each do |key, value| %> 
 			<div class="flash <%= key %>"><%= value %></div>
 			<% end %>
