@@ -22,7 +22,7 @@
 		<% end %>
 </div>
 
-<div class="edit_button">
+<div class="edit_button" id="change_password_button">
 	<%= link_to 'Change password', url_options = {:controller => 'admin/users', :action => 'change_password', :user_id => @user.id}, html_options = {:method => 'post' } %>	
 </div>
 

@@ -1,13 +1,5 @@
-<% content_for :header_tag do %>
 <h1>Add new person</h1>
-<% end %>
-
 <div class="content_unit">
-	<div class="heading">
-		<h3 class="heading">Add new staff member</h3>
-		<p class="help_text">Please enter the details below and click save to save</p>
-	</div>	
-
 	<div class="user_input index_items">
 		<% form_for(@person, :html => { :multipart => true }) do |f| %>
 		<div class="field">

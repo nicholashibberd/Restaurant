@@ -2,29 +2,29 @@
 	<% fields_for "products[]", @dish do |f| %>  
 	<div>  
 		<%= f.label :name %><br />
-		<%= f.text_field :name %>  
+		<%= f.text_field :name, :tabindex => 1 %>  
 	</div>  
 	<div>  
 		<%= f.label :description %><br />
-		<%= f.text_field :description %>  
+		<%= f.text_field :description, :tabindex => 2 %>  
 	</div>  
 	<% end %>
 	<ul id="menu" class="move">
 	<% @dish.children.each do |dish| %>  
 		<li id="dish_<%= dish.id %>" class="child_dish_item">
 		<div class="child_move_icon"></div>
-		<% fields_for "products[]", dish do |f| %>  
+		<% fields_for "products[]", dish do |f| %>
 		<div class="edit_child_dishes">  
 			<div class="edit_child_dishes_price">  
 				<%= f.label :price %>
-				<%= f.text_field :price %>  
+				<%= f.text_field :price, :tabindex => dish.position + 1 %>  
 				<div class="child_dish_delete_button">
 					<%= submit_tag "Delete", :name => "delete[#{dish.id}]" %>
 				</div> 
 			</div>
 			<div class="edit_child_dishes_name">
 				<%= f.label :sub_category %>
-				<%= f.text_field :name %>  
+				<%= f.text_field :name, :tabindex => dish.position %>  
 			</div>  
 		</div>  
 		<% end %>  

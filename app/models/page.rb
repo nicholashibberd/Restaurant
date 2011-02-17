@@ -1,7 +1,20 @@
 class Page < ActiveRecord::Base
-  has_many :elements, :dependent => :destroy
+  default_scope  :order => :position  
+  before_save :default_position
   
-  # Automatically turns on autosave and thus also validates
-  accepts_nested_attributes_for :elements, :allow_destroy => true
+  def self.last_position
+    if self.last.nil?
+      return 1
+    else 
+      self.last.position + 1
+    end
+  end
+
+  def default_position
+    if self.position.nil?
+      self.position = Page.last_position
+    end
+  end
+  
   
 end

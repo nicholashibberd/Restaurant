@@ -3,21 +3,22 @@
 <%= render 'layouts/gmaps_settings' %>
 <% end %>
 <%= include_yui_editor_if_used %>
-
 <h1>Restaurant details</h1>
+<% form_for(@site) do |f| %>
 <div class="content_unit">
-	<h3 class="heading">Restaurant Name</h3>
-	<% form_for(@site) do |f| %>
+	<h3>Name</h3>
 	<div class="field">
 	<%= f.text_field :name %><br />  
 	</div>
 </div>
+
 <div class="content_unit">	
 	<h3>Phone Number</h3>
 	<div class="field">
 	<%= f.text_field :phone %><br />  
 	</div>
 </div>
+
 <div class="content_unit">	
 	<h3>Address</h3>
 	<div class="field">
@@ -30,24 +31,20 @@
 	<div id="map_canvas" style="width: 600px; height: 400px;">
 	</div>
 </div>
-<div class="content_unit">	
-<h3>Directions</h3>
-<div class="field">
-<%= f.text_area :directions, :style => 'width: 700px; height: 200px' %><br />  
-<!--:class => 'rich_text_editor'-->
-<!--
-</div>
 
+<div class="content_unit">	
+	<h3>Directions</h3>
+	<div class="field">
+	<%= f.text_area :directions, :style => 'width: 700px; height: 200px', :class => 'rich_text_editor' %><br />  
+	</div>
 </div>
--->
 
 
 <div class="content_unit">	
-<h3>Homepage Intro</h3>
-<div class="field">
-<%= f.text_area :content, :style => 'width: 700px; height: 200px' %><br />  
-<!--:class => 'rich_text_editor'-->
-</div>
+	<h3>Homepage Intro</h3>
+	<div class="field">
+	<%= f.text_area :content, :style => 'width: 700px; height: 200px', :class => 'rich_text_editor'  %><br />  
+	</div>
 </div>
 
 <div class="content_unit">	
@@ -55,28 +52,33 @@
 <% @site.opening_times.each do |opening| %>
 <% f.fields_for :opening_times, opening do |i| %>
 <div class="opening_item">
-<div class="opening_label">
-<%= i.label opening.day %>
-</div>
-<div class="opening_open">
-<div class="opening_sub_label">
-Open
-</div>
-<%= i.text_field :input_open, :class => 'opening_input' %>
-</div>
-<div class="opening_close">
-<div class="opening_sub_label">
-Close
-</div>
-<%= i.text_field :input_close, :class => 'opening_input' %>
-</div>
+	<div class="opening_label">
+	<%= i.label opening.day %>
+	</div>
+	<div class="opening_open">
+		<div class="opening_sub_label">
+		Open
+		</div>
+		<%= i.text_field :input_open, :class => 'opening_input' %>
+	</div>
+	<div class="opening_close">
+		<div class="opening_sub_label">
+		Close
+		</div>
+		<%= i.text_field :input_close, :class => 'opening_input' %>
+	</div>
 </div>
 <% end %>
 <% end %>
+</div>
+
+
 <div class="update_button">
 <%= f.submit "Save" %>
 </div>
+<div class="update_button save_top_right">
+<%= f.submit "Save" %>
+</div>
+
 <% end %>
-</div>
-</div>
-</div>
+

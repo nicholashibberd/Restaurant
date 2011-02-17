@@ -5,11 +5,18 @@ function initialize() {
 	geocoder = new google.maps.Geocoder();
 	var latlng = new google.maps.LatLng<%= @site.latlong %>;
 	var myOptions = {
-		zoom: 8,
+		zoom: 12,
 		center: latlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	var marker = new google.maps.Marker({
+	      position: latlng,
+	      title:""
+	  });
+
+	  // To add the marker to the map, call setMap();
+	  marker.setMap(map);
 }
 
 function codeAddress() {

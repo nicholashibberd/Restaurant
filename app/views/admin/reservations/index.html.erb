@@ -20,7 +20,7 @@ $(document).ready(function() {
 <%= link_to 'Download CSV', url_options = {:controller => 'admin/reservations', :action => 'export_to_csv', :records_to_select => request.GET}, html_options = {:method => 'post' } %>
 </div>
 <h1>Reservations</h1>
-<div class="content_unit">
+<div class="content_unit" id="reservations_index">
 <% current_page = request.request_uri %>
 <form name="input" action="<%= current_page %>" method="get">
 	
@@ -106,9 +106,6 @@ $(document).ready(function() {
 		</div>
 		<% end %>		
 
-	
-	
-	
 		<!-- the select -->
 		<div class="field_name_select">
 		<select id="select_simple">
@@ -120,9 +117,8 @@ $(document).ready(function() {
 			<option value="date_of_booking">Date of Booking</option>
 		</select>
 		</div>
-
 	
-	<input id="test" type="text" name="name" /><br />
+	<input id="test" type="text" name="name" class="autocomplete" /><br />
 	<div class="search_button">
 	<input type="submit" value="Search" class="search" />
 	</div>
@@ -185,10 +181,10 @@ $("#select_simple").change(function(){
 		<td><%= reservation.name %></td>
 		<td><%= reservation.email %></td>
 		<td><%= reservation.phone %></td>
-		<td><%= reservation.date %></td>
+		<td><%= reservation.date.to_s(:short_date_format) %></td>
 		<td><%= reservation.time %></td>
 		<td><%= reservation.number_of_people %></td>
-		<td><%= reservation.created_at.to_s(:day_date_format) %></td>		
+		<td><%= reservation.created_at.to_s(:short_date_format) %></td>		
 	</tr>
 	<% end %>
 </table>
@@ -196,7 +192,6 @@ $("#select_simple").change(function(){
 </div>
 
 <!-- the jQuery -->
-	<script type="text/javascript" src="path/to/jquery.js"></script>
 	<script type="text/javascript">
 
 	$("#select").change(function(){

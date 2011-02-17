@@ -9,6 +9,13 @@ function initialize() {
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	var marker = new google.maps.Marker({
+	      position: latlng,
+	      title:"Hello World!"
+	  });
+
+	  // To add the marker to the map, call setMap();
+	  marker.setMap(map);
 }
 
 function codeAddress() {

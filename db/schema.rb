@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110206140046) do
+ActiveRecord::Schema.define(:version => 20110216194904) do
 
   create_table "customers", :force => true do |t|
     t.string   "name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20110206140046) do
     t.integer  "menu_id"
     t.string   "name"
     t.string   "description"
-    t.integer  "price",              :limit => 255
+    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
@@ -59,18 +59,6 @@ ActiveRecord::Schema.define(:version => 20110206140046) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
-    t.integer  "site_id"
-  end
-
-  create_table "infos", :id => false, :force => true do |t|
-    t.integer  "id"
-    t.string   "name",       :limit => nil
-    t.string   "phone",      :limit => nil
-    t.string   "address",    :limit => nil
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "content"
-    t.text     "directions"
     t.integer  "site_id"
   end
 
@@ -133,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20110206140046) do
     t.datetime "updated_at"
     t.text     "content"
     t.integer  "site_id"
+    t.integer  "position"
   end
 
   create_table "people", :force => true do |t|
@@ -224,10 +213,10 @@ ActiveRecord::Schema.define(:version => 20110206140046) do
 
   create_table "wines", :force => true do |t|
     t.string   "name"
-    t.integer  "price",      :limit => 255
-    t.integer  "small",      :limit => 255
-    t.integer  "large",      :limit => 255
-    t.integer  "carafe",     :limit => 255
+    t.integer  "price"
+    t.integer  "small"
+    t.integer  "large"
+    t.integer  "carafe"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"

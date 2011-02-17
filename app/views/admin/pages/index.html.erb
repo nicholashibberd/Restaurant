@@ -1,6 +1,8 @@
 <h1>Pages</h1>
 <div class="content_unit">
+	<ul id="pages" class="move">
 		<% @pages.each do |page| %>
+		<li id="page_<%= page.id %>">
 		<div class="controls">
 			<div class="controls_item" id="controls_edit">
 			<%= link_to "edit", :controller => 'admin/pages', :id => page, :action => 'edit' %>
@@ -15,9 +17,33 @@
 				</div>
 			</div>
 		<% end %>
+		</li>
+	</ul>
 </div>
 
 <div class="add_new">
 <%= link_to "Add new page", :controller => 'admin/pages', :action => 'new' %>
 </div>
 
+<% content_for :jqueryui do %>
+<% javascript_tag do %>
+$('#pages').sortable(
+{
+	axis: 'y', 
+	dropOnEmpty:false, 
+	cursor: 'crosshair',
+	items: 'li',
+	opacity: 0.4,
+	scroll: true,
+	update: function(){
+		$.ajax({
+			type: 'post', 
+			data: $('#pages').sortable('serialize'),
+			dataType: 'script', 
+			url: '/admin/pages/order_pages'})
+		}	
+
+	})
+	<% end %>
+
+<% end %>

@@ -1,5 +1,5 @@
 class OpeningTime < ActiveRecord::Base
-  belongs_to :info
+  belongs_to :site
   
   def input_open=(user_date)
     self.open = Time.parse(user_date)

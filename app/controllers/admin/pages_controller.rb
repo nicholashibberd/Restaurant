@@ -2,26 +2,25 @@ class Admin::PagesController < AdminController
   uses_yui_editor
   
   def index
-    @pages = @site.pages.find(:all)
-  end
-  
-  def show
-    @page = @site.pages.find(params[:id])
+    @pages = @site.pages
   end
   
   def new
     @page = @site.pages.new
-    @page.elements.build
     
   end
     
   def edit
     @page = @site.pages.find(params[:id])
-    # add an extra new record for debugging purposes
-    #@page.elements.build
-    #@page.tags.build
-    #@page.elements.each{|t| t.colors.build}
   end
   
+  def order_pages
+    pages = @site.pages
+    pages.each do |page|
+      page.position = params['page'].index(page.id.to_s) + 1
+      page.save
+    end
+    render :nothing => true
+  end
   
 end

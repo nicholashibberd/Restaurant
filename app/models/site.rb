@@ -1,5 +1,4 @@
 class Site < ActiveRecord::Base
-  has_one :info
   has_many :menus
   has_many :galleries
   has_many :offers

@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.11' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -35,11 +35,11 @@ Rails::Initializer.run do |config|
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'UTC'
   
-  config.gem 'paperclip'
-  config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
-  config.gem 'acts_as_tree'
-  config.gem "geokit"
-  config.gem "fastercsv"    
+  #config.gem 'paperclip'
+  #config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
+  #config.gem 'acts_as_tree'
+  #config.gem "geokit"
+  #config.gem "fastercsv"    
   
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
@@ -48,11 +48,19 @@ Rails::Initializer.run do |config|
 end
 
 ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS[:default]='%A %d %B %Y'
+ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(
+   :short_date_format => '%d %b %Y'
+)
+
 ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
    :time_format => '%H:%M'
 )
 ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
    :day_date_format => '%A %d %B %Y'
+)
+
+ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
+   :short_date_format => '%d %b %Y'
 )
 
 ActionMailer::Base.delivery_method = :smtp

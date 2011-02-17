@@ -11,7 +11,10 @@
 		  </div>
 			<div class="photo"> 
 		    <%= f.label :File %><br />
-			<%= f.file_field :photo%>
+				<% if !@photo.photo_file_name.nil? %>	
+					<%= image_tag @photo.photo.url(:photo_small) %>
+				<% end %>
+				<%= f.file_field :photo %>
 			</div>
 		  <div class="update_button">
 		    <%= f.submit "Save" %>

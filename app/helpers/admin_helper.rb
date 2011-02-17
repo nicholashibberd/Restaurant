@@ -33,5 +33,14 @@ module AdminHelper
     return content_tag(:li, link_to(url[:menu_name], link), :class => css_class)
   end
   
+  def admin_logo
+   if FileTest.exist?("#{RAILS_ROOT}/public/images/#{@site.theme}/admin_logo.png")
+     link_to image_tag("#{@site.theme}/admin_logo.png"), admin_path
+   else
+     link_to @site.name + ' Admin', admin_path
+   end
+  end
+  
+  
   
 end

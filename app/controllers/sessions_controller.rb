@@ -6,7 +6,7 @@ class SessionsController < AdminController
   end
   
   def create
-    user = User.authenticate(params[:session][:email], params[:session][:password])
+    user = User.authenticate(params[:session][:email], params[:session][:password], @site.id)
     if user.nil?
       flash[:success] = "Your email/password combination is invalid"
       @title = "Sign in" 

@@ -59,6 +59,7 @@ body {
 
 .content {
 	min-height: 350px;
+	position: relative;
 }
 
 * html .content {
@@ -162,7 +163,7 @@ Inputs and buttons
 *********************************************************
 */
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], textarea {
 	border: 1px solid #999;
 	background: url(/images/admin/input_background.png) repeat-x #fff;
 	padding: 8px;
@@ -170,6 +171,18 @@ input[type=text], input[type=password] {
 	margin-bottom: 10px;
 	font-size: 16px;
 	font-family: Arial;
+}
+
+input[type=file] {
+	border: 1px solid #999;
+	background: url(/images/admin/input_background.png) repeat-x #fff;
+	margin-bottom: 10px;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+input[type=submit] {
+	font-family: Arial !important;
 }
 
 .content_unit {
@@ -222,7 +235,8 @@ input[type=text], input[type=password] {
 	-webkit-border-radius: 5px;	
 	border: none;	
 	font-size: 13px;
-	cursor: pointer;		
+	cursor: pointer;	
+	display: block;	
 }
 
 #controls_edit {
@@ -236,6 +250,10 @@ input[type=text], input[type=password] {
 	background: -moz-linear-gradient(top,  #DCAC5D,  #C0762B);	
 }
 
+#change_password_button {
+	width: 150px;
+}
+
 #controls_delete a,
 .remove_button a,
 .child_dish_delete_button input {
@@ -244,12 +262,39 @@ input[type=text], input[type=password] {
 	background: -moz-linear-gradient(top,  #C55D5C,  #990000);	
 }
 
+#controls_delete a{
+	width: 35px;
+	margin-left: 75px;
+	margin-right: 10px;	
+}
+
+#reservations_index .remove_button {
+	margin-left: 670px;
+	width: 90px;
+}
+
 .add_new a, 
 #reservations_download a,
 .add_new input[type=submit] {
 	background: url(/images/admin/submit_buttons/new.png) repeat-x #3399CC;	
 	background: -webkit-gradient(linear, left top, left bottom, from(#9ABCDC), to(#3399CC));
 	background: -moz-linear-gradient(top,  #9ABCDC,  #3399CC);
+}
+
+.add_new {
+	width: 130px;
+}
+
+#add_new_gallery, #add_new_person {
+	width: 140px;
+}
+
+#add_new_testimonial {
+	width: 160px;
+}
+
+#add_new_menu_section {
+	width: 175px;
 }
 
 .update_button input[type=submit], 
@@ -262,6 +307,10 @@ input[type=text], input[type=password] {
 	cursor: pointer;
 }
 
+.update_button {
+	margin-top: 10px;
+}
+
 .search_button {
 	float: right;
 	margin-right: 150px;
@@ -269,6 +318,12 @@ input[type=text], input[type=password] {
 
 #reservations_download a {
 	float: right;
+}
+
+.save_top_right {
+	position: absolute;
+	right: 0px;
+	top: 0px;
 }
 
 /*
@@ -290,6 +345,7 @@ Header
 #header h1 {
 	margin-bottom: 20px;
 	font-size: 30px;
+	height: 60px;
 }
 
 div#user_status {
@@ -298,7 +354,7 @@ div#user_status {
 
 
 #top_nav {
-	margin-top: 57px;
+	margin-top: 32px;
 }
 
 #top_nav li{
@@ -307,7 +363,7 @@ div#user_status {
 }
 
 #top_nav a {
-	padding: 12px 15px;
+	padding: 15px 15px 9px 15px;
 }
 
 #top_nav li.selected a {
@@ -598,4 +654,35 @@ table td{
 	font-size: 12px;
 }
 
+/*
+*********************************************************
+Galleries
+*********************************************************
+*/
 
+
+#photo {
+	float:left;
+	margin-right: 10px;
+}
+
+.photo input[type=file] {
+	vertical-align: top;
+}
+
+.photo img {
+	margin-right: 10px;
+}
+
+.photo_details {
+	font-size:13px;
+	background: url(/images/admin/orderable_photo_background.png);
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+	background: -moz-linear-gradient(top,  #fff,  #ededed);
+	border: 1px solid #ccc;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;	
+	padding: 10px;
+	position: relative;	
+	height: 70px;
+}

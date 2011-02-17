@@ -1,9 +1,11 @@
 class Dish < ActiveRecord::Base
   belongs_to  :menu
-  acts_as_list :scope => :menu
+  default_scope  :order => :position  
+  #acts_as_list :scope => :menu
   acts_as_tree :order => "position"  
   require 'paperclip'
-  
+  before_save :default_position
+    
   has_attached_file :photo,
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
@@ -14,6 +16,22 @@ class Dish < ActiveRecord::Base
       
       # # = exact aspect ratio
       # > = makes the largest size the size you specify
+
+
+  def self.last_position
+    if self.last.nil?
+      return 1
+    else 
+      self.last.position + 1
+    end
+  end
+  
+
+  def default_position
+    if self.position.nil?
+      self.position = Dish.last_position
+    end
+  end
 
   def price_parse=(price)
     if price.include?(".")
