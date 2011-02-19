@@ -285,7 +285,7 @@ input[type=submit] {
 	width: 130px;
 }
 
-#add_new_gallery, #add_new_person {
+#add_new_gallery, #add_new_person, #add_new_user {
 	width: 140px;
 }
 
@@ -343,7 +343,7 @@ Header
 }
 
 #header h1 {
-	margin-bottom: 20px;
+	margin-bottom: 16px;
 	font-size: 30px;
 	height: 60px;
 }
@@ -353,10 +353,6 @@ div#user_status {
 }
 
 
-#top_nav {
-	margin-top: 32px;
-}
-
 #top_nav li{
 	display: block;
 	float: left;
@@ -364,6 +360,7 @@ div#user_status {
 
 #top_nav a {
 	padding: 15px 15px 9px 15px;
+	display: block;
 }
 
 #top_nav li.selected a {
@@ -383,45 +380,21 @@ Info
 ************************************************************
 */
 
+#map_canvas {
+	height: 250px;
+}
+
 #geocode_button {
 	float: right;
 	margin: 5px 136px 0 0;	
 }
 
-
-
 input.opening_input {
-	width:100px;
+	width: 80px;
 }
 
-.opening_item {
-	height:50px;
-}
-
-.opening_label {
-	float: left;
-	height: 38px;
-	width: 170px;
-	padding-top: 12px;
-}
-
-.opening_open {
-	float:left;
-	width: 230px;
-
-	position: relative;
-}
-
-.opening_close {
-	width: 200px;
-	margin-left: 393px;
-	position: relative;
-}
-
-.opening_sub_label {
-	position: absolute;
-	top: 12px;
-	left: -50px;
+#opening_times_table td {
+	width: 100px;
 }
 
 /*
@@ -432,6 +405,10 @@ Menus
 
 #dishes {
 	margin-bottom: 20px;
+}
+
+#parent_dishes {
+	margin: 10px 0;
 }
 
 .move_icon {
@@ -536,7 +513,7 @@ Child dishes
 }
 
 #add_new_child_dish {
-	margin: 10px 0 0 25px;
+	margin-top: 10px;
 }
 
 #add_new_child_dish_single {
@@ -643,12 +620,12 @@ Reservations
 	text-align: right;
 }
 
-table {
+#reservations_table table {
 	width: 800px;
 	margin-top: 30px;
 }
 
-table td{
+#reservations_table table td{
 	padding: 2px;
 	border-bottom: 1px dotted #ccc;
 	font-size: 12px;

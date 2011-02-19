@@ -54,4 +54,7 @@ class Dish < ActiveRecord::Base
     !self.parent_id.nil?
   end
   
+  def breadcrumb
+
+  end
 end

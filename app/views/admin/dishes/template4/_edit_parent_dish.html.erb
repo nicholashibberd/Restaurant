@@ -1,0 +1,68 @@
+<% form_for(@dish) do |f| %>
+	<div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %><br />  
+	</div>
+	<div class="field">
+		<%= f.label :description %><br />
+		<%= f.text_field :description %><br />  
+	</div>
+
+
+<div class="content_unit">
+	<div id="parent_dishes">
+		<ul class="menu" class="move" id="<%= @dish.id %>">	
+			<% @dish.children.each do |c| %>
+			<li id="dish_<%= c.id %>">
+				<div class="controls">
+					<div class="controls_item" id="controls_edit">
+						<%= link_to "edit", :controller => 'admin/dishes', :id => c, :action => 'edit' %>
+					</div>
+					<div class="controls_item" id="controls_delete">
+						<%= link_to "delete", c, :method => :delete, :confirm => "You sure?" %>
+					</div>
+				</div>
+
+				<div class="index_item_orderable dish_details move">
+					<div class="move_icon">
+					</div>
+					<div class="dish_price"><%= pound_amount(c.price) %>
+					</div>
+					<div class="dish_name">
+						<%= c.name %>
+					</div>
+				</div>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div class="add_new" id="add_new_child_dish">
+	<%= link_to "Add subsection", :controller => 'admin/dishes', :action => 'new', :parent_id => @dish.id %>
+</div>
+
+
+<div class="update_button">
+	<%= f.submit "Save" %>
+</div>
+<% end %>
+
+<script>
+ $('.menu').sortable(
+    {
+      axis: 'y', 
+	   dropOnEmpty:false, 
+       cursor: 'crosshair',
+       items: 'li',
+       opacity: 0.4,
+       scroll: true,
+      update: function(){
+        $.ajax({
+            type: 'post', 
+            data: $('.menu').sortable('serialize') + '&id=<%= @dish.id-%>', 
+            dataType: 'script', 
+            url: '/admin/dishes/order_child_dishes'})
+        }	
+
+})
+</script>

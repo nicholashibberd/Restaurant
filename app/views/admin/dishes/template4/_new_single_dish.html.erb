@@ -1,0 +1,22 @@
+<div class="content_unit">
+	<% form_for(@dish, :html => { :multipart => true }) do |f| %>
+	<div class="hidden_field"§>
+		<%= f.hidden_field :menu_id, :value => params[:menu_id] %>
+	</div>
+	<div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %><br />  
+	</div>
+	<div class="field">
+		<%= f.label :description %><br />
+		<%= f.text_field :description %><br />  
+	</div>
+	<div class="field">
+		<%= f.label :price %><br />
+		<%= f.text_field :price_parse %><br />  
+	</div><br />
+	<div class="update_button">
+		<%= f.submit "Save" %>
+	</div>
+	<% end %>
+</div>

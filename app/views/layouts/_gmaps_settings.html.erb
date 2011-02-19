@@ -28,7 +28,6 @@ function codeAddress() {
 				map: map, 
 				position: results[0].geometry.location
 			});
-			alert( results[0].geometry.location );
 			var newlat = document.getElementById('site_latlong');
 			newlat.setAttribute('value', results[0].geometry.location);
 		} else {

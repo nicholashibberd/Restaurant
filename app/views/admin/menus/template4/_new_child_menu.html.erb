@@ -1,5 +1,4 @@
 <div class="content_unit">
-		<h3>Add new menu section</h3>
 		<% form_for(@menu) do |f| %>
 			<%= f.hidden_field :parent_id, :value => params[:parent_id] %>
 			<%= f.hidden_field :site_id, :value => params[:site_id] %>			

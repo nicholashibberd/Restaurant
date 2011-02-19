@@ -10,18 +10,13 @@
 </div>
 <div class="field">
 	<%= f.label :price %><br />
-	<%= f.text_field :price_parse %><br />  
-</div><br />
+	<%= f.text_field :price_parse %><br />
+</div>
+<div class="add_new" id="add_new_child_dish_single">
+<%= link_to "Add subsection", :controller => 'admin/dishes', :action => 'new', :parent_id => @dish.id %>
+</div>
 <div class="update_button">
 	<%= f.submit "Save" %>
 </div>
 <% end %>
-
-<div class="add_new" id="add_new_child_dish_single">
-	<% form_tag add_child_dishes_path do %>
-	<%= hidden_field_tag :parent_id, @dish.id %>
-	<%= submit_tag 'Add new sub section' %>
-	<% end %>
-</div>
-
 

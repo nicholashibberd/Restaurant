@@ -1,27 +1,6 @@
-<h1>Add a new dish</h1>
-<div class="content_unit">
-	<% form_for(@dish, :html => { :multipart => true }) do |f| %>
-	<div class="hidden_field"§>
-		<%= f.hidden_field :menu_id, :value => params[:menu_id] %><br />  
-	</div>
-	<div class="field">
-		<%= f.label :name %><br />
-		<%= f.text_field :name %><br />  
-	</div>
-	<div class="field">
-		<%= f.label :description %><br />
-		<%= f.text_field :description %><br />  
-	</div>
-	<div class="field">
-		<%= f.label :price %><br />
-		<%= f.text_field :price_parse %><br />  
-	</div><br />
-	<div class="photo"> 
-    <%= f.label :File %><br />
-	<%= f.file_field :photo %>
-	</div><br />
-	<div class="update_button">
-		<%= f.submit "Save" %>
-	</div>
-	<% end %>
-</div>
+<h2><%= admin_new_dishes_breadcrumb %></h2>
+<% if params[:parent_id] %>
+	<%= render 'admin/dishes/template4/new_child_dish' %>
+<% else %>
+	<%= render 'admin/dishes/template4/new_single_dish' %>
+<% end %>	

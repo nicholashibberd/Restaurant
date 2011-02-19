@@ -2,6 +2,12 @@ class Admin::DishesController < AdminController
   
   def new
     @dish = Dish.new
+    if params[:menu_id]
+      @menu = Menu.find(params[:menu_id])
+    end
+    if params[:parent_id]
+      @parent = Dish.find(params[:parent_id])
+    end
     render_admin_view
   end
   

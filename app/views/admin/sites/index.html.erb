@@ -28,14 +28,14 @@
 	<div class="field">
 	<%= f.hidden_field :latlong %><br />  
 	</div>
-	<div id="map_canvas" style="width: 600px; height: 400px;">
+	<div id="map_canvas">
 	</div>
 </div>
 
 <div class="content_unit">	
 	<h3>Directions</h3>
 	<div class="field">
-	<%= f.text_area :directions, :style => 'width: 700px; height: 200px', :class => 'rich_text_editor' %><br />  
+	<%= f.text_area :directions, :style => 'width: 800px; height: 200px', :class => 'rich_text_editor' %><br />  
 	</div>
 </div>
 
@@ -43,33 +43,32 @@
 <div class="content_unit">	
 	<h3>Homepage Intro</h3>
 	<div class="field">
-	<%= f.text_area :content, :style => 'width: 700px; height: 200px', :class => 'rich_text_editor'  %><br />  
+	<%= f.text_area :content, :style => 'width: 800px; height: 200px', :class => 'rich_text_editor'  %><br />  
 	</div>
 </div>
 
-<div class="content_unit">	
-<h3>Opening Times</h3>
-<% @site.opening_times.each do |opening| %>
-<% f.fields_for :opening_times, opening do |i| %>
-<div class="opening_item">
-	<div class="opening_label">
-	<%= i.label opening.day %>
-	</div>
-	<div class="opening_open">
-		<div class="opening_sub_label">
-		Open
-		</div>
-		<%= i.text_field :input_open, :class => 'opening_input' %>
-	</div>
-	<div class="opening_close">
-		<div class="opening_sub_label">
-		Close
-		</div>
-		<%= i.text_field :input_close, :class => 'opening_input' %>
-	</div>
-</div>
-<% end %>
-<% end %>
+<div class="content_unit" id="opening_times_table">	
+	<h3>Opening Times</h3>
+	<table>
+		<th></th>
+		<th>Open</th>
+		<th>Close</th>
+	<% @site.opening_times.each do |opening| %>
+	<% f.fields_for :opening_times, opening do |i| %>
+		<tr>
+			<td>
+			<%= i.label opening.day %>
+			</td>
+			<td>
+			<%= i.text_field :input_open, :class => 'opening_input' %>
+			</td>				
+			<td>
+			<%= i.text_field :input_close, :class => 'opening_input' %>
+			</td>				
+		</tr>
+	<% end %>
+	<% end %>
+	</table>
 </div>
 
 

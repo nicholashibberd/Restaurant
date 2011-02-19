@@ -52,7 +52,9 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :photos        
     admin.resources :reservations
     admin.resources :location
-    admin.resources :users     
+    admin.resources :users
+    admin.resources :offers     
+    admin.resources :testimonials
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,9 +1,9 @@
-<h1>Edit dish</h1>
-<div class="content_unit">
-	<% if @dish.has_children? %>
-	<%= render 'admin/dishes/template4/edit_child_dish' %>
-	<% else %>
-	<%= render 'admin/dishes/template4/edit_single_dish' %>
-	<% end %>	
-</div>
+<h2><%= admin_edit_dishes_breadcrumb(@dish) %></h2>
+<% if @dish.has_children? %>
+	<%= render 'admin/dishes/template4/edit_parent_dish' %>
+<% elsif @dish.has_parent? %>
+	<%= render 'admin/dishes/template4/edit_child_dish' %>		
+<% else %>
+<%= render 'admin/dishes/template4/edit_single_dish' %>
+<% end %>	
 

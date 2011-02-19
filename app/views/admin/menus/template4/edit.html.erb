@@ -1,3 +1,15 @@
+<h2><%= admin_edit_menu_breadcrumb(@menu) %></h2>
+<div class="content_unit">
+	<% form_for(@menu) do |f| %>
+		<div class="field">
+		<%= f.text_field :name %>
+		</div>
+		<div class="update_button save_top_right">
+		<%= f.submit "Save" %>
+		</div>
+	<% end %>
+</div>	
+
 <% unless @menu.has_parent? %>
   <%= render 'admin/menus/template4/edit_parent_menu' %>
 <% else %>

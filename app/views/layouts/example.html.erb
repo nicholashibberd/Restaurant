@@ -4,6 +4,7 @@
 <head>
 	<title><%= @site.name %></title>
 	<%= stylesheet_link_tag @site.theme %>
+	<%= javascript_include_tag 'jquery' %>
 	<%= yield :head %>
 </head>
 <body>

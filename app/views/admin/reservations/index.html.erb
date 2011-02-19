@@ -167,28 +167,28 @@ $("#select_simple").change(function(){
 });
 
 </script>
-
-<table>
-	<th>Customer</th>
-	<th>Email</th>
-	<th>Phone</th>
-	<th>Date of Reservation</th>
-	<th>Time of Reservation</th>
-	<th>Number of Guests</th>
-	<th>Date of Booking</th>
-	<% @reservations.each do |reservation| %>
-	<tr> 
-		<td><%= reservation.name %></td>
-		<td><%= reservation.email %></td>
-		<td><%= reservation.phone %></td>
-		<td><%= reservation.date.to_s(:short_date_format) %></td>
-		<td><%= reservation.time %></td>
-		<td><%= reservation.number_of_people %></td>
-		<td><%= reservation.created_at.to_s(:short_date_format) %></td>		
-	</tr>
-	<% end %>
-</table>
-
+<div id="reservations_table">
+	<table>
+		<th>Customer</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>Date of Reservation</th>
+		<th>Time of Reservation</th>
+		<th>Number of Guests</th>
+		<th>Date of Booking</th>
+		<% @reservations.each do |reservation| %>
+		<tr> 
+			<td><%= reservation.name %></td>
+			<td><%= reservation.email %></td>
+			<td><%= reservation.phone %></td>
+			<td><%= reservation.date.to_s(:short_date_format) %></td>
+			<td><%= reservation.time %></td>
+			<td><%= reservation.number_of_people %></td>
+			<td><%= reservation.created_at.to_s(:short_date_format) %></td>		
+		</tr>
+		<% end %>
+	</table>
+</div>
 </div>
 
 <!-- the jQuery -->

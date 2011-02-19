@@ -9,8 +9,12 @@ class DishesController < ApplicationController
   def create
     @dish = Dish.new(params[:dish])
       if @dish.save
-      flash[:notice] = "Successfully created dish."        
-      redirect_to :controller => 'admin/menus', :action => 'edit', :id => @dish.menu_id
+        flash[:notice] = "Successfully created dish."        
+          unless params[:dish][:parent_id]
+            redirect_to :controller => 'admin/menus', :action => 'edit', :id => @dish.menu_id
+          else
+            redirect_to :controller => 'admin/dishes', :action => 'edit', :id => params[:dish][:parent_id]
+          end
       else
        render 'admin/dishes/new'
       end
@@ -20,7 +24,12 @@ class DishesController < ApplicationController
     @dish = Dish.find(params[:id])
     if @dish.update_attributes(params[:dish])
       flash[:notice] = "Successfully updated dish."
-      redirect_to :controller => 'admin/menus', :action => 'edit', :id => @dish.menu_id 
+      unless params[:dish][:parent_id]
+        redirect_to :controller => 'admin/menus', :action => 'edit', :id => @dish.menu_id       
+      else
+        redirect_to :controller => 'admin/dishes', :action => 'edit', :id => params[:dish][:parent_id]
+      end
+
     else
       render 'admin/dishes/new'
     end
@@ -28,10 +37,15 @@ class DishesController < ApplicationController
   
   def destroy
     dish = Dish.find(params[:id])
-    menu_id = dish.menu_id
     dish.destroy
+      if dish.has_parent?
+        parent_id = dish.parent.id
+        redirect_to :controller => 'admin/dishes', :action => 'edit', :id => parent_id
+      else
+        menu_id = dish.menu_id
+        redirect_to :controller => 'admin/menus', :action => 'edit', :id => menu_id
+      end
       flash[:notice] = "Successfully deleted dish"
-      redirect_to :controller => 'admin/menus', :action => 'edit', :id => menu_id
   end
   
   def destroy_child
