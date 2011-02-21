@@ -1,0 +1,20 @@
+<h1>Navigation</h1>
+<div class="content_unit">
+	<ul>
+		<% @navigation_menus.each do |nav| %>
+		<div class="controls">
+			<div class="controls_item" id="controls_edit">
+				<%= link_to "edit", :controller => 'admin/navigation_menus', :id => nav.id, :action => 'edit' %>
+			</div>
+			<div class="controls_item" id="controls_delete">
+				<%= link_to "delete", nav, :method => :delete, :confirm => "You sure?" %>
+			</div>
+		</div>
+		<div class="index_item_users">
+			<div class="user_heading">
+				<%= nav.name %>
+			</div>
+		</div>
+		<% end %>
+	</ul>
+</div>

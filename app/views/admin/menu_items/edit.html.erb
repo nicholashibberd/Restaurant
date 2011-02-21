@@ -1,0 +1,6 @@
+<h1><%= admin_edit_navigation_breadcrumb(@menu_item) %></h1>
+<% unless @menu_item.has_parent? %>
+  <%= render 'admin/menu_items/edit_parent_nav' %>
+<% else %>
+  <%= render 'admin/menu_items/edit_child_nav' %>
+<% end %>

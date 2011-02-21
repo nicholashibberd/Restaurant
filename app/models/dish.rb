@@ -1,7 +1,6 @@
 class Dish < ActiveRecord::Base
   belongs_to  :menu
   default_scope  :order => :position  
-  #acts_as_list :scope => :menu
   acts_as_tree :order => "position"  
   require 'paperclip'
   before_save :default_position
@@ -52,9 +51,5 @@ class Dish < ActiveRecord::Base
 
   def has_parent?
     !self.parent_id.nil?
-  end
-  
-  def breadcrumb
-
   end
 end

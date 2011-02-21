@@ -1,0 +1,6 @@
+<h1><%= admin_new_navigation_breadcrumb %></h1>
+<% unless params[:parent_id] %>
+  <%= render 'admin/menu_items/new_parent_nav' %>
+<% else %>
+  <%= render 'admin/menu_items/new_child_nav' %>
+<% end %>

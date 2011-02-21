@@ -16,6 +16,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :homepages
   map.resources :sites  
   map.resources :users  
+  map.resources :menu_items
+  map.resources :navigation_menus    
   map.resources :sessions, :only => [:new, :create, :destroy]
   map.signin '/signin', :controller => 'sessions', :action => 'new'  
   map.signout '/signout', :controller => 'sessions', :action => 'destroy'
@@ -55,6 +57,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users
     admin.resources :offers     
     admin.resources :testimonials
+    admin.resources :menu_items
+    admin.resources :navigation_menus     
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

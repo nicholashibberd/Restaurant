@@ -1,0 +1,54 @@
+<h1>Navigation</h1>
+<div class="content_unit">
+		<ul id="menu_items" class="move">
+			<% @menu_items.each do |menu_item| %>
+			<li id="menu_item_<%= menu_item.id %>">
+				<div class="controls">
+					<div class="controls_item" id="controls_edit">
+						<%= link_to "edit", :controller => 'menu_items', :id => menu_item, :action => 'edit' %>
+					</div>
+					<div class="controls_item" id="controls_delete">
+						<%= link_to "delete", menu_item, :method => :delete, :confirm => "You sure?" %>
+					</div>
+				</div>
+			<div class="index_item_menu_items">
+				<div class="index_item_orderable navigation_index_item">
+					<div class="move_icon"></div>
+					<div class="menu_item_slug">
+						<%= menu_item.slug %>
+					</div>
+					<div class="menu_item_name">
+						<%= menu_item.name %>
+					</div>
+				</div>
+			</div>
+			</li>
+			<% end %>
+		</ul>		
+</div>
+<div class="add_new" id="add_new_link">
+<%= link_to "Add new link", :controller => 'admin/menu_items', :action => 'new' %>
+</div>
+
+<% content_for :jqueryui do %>
+<% javascript_tag do %>
+     $('#menu_items').sortable(
+	    {
+          axis: 'y', 
+		   dropOnEmpty:false, 
+	       cursor: 'crosshair',
+	       items: 'li',
+	       opacity: 0.4,
+	       scroll: true,
+          update: function(){
+            $.ajax({
+                type: 'post', 
+                data: $('#menu_items').sortable('serialize'),
+                dataType: 'script', 
+                url: '/admin/menu_items/order_menu_items'})
+            }	
+	
+	})
+<% end %>
+
+<% end %>

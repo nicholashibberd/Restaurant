@@ -3,6 +3,7 @@
 
 class ApplicationController < ActionController::Base
   before_filter :footer_links
+  before_filter :nav_menus 
   before_filter :setup_site
   layout :choose_layout
   
@@ -44,7 +45,11 @@ class ApplicationController < ActionController::Base
   def footer_links
     @site = Site.find_by_domain(request.domain(2))
     @pages = @site.pages.all
-    
+  end
+  
+  def nav_menus
+    @site = Site.find_by_domain(request.domain(2))
+    @nav = @site.navigation_menus
   end
   
   def current_page?

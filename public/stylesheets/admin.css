@@ -53,7 +53,7 @@ body {
 }
 
 #envelope {
-	width:800px;
+	width:830px;
 	margin: 0px auto 0px auto;	
 }
 
@@ -285,7 +285,7 @@ input[type=submit] {
 	width: 130px;
 }
 
-#add_new_gallery, #add_new_person, #add_new_user {
+#add_new_gallery, #add_new_person, #add_new_user, #new_user_signup {
 	width: 140px;
 }
 
@@ -561,6 +561,27 @@ Testimonials
 	font-size: 13px;
 	font-style: italic;
 	color: #666;
+}
+
+/*
+*********************************************************
+Navigation
+*********************************************************
+*/
+
+.navigation_index_item {
+	min-height: 20px;
+}
+
+.menu_item_slug {
+	float: right;
+	font-size: 13px;
+	font-style: italic;
+	color: #666;
+}
+
+#child_menu_items {
+	margin-top: 20px;
 }
 
 /*

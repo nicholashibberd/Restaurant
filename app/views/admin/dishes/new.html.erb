@@ -1,4 +1,4 @@
-<h1>Add a new dish</h1>
+<h2><%= admin_new_dishes_breadcrumb %></h2>
 <div class="content_unit">
 		<% form_for(@dish) do |f| %>
 			<%= f.hidden_field :menu_id, :value => params[:menu_id] %>
