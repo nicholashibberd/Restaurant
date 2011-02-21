@@ -1,6 +1,5 @@
 <ul>
-<% nav = @site.navigation_menus.find_by_name('Main Navigation') %>
-<% nav.menu_items.each do |menu_item| %>
+<% @nav.menu_items.each do |menu_item| %>
 <li><%= link_to menu_item.name, menu_item.slug %></li>
 <% end %>
 </ul>

@@ -15,7 +15,7 @@ class Site < ActiveRecord::Base
   
   def links
     links = []
-    item = Link.new('Home', '/')
+    item = Link.new('Home', "/")
     links << item
     if !self.menus.empty?
       item = Link.new('Menus', '/menus')
@@ -26,7 +26,7 @@ class Site < ActiveRecord::Base
       links << link_item
     end
     self.pages.each do |item|
-      link_item = Link.new(item.name, "/menus/#{item.id}")
+      link_item = Link.new(item.name, "/pages/#{item.id}")
       links << link_item
     end
     if !self.offers.empty?
@@ -34,7 +34,7 @@ class Site < ActiveRecord::Base
       links << item
     end
     self.offers.each do |item|
-      link_item = Link.new("Offers: #{item.title}", "/menus/#{item.id}")
+      link_item = Link.new("Offers: #{item.title}", "/offers/#{item.id}")
       links << link_item
     end
     if !self.galleries.empty?
@@ -42,7 +42,7 @@ class Site < ActiveRecord::Base
       links << item
     end
     self.galleries.each do |item|
-      link_item = Link.new("Galleries: #{item.name}", "/menus/#{item.id}")
+      link_item = Link.new("Galleries: #{item.name}", "/galleries/#{item.id}")
       links << link_item
     end
     if !self.people.empty?
@@ -50,12 +50,14 @@ class Site < ActiveRecord::Base
       links << item
     end
     self.people.each do |item|
-      link_item = Link.new("People: #{item.name}", "/menus/#{item.id}")
+      link_item = Link.new("People: #{item.name}", "/people/#{item.id}")
       links << link_item
     end
     item = Link.new('Location', '/location')
     links << item
     item = Link.new('Reservations', '/reservations/new')
+    links << item
+    item = Link.new('Contact', '/contact')
     links << item
     if !self.testimonials.empty?
       item = Link.new('Testimonials', '/testimonials')

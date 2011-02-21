@@ -1,6 +1,6 @@
 <% form_for @menu_item do |f| -%>
 <div class="field">
-<%= f.hidden_field :navigation_menu_id %>
+<%= f.hidden_field :navigation_menu_id, :value => params[:navigation_menu_id] %><br />  
 <%= f.label :name %><br />
 <%= f.text_field :name %>
 </div>

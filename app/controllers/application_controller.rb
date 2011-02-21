@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
   
   def nav_menus
     @site = Site.find_by_domain(request.domain(2))
-    @nav = @site.navigation_menus
+    @nav = @site.navigation_menus.find_by_name('Main Navigation')
   end
   
   def current_page?

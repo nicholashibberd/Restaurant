@@ -13,6 +13,7 @@ class MenuItemsController < ApplicationController
   end
   
    def create
+   raise params.inspect
     @menu_item = MenuItem.new(params[:menu_item])
     if @menu_item.save
       unless params[:menu_item][:parent_id]

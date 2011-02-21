@@ -1,4 +1,4 @@
-<h1>Navigation</h1>
+<h1><%= link_to 'Navigation', :action => 'index' %> / <%= @navigation_menu.name %></h1>
 <div class="content_unit">
 		<ul id="menu_items" class="move">
 			<% @navigation_menu.menu_items.each do |menu_item| %>

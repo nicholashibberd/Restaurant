@@ -1,31 +1,8 @@
 <ul>
-
-	<%= site_menu({:menu_name => 'Home', :controller => 'homepage', :action => 'index'}) %>
-	<% if menu_link_active('menus') %>
-		<%= site_menu({:menu_name => 'Menus', :controller => 'menus', :action => 'index'}) %>
-	<% end %>
-	<% if menu_link_active('location') %>
-		<%= site_menu({:menu_name => 'Location', :controller => 'location', :action => 'index'}) %>		
-	<% end %>
-	<% if menu_link_active('galleries') %>
-		<%= site_menu({:menu_name => 'Galleries', :controller => 'galleries', :action => 'index'}) %>		
-	<% end %>
-	<% if menu_link_active('offers') %>
-		<%= site_menu({:menu_name => 'Offers', :controller => 'offers', :action => 'index'}) %>
-	<% end %>
-	<% if menu_link_active('testimonials') %>
-		<%= site_menu({:menu_name => 'Testimonials', :controller => 'testimonials', :action => 'index'}) %>
-	<% end %>
-	<% if menu_link_active('people') %>
-		<%= site_menu({:menu_name => 'People', :controller => 'people', :action => 'index'}) %>	
-	<% end %>
-	<% if menu_link_active('reservations') %>
-		<%= site_menu({:menu_name => 'Reservations', :controller => 'reservations', :action => 'new'}) %>		
-	<% end %>
-	<% if menu_link_active('checkout') %>
-		<li><%= link_to "Order online", @order, :method => :create %></li>
-	<% end %>
-	<% if signed_in? %>
-	<li><%= link_to "Admin", admin_path %></li>
-	<% end %>
+<% @nav.menu_items.each do |menu_item| %>
+<li><%= link_to menu_item.name, menu_item.slug %></li>
+<% end %>
 </ul>
+<%= site_menu(menu_item.name, menu_item.slug) %>
+
+<%#= site_menu({:menu_name => 'Home', :controller => 'homepage', :action => 'index'}) %>
