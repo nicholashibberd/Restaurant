@@ -1,8 +1,5 @@
 <ul>
 <% @nav.menu_items.each do |menu_item| %>
-<li><%= link_to menu_item.name, menu_item.slug %></li>
+<li><%= site_menu(menu_item.name, menu_item.slug) %></li>
 <% end %>
 </ul>
-<%= site_menu(menu_item.name, menu_item.slug) %>
-
-<%#= site_menu({:menu_name => 'Home', :controller => 'homepage', :action => 'index'}) %>

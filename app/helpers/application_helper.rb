@@ -1,20 +1,13 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-  def site_menu_old(url)
-    menu_name = url[:menu_name]
-    link = {:controller => url[:controller], :action => url[:action]}
-    current_controller = request[:controller]
-    if url[:controller] == current_controller
-      css_class = 'selected'
-    else
-      css_class = ''
-    end    
-    return content_tag(:li, link_to(url[:menu_name], link), :class => css_class)
-  end
-
   def site_menu(name, slug)
-    if url[:controller] == current_controller
+    if slug == '/'
+      controller = 'homepage'
+    else
+      controller = slug.split('/')[1]
+    end
+    if request[:controller] == controller
       css_class = 'selected'
     else
       css_class = ''

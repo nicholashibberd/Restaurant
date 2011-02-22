@@ -15,53 +15,39 @@ class Site < ActiveRecord::Base
   
   def links
     links = []
-    item = Link.new('Home', "/")
-    links << item
+    links << Link.new('Home', "/")
+    links << Link.new('Location', '/location')
+    links << Link.new('Reservations', '/reservations/new')
+    links << Link.new('Contact', '/contact')
     if !self.menus.empty?
-      item = Link.new('Menus', '/menus')
+      links << Link.new('Menus', '/menus')
     end
-    links << item
     self.menus.each do |item|
-      link_item = Link.new("Menus: #{item.name}", "/menus/#{item.id}")
-      links << link_item
+      links << Link.new("Menus: #{item.name}", "/menus/#{item.id}")
     end
     self.pages.each do |item|
-      link_item = Link.new(item.name, "/pages/#{item.id}")
-      links << link_item
+      links << Link.new(item.name, "/pages/#{item.id}")
     end
     if !self.offers.empty?
-      item = Link.new('Offers', '/offers')
-      links << item
+      links << Link.new('Offers', '/offers')
     end
     self.offers.each do |item|
-      link_item = Link.new("Offers: #{item.title}", "/offers/#{item.id}")
-      links << link_item
+      links << Link.new("Offers: #{item.title}", "/offers/#{item.id}")
     end
     if !self.galleries.empty?
-      item = Link.new('Galleries', '/galleries')
-      links << item
+      links << Link.new('Galleries', '/galleries')
     end
     self.galleries.each do |item|
-      link_item = Link.new("Galleries: #{item.name}", "/galleries/#{item.id}")
-      links << link_item
+      links << Link.new("Galleries: #{item.name}", "/galleries/#{item.id}")
     end
     if !self.people.empty?
-      item = Link.new('People', '/people')
-      links << item
+      links << Link.new('People', '/people')
     end
     self.people.each do |item|
-      link_item = Link.new("People: #{item.name}", "/people/#{item.id}")
-      links << link_item
+      links << Link.new("People: #{item.name}", "/people/#{item.id}")
     end
-    item = Link.new('Location', '/location')
-    links << item
-    item = Link.new('Reservations', '/reservations/new')
-    links << item
-    item = Link.new('Contact', '/contact')
-    links << item
     if !self.testimonials.empty?
-      item = Link.new('Testimonials', '/testimonials')
-      links << item
+      links << Link.new('Testimonials', '/testimonials')
     end
     return links
   end

@@ -10,7 +10,7 @@ class Admin::MenuItemsController < AdminController
 
   def edit
     @menu_item = MenuItem.find(params[:id])
-    @links = @site.links    
+    @links = @site.links
   end
   
   def order_menu_items

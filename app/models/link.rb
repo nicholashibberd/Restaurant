@@ -1,8 +1,7 @@
 class Link
-  def initialize(name, slug, controller)
+  def initialize(name, slug)
     @name = name
     @slug = slug
-    @controller = controller
   end
   
   def name
@@ -12,10 +11,5 @@ class Link
   def slug
     @slug
   end
-
-  def controller
-    @controller
-  end
-  
   
 end
